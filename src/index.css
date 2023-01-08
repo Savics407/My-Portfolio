@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Montserrat&family=Raleway&family=Roboto&family=Tenali+Ramakrishna&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+  background-color: #092327;
+}
+
+.dots {
+  position: relative;
+}
+
+.dots::after {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: #c4ffb2;
+  padding: 4.5px;
+  border: 2px solid #092327;
+  right: -9px;
+  top: 39%;
+
+}
+.dots::before {
+  position: absolute;
+  content: "";
+  border-radius: 50%;
+  background-color: #c4ffb2;
+  padding: 4.5px;
+  border: 2px solid #092327;
+  left: -9px;
+  top: 39%;
+
+}
