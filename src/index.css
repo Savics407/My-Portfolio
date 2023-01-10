@@ -41,3 +41,16 @@ body {
   top: 39%;
 
 }
+
+.lines {
+  position: relative;
+}
+
+.lines::before{
+  position: absolute;
+    content: "";
+    /* width: 50%; */
+    border-top: 1px solid #c4ffb245;
+    right: 0;
+    top: 50%;
+}
