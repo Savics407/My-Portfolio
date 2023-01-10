@@ -118,12 +118,24 @@ function Home() {
                             <img src={project} alt="project name" />
                         </div>
                         <div className='w-1/2 text-right '>
-                            <h1 className='font-josefin text-white text-2xl'>Name of Project</h1>
+                            <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                             <div className='bg-[#0a2e2f] p-7 rounded text-gray-300 -ml-20'>
                                 <p>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</p>
                             </div>
                         </div>
                     </div>
+                    <div className='flex flex-row-reverse items-center py-10'>
+                        <div className='w-[60%] z-10 '>
+                            <img src={project} alt="project name" />
+                        </div>
+                        <div className='w-1/2 z-20 '>
+                            <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
+                            <div className='bg-[#0a2e2f] p-7 rounded text-gray-300 -mr-28'>
+                                <p>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</p>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
 
