@@ -23,11 +23,12 @@ body {
   position: absolute;
   content: "";
   border-radius: 50%;
-  background-color: #c4ffb2;
+  background-color: #c4ffb2; 
   padding: 4.5px;
   border: 2px solid #092327;
   right: -9px;
   top: 39%;
+  /* color: rgb(196, 255, 178) */
 
 }
 .dots::before {
@@ -53,4 +54,50 @@ body {
     border-top: 1px solid #c4ffb245;
     right: 0;
     top: 50%;
+}
+
+.lap{
+  position: relative;
+}
+
+.lap::before {
+  position: absolute;
+  content: "";
+  width: 25%;
+  height: 660px;
+  background-color: #0a2e2f;
+  top: 0;
+  left: 25%;
+  filter: blur(0.5px);  
+  z-index: -1;
+  border-bottom: 7px solid transparent;
+    border-image: linear-gradient(to right, #c4ffb2, #092327, #C4FFB2);
+    border-image-slice: 1;
+}
+
+.glow {
+  background-image: url('./assets/glow.svg'), url('./assets/glow2.svg');
+  background-position: -150px -120px, 120% 100%;
+  background-size: auto, auto;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.glow2 {
+  background-image: url('./assets/glow.svg'), url('./assets/glow2.svg'), url('./assets/glow.svg');
+  background-position: -150px 0px, 120% 50%, -150px 100%;
+  background-size: auto, auto, auto;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+}
+
+.glow3 {
+  background-image: url('./assets/glow2.svg');
+  background-position: 120% 10%;
+  background-size: auto;
+  background-repeat: no-repeat;
+}
+.glow4 {
+  background-image: url('./assets/glow.svg'), url('./assets/glow2.svg');
+  background-position: -150px 1px, 120% 120%;
+  background-size: auto, auto;
+  background-repeat: no-repeat, no-repeat;
 }
