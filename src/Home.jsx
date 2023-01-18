@@ -30,13 +30,13 @@ function Home() {
             {/* <div className='contain border max-w-[1172px] m-auto'> */}
             <div>
                 <Header />
-                <div className='flex items-center px-24 pt-24 h-screen'>
-                    <div className=' w-1/2 flex flex-col w-1/2 items-center justify-center'>
-                        <div className='rounded-full border-10 border-border w-[265px] h-96 shadow-2xl'>
+                <div className='glow flex items-center px-24 pt-24 h-screen lap'>
+                    <div className='flex flex-col w-1/2 items-center justify-center'>
+                        <div className='rounded-full border-10 border-[#0a2e2f] w-[265px] h-96 shadow-2xl'>
                             <img src={profile} alt="Victor Adighibe" className='object-cover w-full h-full rounded-full' />
                         </div>
                     </div>
-                    <div className=' w-1/2'>
+                    <div className='ml-10 w-1/2'>
                         <div className='font-josefin mb-5'>
                             <h1 className='text-intro mb-5'>Hi, my name is </h1>
                             <h1 className='text-6xl text-white font-bold tracking-wider '>Victor <br />Adighibe. <br />
@@ -148,7 +148,7 @@ function Home() {
                     </div>
                 </div>
 
-                <div className="p-40 ">
+                <div className="p-40 glow2">
                     <div className=' w-[78%] m-auto'>
                         <h1 className='text-intro font-josefin text-4xl mb-3 lines before:w-[42%]'>Some Noteworthy Projects</h1>
                     </div>
@@ -241,14 +241,14 @@ function Home() {
 
                 </div>
 
-                <div className='px-32 py-20'>
+                <div className='px-32 py-28 glow3'>
                     <div className=' w-[60%] m-auto'>
                         <h1 className='text-intro font-josefin text-4xl mb-3 lines before:w-[60%]'>Testimonials </h1>
                     </div>
                     <div className='w-[70%] m-auto'>
-                        <div className='bg-border rounded my-10 p-10 text-gray-300 flex justify-between items-start'>
+                        <div className='bg-border rounded-lg my-10 p-10 text-gray-300 flex justify-between items-start'>
                             <div className='w-[95%]'>
-                                <div className='flex text-xs text-intro mb-5'>
+                                <div className='flex text-sm text-intro mb-5'>
                                     <ImStarFull />
                                     <ImStarFull />
                                     <ImStarFull />
@@ -294,12 +294,12 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <div className='py-28'>
+                <div className='pt-28 glow4'>
                     <div>
                         <h1 className='text-intro font-josefin text-4xl mb-3 text-center'>Let's Connect</h1>
-                        <h1 className='text-gray-300 text-center w-1/2 m-auto text-base'>Thank you for visiting my website. If you have any questions or are interested in working with me, please don't hesitate to reach out. You can contact me via email at <a href="mailto:savicstech@gmail.com" className='text-intro underline'> savicstech@gmail.com</a>, or use the form below to send me a message. <br />I look forward to hearing from you!</h1>
+                        <h1 className='text-gray-300 text-center w-1/2 m-auto text-base'>Thank you for visiting my website. If you have any questions or are interested in working with me, please don't hesitate to reach out. You can contact me via email at <a href="mailto:savicstech@gmail.com" className='text-intro hover:underline'> savicstech@gmail.com</a>, or use the form below to send me a message. <br />I look forward to hearing from you!</h1>
                     </div>
-                    <div className='py-20'>
+                    <div className='pt-20 pb-40'>
                         <form action="" method="post">
                             <div className=' w-1/2 m-auto'>
                                 <div className='flex justify-between'>
@@ -320,7 +320,7 @@ function Home() {
 
                                 </div>
                                 <div className=' font-Montserrat flex justify-center '>
-                                    <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Shoot
+                                    <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center cursor-pointer'>Shoot
                                         <span className='ml-3 text-xl'>
 
                                             <BsArrowRight />
@@ -330,35 +330,37 @@ function Home() {
                             </div>
                         </form>
                     </div>
+                    <div className='border-t border-[#c4ffb245] m-auto py-5 flex items-center justify-between px-28 text-gray-300 text-sm'>
+                        <div>
+                            <h1> &copy; Victor Adighibe {moment().format('yyyy')}.</h1>
+                        </div>
+                        <div className='text-gray-300 flex w-36 items-center justify-between text-xl'>
+                            <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
+                                <TiSocialLinkedin />
+                            </div>
+                            <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
+                                <TiSocialTwitter />
+                            </div>
+                            <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
+                                <TiSocialGithub />
+                            </div>
+                            <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
+                                <TiSocialYoutube />
+                            </div>
+                        </div>
+                        <div >
+                            <h1 className='flex items-center'>Built with
+                                {/* <AiFillHeart /> */}
+                                <span className='px-1 '>
+                                    <GiLoveHowl />
+                                </span>
+                                by Savics</h1>
+                        </div>
+                    </div>
                 </div>
 
-                <div className='border-t border-[#c4ffb245] m-auto py-5 flex items-center justify-between px-28 text-gray-300 text-sm'>
-                    <div>
-                        <h1> &copy; Victor Adighibe {moment().format('yyyy')}.</h1>
-                    </div>
-                    <div className='text-gray-300 flex w-36 items-center justify-between text-xl'>
-                        <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                            <TiSocialLinkedin />
-                        </div>
-                        <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                            <TiSocialTwitter />
-                        </div>
-                        <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                            <TiSocialGithub />
-                        </div>
-                        <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                            <TiSocialYoutube />
-                        </div>
-                    </div>
-                    <div >
-                        <h1 className='flex items-center'>Built with
-                            {/* <AiFillHeart /> */}
-                            <span className='px-1 '>
-                                <GiLoveHowl />
-                            </span>
-                            by Savics</h1>
-                    </div>
-                </div>
+
+
             </div >
         </div >
     )
