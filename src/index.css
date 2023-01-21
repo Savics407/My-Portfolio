@@ -64,10 +64,10 @@ body {
   position: absolute;
   content: "";
   width: 25%;
-  height: 660px;
+  height:98%;
   background-color: #0a2e2f;
   top: 0;
-  left: 25%;
+  left: 24%;
   filter: blur(0.5px);  
   z-index: -1;
   border-bottom: 7px solid transparent;
@@ -100,4 +100,48 @@ body {
   background-position: -150px 1px, 120% 120%;
   background-size: auto, auto;
   background-repeat: no-repeat, no-repeat;
+}
+
+.projects {
+  position: relative;
+}
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #c4ffb28f;
+  transition: 0.5s;
+  /* background-image: url(./assets/savics.TEXT. orange.png); */
+  background-position: center center;
+  background-size: 40% 40%;
+  background-repeat: no-repeat;
+}
+.projects:hover::before {
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.container {
+  @apply max-w-[1197px] m-auto 
+}
+
+
+@media only screen and (max-width: 480px) {
+.lap::before {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 110%;
+    background-color: #0a2e2f;
+    top: 0;
+    left: 25%;
+    filter: blur(0.5px);
+    z-index: -1;
+    border-bottom: 7px solid transparent;
+    border-image: linear-gradient(to right, #c4ffb2, #092327, #C4FFB2);
+    border-image-slice: 1;
+  }
 }
