@@ -172,7 +172,7 @@ function Home() {
 
                             </div>
                             <div className='flex justify-around flex-wrap'>
-                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col w-1/2 justify-center items-center p-3 px-10 mb-5'>
+                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
                                     <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
                                         <h1>
                                             {/* {moment().format('MMMM Do YYYY, h:mm:ss a')} */}
@@ -183,7 +183,7 @@ function Home() {
                                     </div>
                                     <h1 className='text-xs'>Years of Experience</h1>
                                 </div>
-                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col w-1/2 justify-center items-center p-3 px-10 mb-5'>
+                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
                                     <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
                                         <h1>
                                             10+
@@ -220,7 +220,7 @@ function Home() {
                             >
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 text-right z-20 py-10'>
+                            <div className='md:w-1/2 text-right z-20 py-10 px-5 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
                                     className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
@@ -256,7 +256,7 @@ function Home() {
                             <div className='md:w-[60%] z-10 projects'>
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 z-20 py-10'>
+                            <div className='md:w-1/2 z-20 py-10 px-5 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
                                     className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-mr-20 text-sm md:text-base'>
@@ -292,7 +292,7 @@ function Home() {
                             <div className='md:w-[60%] projects'>
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 text-right z-10 py-10'>
+                            <div className='md:w-1/2 text-right z-10 py-10 px-5 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
                                     className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
@@ -342,21 +342,21 @@ function Home() {
                         <div className='pt-20 pb-40'>
                             <form action="" method="post">
                                 <div className='lg:w-[60%] md:px-20 px-5 lg:px-0 m-auto'>
-                                    <div className='flex justify-between'>
-                                        <div className='flex flex-col w-[45%]' >
+                                    <div className='flex flex-col md:flex-row justify-between'>
+                                        <div className='flex flex-col md:w-[45%] mb-10'   >
                                             <label className='text-intro font-josefin text-sm'>Your Name</label>
-                                            <input type="text" name="" id="" required placeholder='enter your name' className='bg-transparent border-b rounded-md border-[#c4ffb245] p-3 text-gray-300 outline-none' />
+                                            <input type="text" name="" id="" required placeholder='enter your name' className='bg-transparent border-b text-sm md:text-base rounded-md border-[#c4ffb245] p-3 text-gray-300 outline-none' />
 
                                         </div>
-                                        <div className='flex flex-col w-[45%]'>
+                                        <div className='flex flex-col md:w-[45%]'>
                                             <label className='text-intro text-sm font-josefin'>Email Address</label>
-                                            <input type="email" name="" id="" required placeholder='enter your email' className='bg-transparent border-b rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' />
+                                            <input type="email" name="" id="" required placeholder='enter your email' className='bg-transparent border-b text-sm md:text-base rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' />
 
                                         </div>
                                     </div>
                                     <div className='flex flex-col py-10'>
                                         <label className='text-intro text-sm font-josefin'>Your Message</label>
-                                        <textarea name="" id="" rows={3} placeholder='enter your message' className='bg-transparent border-b rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' ></textarea>
+                                        <textarea name="" id="" rows={3} placeholder='enter your message' className='bg-transparent border-b text-sm md:text-base rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' ></textarea>
 
                                     </div>
                                     <div className=' font-Montserrat flex justify-center '>
