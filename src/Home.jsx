@@ -11,14 +11,15 @@ import git from './assets/git.svg'
 import project from './assets/project.png'
 import { GoLinkExternal } from 'react-icons/go'
 import { FiGithub } from 'react-icons/fi'
-import { TiSocialLinkedin, TiSocialYoutube, TiSocialGithub, TiSocialTwitter } from 'react-icons/ti'
-import { GiLoveHowl } from 'react-icons/gi'
-import { BsArrowRight } from 'react-icons/bs'
+
 import { motion } from 'framer-motion'
 
 import moment from 'moment/moment'
 import Testimonials from './Testimonials'
-
+import { Link } from 'react-router-dom'
+import Footer from './Footer'
+import { useEffect } from 'react'
+import Form from './Form'
 
 function Home() {
     const list = {
@@ -39,8 +40,19 @@ function Home() {
         visible: { opacity: 1, y: 0 },
         hidden: { opacity: 0, y: 20 },
     }
+
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
+    const mail = '<a href="mailto:savicstech@gmail.com" class="text-white"> savicstech@gmail.com</a>'
+
     return (
-        <div className='font-Montserrat'>
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.1 }} className='font-Montserrat'>
             {/* Header Session */}
             {/* <div className='contain border max-w-[1172px] m-auto'> */}
             <div>
@@ -67,7 +79,8 @@ function Home() {
                                 <motion.h1
                                     variants={item}
 
-                                    className='text-intro mb-5'>Hi, my name is </motion.h1>
+                                    className='text-intro mb-5'>Hi, my name is
+                                </motion.h1>
                                 <motion.h1 variants={item} className='md:text-6xl text-5xl text-white font-bold tracking-wider '>Victor <br />Adighibe. <br />
                                     {/* &lt;savics /&gt; */}
                                 </motion.h1>
@@ -94,11 +107,12 @@ function Home() {
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
+                            viewport={{ once: true }}
                             variants={list}
                             className='lg:w-1/2 w-full' >
                             <motion.h1
                                 variants={item}
-                                className='text-intro font-josefin text-3xl md:text-4xl mb-3 lines before:w-3/5'>About me.</motion.h1>
+                                className='text-intro font-josefin text-3xl md:text-4xl mb-3 lines md:before:w-3/5'>About me</motion.h1>
                             <motion.div
                                 variants={item}
 
@@ -114,7 +128,7 @@ function Home() {
                             <motion.div
                                 variants={item}
                                 className='py-10 font-Montserrat flex justify-center lg:justify-start'>
-                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button>
+                                <button className='border-2 border-double border-main hover:text-main text-intro px-5 md:px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button>
                             </motion.div>
 
                         </motion.div>
@@ -172,7 +186,7 @@ function Home() {
 
                             </div>
                             <div className='flex justify-around flex-wrap'>
-                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col w-1/2 justify-center items-center p-3 px-10 mb-5'>
+                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
                                     <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
                                         <h1>
                                             {/* {moment().format('MMMM Do YYYY, h:mm:ss a')} */}
@@ -183,7 +197,7 @@ function Home() {
                                     </div>
                                     <h1 className='text-xs'>Years of Experience</h1>
                                 </div>
-                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col w-1/2 justify-center items-center p-3 px-10 mb-5'>
+                                <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
                                     <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
                                         <h1>
                                             10+
@@ -211,7 +225,7 @@ function Home() {
 
                             variants={item}
                             className=' lg:w-[78%] m-auto'>
-                            <h1 className='text-intro font-josefin text-center lg:text-right text-3xl md:text-4xl mb-10 md:mb-3 lines lg:before:w-[42%]'>Some Noteworthy Projects</h1>
+                            <h1 className='text-intro font-josefin text-center lg:text-left text-3xl md:text-4xl mb-10 md:mb-3 lines lg:before:w-[42%]'>Some Noteworthy Projects</h1>
                         </motion.div>
                         <motion.div
                             variants={item}
@@ -220,21 +234,21 @@ function Home() {
                             >
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 text-right z-20 py-10'>
+                            <div className='md:w-1/2 w-full text-right z-20 py-10 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
-                                    className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
+                                    className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
                                     <motion.p
-                                        initial={{ opacity: 0, x: 30 }}
+                                        initial={{ opacity: 0, x: 20 }}
                                         transition={{ duration: 0.5, type: "tween" }}
                                         whileInView={{ opacity: 1, x: 0 }}
                                     >A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
                                 </div>
-                                <div className=' flex justify-end text-gray-400 font-light font-montserrat text-xs py-3'>
+                                <div className=' flex lg:justify-end justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3'>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mx-2 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className='px-4 mt-3 lg:mt-0 mx-2 bg-border rounded py-1'>Heroku</h1>
                                 </div>
                                 <div className='text-gray-300 flex justify-center md:justify-end py-3 text-xl'>
                                     <div className='px-5'>
@@ -256,20 +270,20 @@ function Home() {
                             <div className='md:w-[60%] z-10 projects'>
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 z-20 py-10'>
+                            <div className='md:w-1/2 w-full z-20 py-10 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
-                                    className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-mr-20 text-sm md:text-base'>
+                                    className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-mr-20 text-sm md:text-base'>
                                     <motion.p
-                                        initial={{ opacity: 0, x: -30 }}
+                                        initial={{ opacity: 0, x: -20 }}
                                         transition={{ duration: 0.5 }}
                                         whileInView={{ opacity: 1, x: 0 }}>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
                                 </div>
-                                <div className=' flex justify-start text-gray-400 font-light font-montserrat text-xs py-3'>
+                                <div className=' flex lg:justify-start justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3'>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mx-2 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className='px-4 mx-2 mt-3 lg:mt-0 bg-border rounded py-1'>Heroku</h1>
                                 </div>
                                 <div className='text-gray-300 flex justify-center md:justify-start py-3 text-xl'>
                                     <div className='pr-5'>
@@ -292,20 +306,20 @@ function Home() {
                             <div className='md:w-[60%] projects'>
                                 <img src={project} alt="project name" />
                             </div>
-                            <div className='md:w-1/2 text-right z-10 py-10'>
+                            <div className='md:w-1/2 w-full text-right z-10 py-10 md:px-0'>
                                 <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
                                 <div
-                                    className='bg-[#0a2e2f] p-7 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
+                                    className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
                                     <motion.p
-                                        initial={{ opacity: 0, x: 30 }}
+                                        initial={{ opacity: 0, x: 20 }}
                                         transition={{ duration: 0.5 }}
                                         whileInView={{ opacity: 1, x: 0 }}>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
                                 </div>
-                                <div className=' flex justify-end text-gray-400 font-light font-montserrat text-xs py-3'>
+                                <div className=' flex flex-wrap justify-center lg:justify-end text-gray-400 font-light font-montserrat text-xs py-3'>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mx-2 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className='px-4 mx-2 mt-3 lg:mt-0 bg-border rounded py-1'>Heroku</h1>
                                 </div>
                                 <div className='text-gray-300 flex justify-center md:justify-end py-3 text-xl'>
                                     <div className='px-5'>
@@ -320,92 +334,34 @@ function Home() {
                             </div>
                         </motion.div>
                         <div className='-mt-12 font-Montserrat flex justify-center lg:justify-end '>
-                            <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
+                            <Link to="/projects" >
+                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
 
-                                {/* <GoLinkExternal className='ml-3' /> */}
-                            </button>
+                                    {/* <GoLinkExternal className='ml-3' /> */}
+                                </button>
+                            </Link>
                         </div>
                     </div>
                 </motion.div>
 
                 <Testimonials />
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
+                <div
                     className='pt-28 glow4 '>
-                    <div className="container">
-                        <div className='lg:w-[60%] md:px-20 px-5 lg:px-0 m-auto'>
-                            <h1 className='text-intro font-josefin text-3xl md:text-4xl mb-3 text-center'>Let's Connect</h1>
-                            <h1 className='text-gray-300 text-center m-auto text-sm md:text-base'>Thank you for visiting my website. If you have any questions or are interested in working with me, please don't hesitate to reach out. You can contact me via email at <a href="mailto:savicstech@gmail.com" className='text-intro hover:underline'> savicstech@gmail.com</a>, or use the form below to send me a message. <br />I look forward to hearing from you!</h1>
-                        </div>
-                        <div className='pt-20 pb-40'>
-                            <form action="" method="post">
-                                <div className='lg:w-[60%] md:px-20 px-5 lg:px-0 m-auto'>
-                                    <div className='flex justify-between'>
-                                        <div className='flex flex-col w-[45%]' >
-                                            <label className='text-intro font-josefin text-sm'>Your Name</label>
-                                            <input type="text" name="" id="" required placeholder='enter your name' className='bg-transparent border-b rounded-md border-[#c4ffb245] p-3 text-gray-300 outline-none' />
+                    <Form info={{
+                        title: "Let's Connect",
+                        description: `Thank you for visiting my website. Got a question or interested in working with me, my inbox is always open. Kindly reach out via email at <a href="mailto:savicstech@gmail.com" class="text-intro hover:underline">savicstech@gmail.com</a>, or use the form below to send me a message. I look forward to hearing from you!`,
+                        message: "enter your message"
 
-                                        </div>
-                                        <div className='flex flex-col w-[45%]'>
-                                            <label className='text-intro text-sm font-josefin'>Email Address</label>
-                                            <input type="email" name="" id="" required placeholder='enter your email' className='bg-transparent border-b rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' />
+                    }}
+                    />
+                    <Footer />
 
-                                        </div>
-                                    </div>
-                                    <div className='flex flex-col py-10'>
-                                        <label className='text-intro text-sm font-josefin'>Your Message</label>
-                                        <textarea name="" id="" rows={3} placeholder='enter your message' className='bg-transparent border-b rounded-md border-[#c4ffb245] text-gray-300 p-3 outline-none' ></textarea>
-
-                                    </div>
-                                    <div className=' font-Montserrat flex justify-center '>
-                                        <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center cursor-pointer'>Shoot
-                                            <span className='ml-3 text-xl'>
-
-                                                <BsArrowRight />
-                                            </span>
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div className='border-t border-[#c4ffb245] lg:px-28 text-gray-300 text-sm'>
-                        <div className="container py-5 flex items-center justify-between">
-                            <div>
-                                <h1> &copy; Victor Adighibe {moment().format('yyyy')}.</h1>
-                            </div>
-                            <div className='text-gray-300 flex w-36 items-center justify-between text-xl'>
-                                <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                                    <TiSocialLinkedin />
-                                </div>
-                                <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                                    <TiSocialTwitter />
-                                </div>
-                                <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                                    <TiSocialGithub />
-                                </div>
-                                <div className='bg-border p-1 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                                    <TiSocialYoutube />
-                                </div>
-                            </div>
-                            <div >
-                                <h1 className='flex items-center'>Built with
-                                    {/* <AiFillHeart /> */}
-                                    <span className='px-1 '>
-                                        <GiLoveHowl />
-                                    </span>
-                                    by Savics</h1>
-                            </div>
-                        </div>
-                    </div>
-                </motion.div>
+                </div>
 
 
 
             </div >
-        </div >
+        </motion.div >
     )
 }
 
