@@ -1,13 +1,29 @@
 
 import AnimCursor from './components/AnimCursor'
 import Home from './Home'
+import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import Projects from './Projects'
+import { AnimatePresence } from 'framer-motion'
+import CaseStudy from './CaseStudy'
+
 
 function App() {
 
   return (
     <div className="">
-      <AnimCursor />
-      <Home />
+      <Router>
+
+        {/* <AnimCursor />
+      <Home /> */}
+        <AnimatePresence exitBeforeEnter >
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route exact path="/projects" element={<Projects />} />
+            <Route exact path="/casestudy" element={<CaseStudy />} />
+          </Routes>
+        </AnimatePresence>
+      </Router>
+
     </div>
   )
 }

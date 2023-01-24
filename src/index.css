@@ -9,6 +9,7 @@
   margin: 0;
   padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 body {
@@ -128,6 +129,47 @@ body {
   @apply max-w-[1197px] m-auto 
 }
 
+.slick-slide div {
+  margin: auto;
+  /* width: 50%; */
+  height: 50%;
+  /* border:5px solid #C4FFB2; */
+  font-size:50px;
+  color: #c4ffb2;
+  text-align: center;
+}
+
+.slick-dots li button:before {
+  font-family: 'slick';
+  font-size: 10px;
+  line-height: 20px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 20px;
+  content: '•';
+  text-align: center;
+  opacity: .25;
+  color: #c4ffb2;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: .75;
+color: #c4ffb2;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-family: 'slick';
+  font-size: 25px;
+  line-height: 1;
+  opacity: .75;
+color: #c4ffb2;
+  -webkit-font-smoothing: antialiased;
+}
 
 @media only screen and (max-width: 480px) {
 .lap::before {
@@ -144,4 +186,11 @@ body {
     border-image: linear-gradient(to right, #c4ffb2, #092327, #C4FFB2);
     border-image-slice: 1;
   }
+
+    .glow4 {
+      background-image: url('./assets/glow.svg'), url('./assets/glow2.svg');
+      background-position: -250px 1px, 150px 140%;
+      background-size: auto, auto;
+      background-repeat: no-repeat, no-repeat;
+    }
 }

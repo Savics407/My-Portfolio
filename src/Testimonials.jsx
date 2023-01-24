@@ -57,37 +57,43 @@ function Testimonials() {
             </motion.span>
           </div>
           <div className=" overflow-x-auto">
-            <div className='border-b border-[#c4ffb245] flex justify-between w-[750px]'>
-              <div className={`flex items-center hover:border-intro cursor-pointer p-3 transition duration-300 ${selected === 0 && "border-intro border-b"}`} onClick={
-                () => setSelected(0)
-              }>
-                <div className=' w-14 h-14 rounded-full mr-4'>
-                  <img src={headshot} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+            <AnimatePresence exitBeforeEnter>
+              <div className='border-b border-[#c4ffb245] flex justify-between w-[750px]'>
+                <div
+
+                  className={`flex items-center hover:border-intro cursor-pointer p-3 transition duration-300 ${selected === 0 && "border-intro border-b"}`} onClick={
+                    () => setSelected(0)
+                  }>
+                  <div className=' w-14 h-14 rounded-full mr-4'>
+                    <img src={headshot} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                  </div>
+                  <div className='font-josefin'>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Benjamin Bryant</h1>
+                    <h1 className='text-gray-500 text-xs '>VP & Co-founder, <span className='text-intro'>Wiser</span></h1>
+                  </div>
                 </div>
-                <div className='font-josefin'>
-                  <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Benjamin Bryant</h1>
-                  <h1 className='text-gray-500 text-xs '>VP & Co-founder, <span className='text-intro'>Wiser</span></h1>
+                <div
+
+                  className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 duration-300 ${selected === 1 && "border-intro border-b"}`} onClick={() => setSelected(1)}>
+                  <div className=' w-14 h-14 rounded-full mr-4'>
+                    <img src={close} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                  </div>
+                  <div className='font-josefin'>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Raaid Hossain Bryant</h1>
+                    <h1 className='text-gray-500 text-xs '>Project management, <span className='text-intro'>Focuslab</span></h1>
+                  </div>
+                </div>
+                <div className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 transition duration-300 ${selected === 2 && "border-intro border-b"}`} onClick={() => setSelected(2)}>
+                  <div className=' w-14 h-14 rounded-full mr-4'>
+                    <img src={black} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                  </div>
+                  <div className='font-josefin'>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Logan Cee</h1>
+                    <h1 className='text-gray-500 text-xs '>UI/UX Designer, <span className='text-intro'>Logan Cee</span></h1>
+                  </div>
                 </div>
               </div>
-              <div className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 duration-300 ${selected === 1 && "border-intro border-b"}`} onClick={() => setSelected(1)}>
-                <div className=' w-14 h-14 rounded-full mr-4'>
-                  <img src={close} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
-                </div>
-                <div className='font-josefin'>
-                  <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Raaid Hossain Bryant</h1>
-                  <h1 className='text-gray-500 text-xs '>Project management, <span className='text-intro'>Focuslab</span></h1>
-                </div>
-              </div>
-              <div className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 transition duration-300 ${selected === 2 && "border-intro border-b"}`} onClick={() => setSelected(2)}>
-                <div className=' w-14 h-14 rounded-full mr-4'>
-                  <img src={black} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
-                </div>
-                <div className='font-josefin'>
-                  <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Logan Cee</h1>
-                  <h1 className='text-gray-500 text-xs '>UI/UX Designer, <span className='text-intro'>Logan Cee</span></h1>
-                </div>
-              </div>
-            </div>
+            </AnimatePresence>
           </div>
 
         </div>
