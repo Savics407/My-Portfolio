@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
 import Projects from './Projects'
 import { AnimatePresence } from 'framer-motion'
 import CaseStudy from './CaseStudy'
+import Africurve from './Africurve'
+import Reico from './Reico'
 
 
 function App() {
@@ -13,13 +15,14 @@ function App() {
     <div className="">
       <Router>
 
-        {/* <AnimCursor />
-      <Home /> */}
+        <AnimCursor />
         <AnimatePresence exitBeforeEnter >
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route exact path="/projects" element={<Projects />} />
             <Route exact path="/casestudy" element={<CaseStudy />} />
+            <Route exact path="/africurve" element={<Africurve />} />
+            <Route exact path="/reico" element={<Reico />} />
           </Routes>
         </AnimatePresence>
       </Router>

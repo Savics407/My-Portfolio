@@ -6,6 +6,10 @@ import js from './assets/javascript.svg'
 import ts from './assets/typescript.svg'
 import wp from './assets/wordpress.svg'
 import figma from './assets/figma.svg'
+import node from './assets/nodejs.svg'
+import africurve from './assets/africurve.svg'
+import reico from './assets/reico.svg'
+import fe from './assets/FE.svg'
 
 import git from './assets/git.svg'
 import project from './assets/project.png'
@@ -20,6 +24,7 @@ import { Link } from 'react-router-dom'
 import Footer from './Footer'
 import { useEffect } from 'react'
 import Form from './Form'
+
 
 function Home() {
     const list = {
@@ -97,7 +102,8 @@ function Home() {
                                 variants={item}
 
                                 className='pt-10 font-Montserrat'>
-                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro'>Let's work </button>
+                                <a href='#contact'>
+                                    <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro'>Let's work </button></a>
                             </motion.div>
                         </motion.div>
                     </div>
@@ -118,11 +124,19 @@ function Home() {
 
                                 className='font-Montserrat text-gray-300 text-sm'>
                                 <p>
-                                    Hi there! My name is [Name] and I'm a web developer with [X years/decades] of experience building responsive and user-friendly websites. With a strong background in [specific technologies or programming languages], I pride myself on my ability to create clean, efficient code and bring creative ideas to life on the web. <br className='mb-4' /> <br />
+                                    Hi there! My name is Victor Adighibe and I'm a Software engineer with over 1/2 a decade of experience building responsive and user-friendly websites. <br />
+                                    <br />I am able to deliver high-performing and visually stunning web applications that drive engagement and conversion. With a strong background in core web technologies such as <span className=' text-intro'>JavaScript, Reactjs, Wordpress etc</span>, I pride myself on my ability to create clean, efficient code and bring creative ideas to life on the web. <br className='mb-4' /> <br />
 
-                                    In my current role at [Company], I've had the opportunity to work on a variety of projects, ranging from small business websites to large e-commerce platforms. I'm comfortable collaborating with cross-functional teams and enjoy the challenge of finding solutions to complex problems.
+                                    I've had the opportunity to work on a variety of projects, ranging from small business websites to large e-commerce platforms. Whether you're looking to build a new website, improve an existing one, or develop a complex e-commerce platform, I can help you achieve your goals and exceed your expectations.
                                     <br /> <br />
-                                    Outside of work, I'm an avid reader and enjoy staying up-to-date with the latest trends in web development. I also love to travel and have been fortunate enough to visit [X] different countries so far.
+
+                                    I'm comfortable collaborating with cross-functional teams and enjoy the challenge of finding solutions to complex problems.
+                                    <br />
+                                    <br />
+
+                                    In my free time, I'm an avid learner who stays on top of the latest trends in web development. I also love traveling, as it allows me to gain new insights and inspiration for my work. These experiences have given me a fresh perspective and an appreciation for different cultures, which I bring back to my work.
+                                    <br />
+                                    My ability to adapt, think creatively and continuously learn enables me to provide innovative solutions.
                                 </p>
                             </motion.div>
                             <motion.div
@@ -161,6 +175,13 @@ function Home() {
 
                                     </div>
                                     <h1 className='text-xs'>TypeScript</h1>
+                                </div>
+                                <div className='bg-border rounded-lg w-36 md:w-32 hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 mb-5'>
+                                    <div className='w-10 h-10 mb-2 shadow-lg rounded'>
+                                        <img src={node} alt="nodeJS-icon" className='object-contain w-full h-full' />
+
+                                    </div>
+                                    <h1 className='text-xs'>NodeJs</h1>
                                 </div>
                                 <div className='bg-border rounded-lg w-36 md:w-32 hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 mb-5'>
                                     <div className='w-10 h-10 mb-2 shadow-lg rounded'>
@@ -230,34 +251,44 @@ function Home() {
                         <motion.div
                             variants={item}
                             className='flex flex-col md:flex-row items-center md:py-12'>
-                            <div className='md:w-[60%] projects before:bg-[url("/src/assets/figma.svg")]'
+                            <div className='md:w-[60%] projects before:bg-[#ffffffd6] before:bg-[url("/src/assets/Africurve.png")]'
                             >
-                                <img src={project} alt="project name" />
+                                <Link to="/africurve">
+
+                                    <img src={africurve} alt="Africurve" />
+                                </Link>
+
                             </div>
                             <div className='md:w-1/2 w-full text-right z-20 py-10 md:px-0'>
-                                <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
+                                <h1 className='font-josefin text-white mb-5 text-2xl'>Africurve</h1>
                                 <div
                                     className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
                                     <motion.p
                                         initial={{ opacity: 0, x: 20 }}
                                         transition={{ duration: 0.5, type: "tween" }}
                                         whileInView={{ opacity: 1, x: 0 }}
-                                    >A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
+                                    >Africurve is a unique modeling agency and human resource management platform that aims to equip talented models with the skills and resources they need to succeed in the modelling industry.</motion.p>
                                 </div>
                                 <div className=' flex lg:justify-end justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3'>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mt-3 lg:mt-0 mx-2 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1 mb-2 '>Wordpress</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1 mb-2'>Elementor</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1 mb-2'>RevSlider 6</h1>
+                                    {/* <h1 className='px-4 mt-3 lg:mt-0 mx-2 bg-border rounded py-1'>Heroku</h1> */}
                                 </div>
-                                <div className='text-gray-300 flex justify-center md:justify-end py-3 text-xl'>
-                                    <div className='px-5'>
+                                <div className='text-gray-400 flex justify-center md:justify-end py-3 text-lg'>
+                                    {/* <div className='px-5'>
                                         <FiGithub />
 
-                                    </div>
-                                    <div className=''>
-                                        <GoLinkExternal />
-                                    </div>
+                                    </div> */}
+                                    <Link to="/africurve">
+
+                                        <div className='bg-border rounded px-4 py-1 flex items-center'>
+                                            <span className='text-xs mr-2 font-light'>CaseStudy</span>
+
+                                            <GoLinkExternal />
+                                        </div>
+                                    </Link>
+
                                 </div>
                             </div>
                         </motion.div>
@@ -267,33 +298,37 @@ function Home() {
                             transition={{ duration: 0.5 }}
                             // variants={item}
                             className='flex flex-col md:flex-row-reverse items-center py-12'>
-                            <div className='md:w-[60%] z-10 projects'>
-                                <img src={project} alt="project name" />
+                            <div className='md:w-[60%] z-10 projects before:bg-[#092327d6] before:bg-[url("/src/assets/reicoLogo.svg")]'>
+                                <img src={reico} alt="Reico" />
                             </div>
                             <div className='md:w-1/2 w-full z-20 py-10 md:px-0'>
-                                <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
+                                <h1 className='font-josefin text-white mb-5 text-2xl'> REICo</h1>
                                 <div
                                     className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-mr-20 text-sm md:text-base'>
                                     <motion.p
                                         initial={{ opacity: 0, x: -20 }}
                                         transition={{ duration: 0.5 }}
-                                        whileInView={{ opacity: 1, x: 0 }}>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
+                                        whileInView={{ opacity: 1, x: 0 }}>REICo is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. </motion.p>
                                 </div>
                                 <div className=' flex lg:justify-start justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3'>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mx-2 mt-3 lg:mt-0 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Figma</h1>
+                                    <h1 className='px-4 mx-2 mt-3 lg:mt-0 bg-border rounded py-1'>Git</h1>
                                 </div>
-                                <div className='text-gray-300 flex justify-center md:justify-start py-3 text-xl'>
-                                    <div className='pr-5'>
+                                <div className='text-gray-400 flex justify-center md:justify-start py-3 text-lg'>
+                                    {/* <div className='pr-5'>
                                         <FiGithub />
 
-                                    </div>
-                                    <div className=''>
-                                        <GoLinkExternal />
+                                    </div> */}
+                                    <Link to="/reico">
 
-                                    </div>
+                                        <div className='bg-border rounded px-4 py-1 flex items-center'>
+                                            <span className='text-xs mr-2 font-light'>CaseStudy</span>
+
+                                            <GoLinkExternal />
+                                        </div>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>
@@ -303,33 +338,36 @@ function Home() {
                             transition={{ duration: 0.5 }}
 
                             className='flex flex-col md:flex-row items-center py-12'>
-                            <div className='md:w-[60%] projects'>
-                                <img src={project} alt="project name" />
+                            <div className='md:w-[60%] projects before:bg-[#191a22d6] before:bg-[url("/src/assets/FE-logo.png")]'>
+                                <img src={fe} alt="Fabulous Edutainment" />
                             </div>
                             <div className='md:w-1/2 w-full text-right z-10 py-10 md:px-0'>
-                                <h1 className='font-josefin text-white mb-5 text-2xl'>Name of Project</h1>
+                                <h1 className='font-josefin text-white mb-5 text-2xl'>Fabulous Edutainment</h1>
                                 <div
                                     className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-ml-20 text-sm md:text-base'>
                                     <motion.p
                                         initial={{ opacity: 0, x: 20 }}
                                         transition={{ duration: 0.5 }}
-                                        whileInView={{ opacity: 1, x: 0 }}>A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on Visual Studio Marketplace, Package Control, Atom Package Manager, and npm.</motion.p>
+                                        whileInView={{ opacity: 1, x: 0 }}>Fabulous Edutainment is a talent management website that connects people to talent and talent to limitless opportunities</motion.p>
                                 </div>
                                 <div className=' flex flex-wrap justify-center lg:justify-end text-gray-400 font-light font-montserrat text-xs py-3'>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>TailwindCss</h1>
-                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Express</h1>
-                                    <h1 className='px-4 mx-2 mt-3 lg:mt-0 bg-border rounded py-1'>Heroku</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>JavaScript</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Html</h1>
+                                    <h1 className=' px-4 mx-2 bg-border rounded py-1'>Css3</h1>
                                 </div>
                                 <div className='text-gray-300 flex justify-center md:justify-end py-3 text-xl'>
-                                    <div className='px-5'>
-                                        <FiGithub />
+                                    <a href="https://github.com/Savics407/Fabulous-Edutainment">
+                                        <div className='px-5'>
+                                            <FiGithub />
 
-                                    </div>
-                                    <div className=''>
-                                        <GoLinkExternal />
+                                        </div>
+                                    </a>
+                                    <a href="https://fabulousedutainment.com/">
+                                        <div className=''>
+                                            <GoLinkExternal />
 
-                                    </div>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </motion.div>
@@ -346,7 +384,7 @@ function Home() {
 
                 <Testimonials />
                 <div
-                    className='pt-28 glow4 '>
+                    className='pt-28 glow4' id='contact'>
                     <Form info={{
                         title: "Let's Connect",
                         description: `Thank you for visiting my website. Got a question or interested in working with me, my inbox is always open. Kindly reach out via email at <a href="mailto:savicstech@gmail.com" class="text-intro hover:underline">savicstech@gmail.com</a>, or use the form below to send me a message. I look forward to hearing from you!`,
