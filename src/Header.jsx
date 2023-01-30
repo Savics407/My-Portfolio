@@ -66,8 +66,8 @@ export default function () {
                         }
                     </Link>
                     <div className='flex flex-col items-end cursor-pointer p-5 relative z-40' onClick={() => setMenu(!menu)}>
-                        <div className={`md:w-10 w-8 border transition duration-500 mb-3 ${menu && "border-main !w-8 -rotate-45 absolute"}`} onClick={() => setMenu(!menu)}></div>
-                        <div className={`md:w-7 w-5 border transition duration-500 ${menu && "border-main !w-8 absolute rotate-45"}`} onClick={() => setMenu(!menu)}></div>
+                        <div className={`md:w-10 w-8 border transition duration-500 mb-3 ${menu && "border-white md:border-main !w-8 -rotate-45 absolute"}`} onClick={() => setMenu(!menu)}></div>
+                        <div className={`md:w-7 w-5 border transition duration-500 ${menu && "border-white md:border-main !w-8 absolute rotate-45"}`} onClick={() => setMenu(!menu)}></div>
                     </div>
                     <AnimatePresence>
                         {menu &&
@@ -78,20 +78,24 @@ export default function () {
                                 initial="hidden"
                                 animate="visible"
                                 variants={list}
-                                className='fixed md:absolute w-full h-screen md:h-auto md:w-1/2 lg:w-[350px] top-0 right-0 md:p-10 md:top-8 bg-white z-30 rounded font-semibold'>
+                                className='fixed md:absolute w-full h-screen md:h-auto md:w-1/2 lg:w-[350px] top-0 right-0 md:p-10 md:top-8 md:bg-white bg-[#0a2e2f] z-30 rounded font-semibold'>
                                 <Link to="/"> <div className='py-8 md:hidden'>
-                                    <img src={blacklogo} alt="Savics logo" className='w-32' />
+                                    <img src={logo} alt="Savics logo" className='w-32' />
                                 </div></Link>
-                                <div className='px-5 md:px-0'>
+                                <div className='px-5 md:px-0 text-white md:text-black'>
                                     <Link to={"/projects"} >
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Project Archive </motion.h1> </Link>
                                     <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1>
                                     <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1>
                                     <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
                                 </div>
-                                <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat'>
-                                    <button className='border border-main font-semibold w-full lg:w-auto
-                             text-main px-5 py-2 rounded  flex items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'> My Resume <GoLinkExternal className='ml-3' /></button>
+                                <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat hidden md:block'>
+                                    <button className='flex border border-main font-semibold w-full lg:w-auto
+                             md:text-main px-5 py-2 rounded items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'> My Resume <GoLinkExternal className='ml-3' /></button>
+                                </motion.div>
+                                <motion.div variants={item} className='p-10 md:px-0 font-Montserrat md:hidden'>
+
+                                    <button className='border-2 border-double border-main hover:text-main text-intro px-5 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center w-full justify-center'>My Resume <GoLinkExternal className='ml-3' /></button>
                                 </motion.div>
                             </motion.div>
                         }
