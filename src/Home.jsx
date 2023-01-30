@@ -124,8 +124,8 @@ function Home() {
 
                                 className='font-Montserrat text-gray-300 text-sm'>
                                 <p>
-                                    Hi there! My name is Victor Adighibe and I'm a Software engineer with over 1/2 a decade of experience building responsive and user-friendly websites. <br />
-                                    <br />I am able to deliver high-performing and visually stunning web applications that drive engagement and conversion. With a strong background in core web technologies such as <span className=' text-intro'>JavaScript, Reactjs, Wordpress etc</span>, I pride myself on my ability to create clean, efficient code and bring creative ideas to life on the web. <br className='mb-4' /> <br />
+                                    As a Software engineer with over 1/2 a decade of experience building responsive and user-friendly websites,
+                                    I have been able to deliver high-performing and visually stunning web applications that drive engagement and conversion. With a strong background in core web technologies such as <span className=' text-intro'>JavaScript, Reactjs, Wordpress etc</span>, I pride myself on my ability to create clean, efficient code and bring creative ideas to life on the web. <br className='mb-4' /> <br />
 
                                     I've had the opportunity to work on a variety of projects, ranging from small business websites to large e-commerce platforms. Whether you're looking to build a new website, improve an existing one, or develop a complex e-commerce platform, I can help you achieve your goals and exceed your expectations.
                                     <br /> <br />
