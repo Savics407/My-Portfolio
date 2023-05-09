@@ -8,8 +8,9 @@ import wp from './assets/wordpress.svg'
 import figma from './assets/figma.svg'
 import node from './assets/nodejs.svg'
 import africurve from './assets/africurve.svg'
-import reico from './assets/reico.svg'
+import reico from './assets/reico/body.svg'
 import fe from './assets/FE.svg'
+import next from './assets/next-js.svg'
 
 import git from './assets/git.svg'
 import project from './assets/project.png'
@@ -142,7 +143,8 @@ function Home() {
                             <motion.div
                                 variants={item}
                                 className='py-10 font-Montserrat flex justify-center lg:justify-start'>
-                                <button className='border-2 border-double border-main hover:text-main text-intro px-5 md:px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button>
+                                <a href="../src/assets/resume.pdf">
+                                    <button className='border-2 border-double border-main hover:text-main text-intro px-5 md:px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button></a>
                             </motion.div>
 
                         </motion.div>
@@ -203,6 +205,13 @@ function Home() {
 
                                     </div>
                                     <h1 className='text-xs'>Wordpress</h1>
+                                </div>
+                                <div className='bg-border rounded-lg w-36 md:w-32 hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 mb-5'>
+                                    <div className='w-10 h-10 mb-2 shadow-lg rounded bg-white p-1'>
+                                        <img src={next} alt="next-js Icon" className='object-contain w-full h-full' />
+
+                                    </div>
+                                    <h1 className='text-xs'>Nextjs</h1>
                                 </div>
 
                             </div>
@@ -299,16 +308,16 @@ function Home() {
                             // variants={item}
                             className='flex flex-col md:flex-row-reverse items-center py-12'>
                             <div className='md:w-[60%] z-10 projects before:bg-[#092327d6] before:bg-[url("/src/assets/reicoLogo.svg")]'>
-                                <img src={reico} alt="Reico" />
+                                <img src={reico} alt="HxAfrica" />
                             </div>
                             <div className='md:w-1/2 w-full z-20 py-10 md:px-0'>
-                                <h1 className='font-josefin text-white mb-5 text-2xl'> REICo</h1>
+                                <h1 className='font-josefin text-white mb-5 text-2xl'> HxAfrica</h1>
                                 <div
                                     className='bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 md:-mr-20 text-sm md:text-base'>
                                     <motion.p
                                         initial={{ opacity: 0, x: -20 }}
                                         transition={{ duration: 0.5 }}
-                                        whileInView={{ opacity: 1, x: 0 }}>REICo is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. </motion.p>
+                                        whileInView={{ opacity: 1, x: 0 }}>HxAfrica is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. </motion.p>
                                 </div>
                                 <div className=' flex lg:justify-start justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3'>
                                     <h1 className=' px-4 mx-2 bg-border rounded py-1'>React</h1>
@@ -321,7 +330,7 @@ function Home() {
                                         <FiGithub />
 
                                     </div> */}
-                                    <Link to="/reico">
+                                    <Link to="/hxafrica">
 
                                         <div className='bg-border rounded px-4 py-1 flex items-center'>
                                             <span className='text-xs mr-2 font-light'>CaseStudy</span>

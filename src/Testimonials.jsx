@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import headshot from './assets/headshot.jpg'
-import black from './assets/black afro.jpg'
+import tayo from './assets/Temitayo Gbadebo..png'
+import josh from './assets/Uzo.jpeg'
 import { motion, AnimatePresence } from 'framer-motion'
-import close from './assets/closeup.jpg'
+import victor from './assets/Victor Ojochuma.jpg'
 import {
   ImQuotesRight, ImStarFull
 } from 'react-icons/im'
@@ -10,13 +10,13 @@ import {
 export const testimonialsData = [
   {
     review:
-      "I had the pleasure of working with Savics as a frontend engineer and I can confidently say that they are one of the most talented and dedicated developers I have had the opportunity to collaborate with. Their ability to understand and execute complex design requirements is truly impressive. I highly recommend Savics for any frontend development project.",
+      "It's pleasure working with Savics. He's a talented frontend developer. I was surprised he pulled off the project frontend single handedly in reactJs. Highly recommend working with him.",
   },
   {
-    review: "I2nd Review nothon much .",
+    review: "I worked with Victor as a frontend engineer and was impressed with his skills and dedication. He has a strong grasp of frontend technologies and a talent for creating user-friendly, visually appealing web interfaces. Victor is a great team player with excellent communication skills, a positive attitude, and a creative approach to problem-solving. I highly recommend him as a top-notch frontend engineer.",
   },
   {
-    review: "3rd review nothing much",
+    review: "It was tough getting a good programmer to design my company's website. I had to trash my first site as it was not up to the standard I needed.. But when I contracted Victor for the work, I was so pleased with his design that I had to make him the official CTO in my company. If you're looking for quality, Victor is one of the best out there.",
   },
 ];
 
@@ -65,31 +65,32 @@ function Testimonials() {
                     () => setSelected(0)
                   }>
                   <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={headshot} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                    <img src={tayo} alt="Temitayo S Gbadebo" className='object-cover w-full h-full rounded-full' />
                   </div>
                   <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Benjamin Bryant</h1>
-                    <h1 className='text-gray-500 text-xs '>VP & Co-founder, <span className='text-intro'>Wiser</span></h1>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>
+                      Temitayo S Gbadebo</h1>
+                    <h1 className='text-gray-500 text-xs '>CTO <span className='text-intro'>HxAfrica</span></h1>
                   </div>
                 </div>
                 <div
 
                   className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 duration-300 ${selected === 1 && "border-intro border-b"}`} onClick={() => setSelected(1)}>
                   <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={close} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                    <img src={victor} alt="Akoh Ojochuma Victor" className='object-cover w-full h-full rounded-full' />
                   </div>
                   <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Raaid Hossain Bryant</h1>
-                    <h1 className='text-gray-500 text-xs '>Project management, <span className='text-intro'>Focuslab</span></h1>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Akoh Ojochuma Victor </h1>
+                    <h1 className='text-gray-500 text-xs '>CEO <span className='text-intro'>Chukolo Core</span></h1>
                   </div>
                 </div>
                 <div className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 transition duration-300 ${selected === 2 && "border-intro border-b"}`} onClick={() => setSelected(2)}>
                   <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={black} alt="Benjamin Bryant" className='object-cover w-full h-full rounded-full' />
+                    <img src={josh} alt="Joshua Uuzoigwe" className='object-cover w-full h-full rounded-full' />
                   </div>
                   <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Logan Cee</h1>
-                    <h1 className='text-gray-500 text-xs '>UI/UX Designer, <span className='text-intro'>Logan Cee</span></h1>
+                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Hon. Joshua Uzoigwe</h1>
+                    <h1 className='text-gray-500 text-xs '>CEO, <span className='text-intro'>Fabulous edutainment</span></h1>
                   </div>
                 </div>
               </div>

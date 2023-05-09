@@ -1,6 +1,7 @@
 {
   "name": "portfolio-site",
   "private": true,
+  "homepage": "https://victoradighibe.com/",
   "version": "0.0.0",
   "type": "module",
   "scripts": {

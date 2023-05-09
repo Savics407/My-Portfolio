@@ -85,17 +85,24 @@ export default function () {
                                 <div className='px-5 md:px-0 text-white md:text-black'>
                                     <Link to={"/projects"} >
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Project Archive </motion.h1> </Link>
-                                    <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1>
-                                    <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1>
-                                    <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
+                                    <a href="https://victoradighibe.com/dr/resources">
+
+                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1></a>
+                                    <a href="https://victoradighibe.com/dr/course">
+                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1></a>
+                                    <Link to='/#'>
+                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
+                                    </Link>
                                 </div>
                                 <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat hidden md:block'>
-                                    <button className='flex border border-main font-semibold w-full lg:w-auto
-                             md:text-main px-5 py-2 rounded items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'> My Resume <GoLinkExternal className='ml-3' /></button>
+                                    <a href="../src/assets/resume.pdf">
+                                        <button className='flex border border-main font-semibold w-full lg:w-auto
+                             md:text-main px-5 py-2 rounded items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'>My Resume <GoLinkExternal className='ml-3' /></button></a>
                                 </motion.div>
                                 <motion.div variants={item} className='p-10 md:px-0 font-Montserrat md:hidden'>
-
-                                    <button className='border-2 border-double border-main hover:text-main text-intro px-5 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center w-full justify-center'>My Resume <GoLinkExternal className='ml-3' /></button>
+                                    <a href="../src/assets/resume.pdf">
+                                        <button className='border-2 border-double border-main hover:text-main text-intro px-5 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center w-full justify-center'>My Resume <GoLinkExternal className='ml-3' /></button>
+                                    </a>
                                 </motion.div>
                             </motion.div>
                         }
