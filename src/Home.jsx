@@ -143,7 +143,7 @@ function Home() {
                             <motion.div
                                 variants={item}
                                 className='py-10 font-Montserrat flex justify-center lg:justify-start'>
-                                <a href="../src/assets/resume.pdf" target='_blank'>
+                                <a href="/public/resume.pdf" target='_blank'>
 
                                     <button className='border-2 border-double border-main hover:text-main text-intro px-5 md:px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button></a>
                             </motion.div>
