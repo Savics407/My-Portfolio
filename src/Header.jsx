@@ -69,7 +69,7 @@ export default function () {
                         <div className={`md:w-10 w-8 border transition duration-500 mb-3 ${menu && "border-white md:border-main !w-8 -rotate-45 absolute"}`} onClick={() => setMenu(!menu)}></div>
                         <div className={`md:w-7 w-5 border transition duration-500 ${menu && "border-white md:border-main !w-8 absolute rotate-45"}`} onClick={() => setMenu(!menu)}></div>
                     </div>
-                    <AnimatePresence>
+                    <AnimatePresence>   
                         {menu &&
                             <motion.div
                                 exit={{

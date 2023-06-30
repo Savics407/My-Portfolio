@@ -128,7 +128,7 @@ function Projects() {
             viewport={{ once: true }}
             whileInView={{ opacity: 1, y: 0 }}
             className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <Link to="/reico">
+            <Link to="/hxafrica">
               <div
                 className='py-10 w-48 '>
                 <img src={reico} alt='logo name' className='w-full' />
@@ -148,7 +148,7 @@ function Projects() {
                 <FiGithub />
 
               </div> */}
-              <Link to="/reico" >
+              <Link to="/hxafrica" >
                 <div className=''>
                   <GoLinkExternal />
                 </div>
