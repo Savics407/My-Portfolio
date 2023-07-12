@@ -85,12 +85,12 @@ export default function () {
                                 <div className='px-5 md:px-0 text-white md:text-black'>
                                     <Link to={"/projects"} >
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Project Archive </motion.h1> </Link>
-                                    <a href="https://victoradighibe.com/dr/resources">
+                                    <a href="/#">
 
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1></a>
-                                    <a href="https://victoradighibe.com/dr/course">
+                                    <a href="https://course.victoradighibe.com/">
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1></a>
-                                    <Link to='/#'>
+                                    <Link to='https://blog.victoradighibe.com'>
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
                                     </Link>
                                 </div>
