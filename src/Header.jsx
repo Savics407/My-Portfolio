@@ -90,9 +90,9 @@ export default function () {
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1></a>
                                     <a href="https://course.victoradighibe.com/">
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1></a>
-                                    <Link to='https://blog.victoradighibe.com'>
+                                    <a href='https://blog.victoradighibe.com'>
                                         <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
-                                    </Link>
+                                    </a>
                                 </div>
                                 <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat hidden md:block'>
                                     <a href="/resume.pdf" target='_blank'>

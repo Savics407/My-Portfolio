@@ -10,11 +10,126 @@ import { Link } from 'react-router-dom'
 import reico from './assets/reicoLogo.svg'
 import fe from './assets/FE-logo.png'
 import pmd from './assets/pmdlogo.png'
+import dora from "./assets/dora/logo.svg"
 
 function Projects() {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  const projects = [
+    {
+      image: true,
+      src: dora,
+      title: "Dora",
+      desc: "A Personal Website",
+      tech: ["figma", "ReactJs", "NextJs", "TailwindCss", "Git"],
+      git: false,
+      external: true,
+      git_url: "https://github.com/Savics407/My-Portfolio",
+      link: "https://usedora.com",
+    },
+    {
+      image: true,
+      src: logo,
+      title: "Savics",
+      desc: "A Personal Website",
+      tech: ["ReactJs", "TailwindCss", "Git"],
+      git: true,
+      external: false,
+      git_url: "https://github.com/Savics407/My-Portfolio",
+      link: "/",
+    },
+    {
+      image: false,
+      src: "",
+      title: "Africurve",
+      desc: "A Modeling Agency",
+      tech: ["Wordpress", "Elementor", "RevSlider"],
+      git: false,
+      external: false,
+      git_url: "",
+      link: "/africurve",
+    },
+    {
+      image: true,
+      src: reico,
+      title: "HxAfrica",
+      desc: "Real Estate Company",
+      tech: ["Reactjs", "Figma", "TailwindCss", "Git"],
+      git: false,
+      external: false,
+      git_url: "",
+      link: "/hxafrica",
+    },
+    {
+      image: true,
+      src: fe,
+      title: "Fe",
+      desc: "Talent Management company",
+      tech: ["JavaScript", "Html", "Css3"],
+      git: true,
+      external: true,
+      git_url: "https://github.com/Savics407/Fabulous-Edutainment",
+      link: "https://fabulousedutainment.com/",
+    },
+    {
+      image: false,
+      src: "fe",
+      title: "ACIMT",
+      desc: "African college of Information and Medical Technology",
+      tech: ["Wordpress", "Elementor"],
+      git: false,
+      external: true,
+      git_url: "",
+      link: "https://acimt.org/",
+    },
+    {
+      image: true,
+      src: pmd,
+      title: "PmdAfrica",
+      desc: "A Non-Governmental Organization",
+      tech: ["Wordpress", "Elementor"],
+      git: false,
+      external: true,
+      git_url: "",
+      link: "http://povertymustdie.africa/",
+    },
+    {
+      image: false,
+      src: "",
+      title: "UFEDO",
+      desc: "An eCommerce Marketplace inspired to providing free stores to online vendors ",
+      tech: ["Wordpress"],
+      git: false,
+      external: true,
+      git_url: "",
+      link: "http://ufedo.povertymustdie.africa/",
+    },
+    {
+      image: true,
+      src: logo,
+      title: "Savics",
+      desc: "A music inspired web app ",
+      tech: ["JavaScript", "git", "Netlify"],
+      git: true,
+      external: true,
+      git_url: "https://github.com/Savics407/music-app",
+      link: "https://savics-music-app.netlify.com/",
+    },
+    {
+      image: false,
+      src: "",
+      title: "edo.mba",
+      desc: "A musician personal website ",
+      tech: ["JavaScript", "Html", "Css3"],
+      git: false,
+      external: true,
+      git_url: "",
+      link: "https://edomba.com/",
+    },
+    
+  ]
+
+  // useEffect(() => {git add
+  //   window.scrollTo(0, 0);
+  // }, []);
   return (
     <div className='font-Montserrat'>
       <Header />
@@ -53,309 +168,70 @@ function Projects() {
 
       </div>
       <div className='glow4'>
-        <div className='container flex justify-between flex-wrap pb-36 px-5 md:px-10'>
+        <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center pb-36 px-5 md:px-10'>
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className={`bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl transition ease-in-out duration-300 relative hover:-translate-y-2 ${projects.length % 3 !== 0 && projects.length - 1 === index && 'lg:col-start-2'}`}>
+              {project.external ?
+                <a href={project.link} target='_blank'>
+                  {project.image ?
+                    <div
+                      className='py-10 w-44'>
+                      <img src={project.src} alt='logo name' className='w-full' />
+                    </div> : <div
+                      className='py-10'>
+                      <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>{project.title}</h1>
+                    </div>
+                  }
+                </a>
+                :
+                <Link to={project.link}>
+                  {project.image ?
+                    <div
+                      className='py-10 w-44'>
+                      <img src={project.src} alt='logo name' className='w-full' />
+                    </div> : <div
+                      className='py-10'>
+                      <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>{project.title}</h1>
+                    </div>
+                  }
+                </Link>}
 
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <Link to="/">
-              <div
-                className='py-10 w-48'>
-                <img src={logo} alt='logo name' className='' />
+              <div className='text-gray-300 w-full font-josefin px-4 text-center'>
+                <h1>{project.desc}</h1>
               </div>
-            </Link>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>A Personal Wesbite</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>ReactJs</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>TailwindCss</h1>
+              <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap gap-3'>
+                {project.tech.map((tech, index) => (
+                  <h1 className=' px-4 bg-border rounded py-1'>{tech}</h1>
 
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              <a target="_blank" href="https://github.com/Savics407/My-Portfolio">
-                <div className='mr-4'>
-                  <FiGithub />
-
-                </div>
-              </a>
-              <Link to="/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </Link>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 hover:translate-y-6'>
-            <Link to="/africurve">
-              <div
-                className='py-10'>
-                <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>Africurve</h1>
+                ))}
               </div>
-            </Link>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>A Modeling Agency</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Wordpress</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Elementor</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>RevSlider</h1>
+              <div className='text-gray-300 flex w-full py-3 text-xl justify-center items-center'>
+                {project.git && <a target="_blank" href={project.git_url}>
+                  <div className='mr-4'>
+                    <FiGithub />
+                  </div>
+                </a>}
 
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div classNamr-4px-5'>
-                <FiGithub />
-
-              </div> */}
-              <Link to="/africurve" >
-                <div className='px-5'>
-                  <GoLinkExternal />
-                </div>
-              </Link>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <Link to="/hxafrica">
-              <div
-                className='py-10 w-48 '>
-                <img src={reico} alt='logo name' className='w-full' />
-              </div>
-            </Link>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>Real Estate Company</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>ReactJs</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Figma</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>TailwindCss</h1>
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div className='mr-4'>
-                <FiGithub />
-
-              </div> */}
-              <Link to="/hxafrica" >
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </Link>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="https://fabulousedutainment.com/">
-              <div
-                className='py-12 w-52'>
-                <img src={fe} alt='logo name' className='w-full' />
-              </div>
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>Talent Management website</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>JavaScript</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>HTML</h1>
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              <a target="_blank" href="https://github.com/Savics407/Fabulous-Edutainment">
-                <div className='mr-4'>
-                  <FiGithub />
-
-                </div>
-              </a>
-              <a target="_blank" href="https://fabulousedutainment.com/">
-                <div className=''>
-                  <GoLinkExternal />
-
-                </div>
-              </a>
-
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="https://acimt.org/">
-              <div
-                className='py-10'>
-                <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>ACIMT</h1>
-              </div>
-
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>African college of Information and Medical Technology</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Wordpress</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Elementor</h1>
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div className='mr-4'>
-                <FiGithub />
-
-              </div> */}
-              <a target="_blank" href="https://acimt.org/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </a>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="http://povertymustdie.africa/">
-              <div
-                className='py-8 w-44'>
-                <img src={pmd} alt='logo name' />
-              </div>
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>A Non-Governmental Organization</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Wordpress</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Elementor</h1>
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div className='mr-4'>
-                <FiGithub />
-
-              </div> */}
-              <a target="_blank" href="http://povertymustdie.africa/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </a>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="http://ufedo.povertymustdie.africa/">
-              <div
-                className='py-10'>
-                <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>UFEDO</h1>
-              </div>
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>An eCommerce Marketplace inspired to providing free stores to online vendors </h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Wordpress</h1>
-              {/* <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Elementor</h1> */}
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div className='mr-4'>
-                <FiGithub />
-
-              </div> */}
-              <a target="_blank" href="http://ufedo.povertymustdie.africa/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </a>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="https://savics-music-app.netlify.com/">
-              <div
-                className='py-10 w-44'>
-                <img src={logo} alt='logo name' />
-              </div>
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>A music inspired web app</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>JavaScript</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Git</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Netlify</h1>
-
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              <a href="https://github.com/Savics407/music-app" target="_blank" rel="noopener noreferrer"></a>
-              <div className='mr-4'>
-                <FiGithub />
+                {project.external ? <a href={project.link} target='_blank'>
+                  <div className=''>
+                    <GoLinkExternal />
+                  </div>
+                </a> : <Link to={project.link}>
+                  <div className=''>
+                    <GoLinkExternal />
+                  </div>
+                </Link>}
 
               </div>
-              <a target="_blank" href="https://savics-music-app.netlify.com/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </a>
-            </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='lg:w-[32%] w-full md:w-[48%] bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl mb-10 transition ease-in-out duration-300 relative hover:-translate-y-2 '>
-            <a target="_blank" href="https://edomba.com/">
-              <div
-                className='py-10'>
-                <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>edo.mba</h1>
-              </div>
-            </a>
-            <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-              <h1>A Personal website</h1>
-            </div>
-            <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap'>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>JavaScript</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>CSS</h1>
-              <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Html</h1>
-              {/* <h1 className=' px-4 mx-2 bg-border mb-2 rounded py-1'>Elementor</h1> */}
+            </motion.div>
+          ))}
 
-            </div>
-            <div className='text-gray-300 flex w-full py-3 text-xl justify-center'>
-              {/* <div className='mr-4'>
-                <FiGithub />
-
-              </div> */}
-              <a target="_blank" href="https://edomba.com/">
-                <div className=''>
-                  <GoLinkExternal />
-                </div>
-              </a>
-            </div>
-          </motion.div>
         </div>
         <Footer />
       </div >
