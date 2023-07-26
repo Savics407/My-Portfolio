@@ -18,7 +18,7 @@ function Projects() {
       image: true,
       src: dora,
       title: "Dora",
-      desc: "A Personal Website",
+      desc: "A Delivery Automation Tool",
       tech: ["figma", "ReactJs", "NextJs", "TailwindCss", "Git"],
       git: false,
       external: true,
@@ -124,7 +124,7 @@ function Projects() {
       git_url: "",
       link: "https://edomba.com/",
     },
-    
+
   ]
 
   useEffect(() => {
