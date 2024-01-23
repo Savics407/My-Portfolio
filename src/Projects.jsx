@@ -32,7 +32,7 @@ function Projects() {
       image: true,
       src: simpoo,
       title: "SimpooBusiness",
-      desc: "An Inventory Managment Tool",
+      desc: "An Inventory Management Tool",
       tech: ["figma", "Laravel", "Javascript", "TailwindCss", "Git"],
       git: false,
       external: true,
@@ -224,7 +224,7 @@ function Projects() {
               className={`bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl transition ease-in-out duration-300 relative hover:-translate-y-2 ${projects.length % 3 !== 0 && projects.length - 1 === index && 'lg:col-start-2'}`}>
               <div className='absolute left-5 top-5 rounded bg-border px-2 py-1 text-xs font-normal text-gray-400'>{project.live ? <h1 className='flex gap-1 items-center'><span className='w-2 h-2 rounded-full bg-intro'></span> Live</h1> : <h1 className='flex gap-2 items-center'>
                 <span className='w-2 h-2 rounded-full bg-gray-400'></span>
-                in development</h1>}</div>
+                In development</h1>}</div>
               {project.external ?
                 <a href={project.link} target='_blank'>
                   {project.image ?
