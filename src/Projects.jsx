@@ -11,19 +11,46 @@ import reico from './assets/reicoLogo.svg'
 import fe from './assets/FE-logo.png'
 import pmd from './assets/pmdlogo.png'
 import dora from "./assets/dora/logo.svg"
+import simpoo from "./assets/simpoo/logo.svg"
+import paymable from "./assets/paymable/logo.svg"
 
 function Projects() {
   const projects = [
     {
       image: true,
+      src: paymable,
+      title: "Paymable",
+      desc: "A Virtual payment processor",
+      tech: ["figma", "Nextjs", "TypeScript", "TailwindCss", "Git"],
+      git: false,
+      external: true,
+      git_url: "https://github.com/Savics407/My-Portfolio",
+      link: "https://paymable.co",
+      live: true
+    },
+    {
+      image: true,
+      src: simpoo,
+      title: "SimpooBusiness",
+      desc: "An Inventory Managment Tool",
+      tech: ["figma", "Laravel", "Javascript", "TailwindCss", "Git"],
+      git: false,
+      external: true,
+      git_url: "https://github.com/Savics407/My-Portfolio",
+      link: "https://simpoobusiness.com",
+      live: false
+    }, {
+      image: true,
       src: dora,
       title: "Dora",
       desc: "A Delivery Automation Tool",
-      tech: ["figma", "ReactJs", "NextJs", "TailwindCss", "Git"],
+      tech: ["figma", "ReactJs", "NextJs", "TypeScript", "TailwindCss", "Git"],
       git: false,
       external: true,
       git_url: "https://github.com/Savics407/My-Portfolio",
       link: "https://usedora.com",
+      live: true
+
     },
     {
       image: true,
@@ -35,6 +62,8 @@ function Projects() {
       external: false,
       git_url: "https://github.com/Savics407/My-Portfolio",
       link: "/",
+      live: true
+
     },
     {
       image: false,
@@ -46,6 +75,8 @@ function Projects() {
       external: false,
       git_url: "",
       link: "/africurve",
+      live: true
+
     },
     {
       image: true,
@@ -57,6 +88,8 @@ function Projects() {
       external: false,
       git_url: "",
       link: "/hxafrica",
+      live: true
+
     },
     {
       image: true,
@@ -68,6 +101,8 @@ function Projects() {
       external: true,
       git_url: "https://github.com/Savics407/Fabulous-Edutainment",
       link: "https://fabulousedutainment.com/",
+      live: true
+
     },
     {
       image: false,
@@ -79,6 +114,8 @@ function Projects() {
       external: true,
       git_url: "",
       link: "https://acimt.org/",
+      live: true
+
     },
     {
       image: true,
@@ -90,6 +127,8 @@ function Projects() {
       external: true,
       git_url: "",
       link: "http://povertymustdie.africa/",
+      live: true
+
     },
     {
       image: false,
@@ -101,6 +140,8 @@ function Projects() {
       external: true,
       git_url: "",
       link: "http://ufedo.povertymustdie.africa/",
+      live: true
+
     },
     {
       image: true,
@@ -112,6 +153,8 @@ function Projects() {
       external: true,
       git_url: "https://github.com/Savics407/music-app",
       link: "https://savics-music-app.netlify.com/",
+      live: true
+
     },
     {
       image: false,
@@ -123,6 +166,8 @@ function Projects() {
       external: true,
       git_url: "",
       link: "https://edomba.com/",
+      live: true
+
     },
 
   ]
@@ -177,6 +222,9 @@ function Projects() {
               viewport={{ once: true }}
               whileInView={{ opacity: 1, y: 0 }}
               className={`bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl transition ease-in-out duration-300 relative hover:-translate-y-2 ${projects.length % 3 !== 0 && projects.length - 1 === index && 'lg:col-start-2'}`}>
+              <div className='absolute left-5 top-5 rounded bg-border px-2 py-1 text-xs font-normal text-gray-400'>{project.live ? <h1 className='flex gap-1 items-center'><span className='w-2 h-2 rounded-full bg-intro'></span> Live</h1> : <h1 className='flex gap-2 items-center'>
+                <span className='w-2 h-2 rounded-full bg-gray-400'></span>
+                in development</h1>}</div>
               {project.external ?
                 <a href={project.link} target='_blank'>
                   {project.image ?
