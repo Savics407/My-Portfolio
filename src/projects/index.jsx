@@ -1,18 +1,19 @@
 import React from 'react'
 import { motion } from 'framer-motion'
-import Header from './Header'
+import Header from '../components/organisms/Header'
 import { GoLinkExternal } from 'react-icons/go'
-import logo from './assets/white logo.png'
+import logo from './../assets/white logo.png'
 import { FiGithub } from 'react-icons/fi'
-import Footer from './Footer'
+import Footer from '../components/organisms/Footer'
 import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import reico from './assets/reicoLogo.svg'
-import fe from './assets/FE-logo.png'
-import pmd from './assets/pmdlogo.png'
-import dora from "./assets/dora/logo.svg"
-import simpoo from "./assets/simpoo/logo.svg"
-import paymable from "./assets/paymable/logo.svg"
+import reico from './../assets/reicoLogo.svg'
+import fe from './../assets/FE-logo.png'
+import pmd from './../assets/pmdlogo.png'
+import dora from "./../assets/dora/logo.svg"
+import simpoo from "./../assets/simpoo/logo.svg"
+import paymable from "./../assets/paymable/logo.svg"
+import DefaultLayout from '../components/layout/DefaultLayout'
 
 function Projects() {
   const projects = [
@@ -74,7 +75,7 @@ function Projects() {
       git: false,
       external: false,
       git_url: "",
-      link: "/africurve",
+      link: "/projects/africurve",
       live: true
 
     },
@@ -87,7 +88,7 @@ function Projects() {
       git: false,
       external: false,
       git_url: "",
-      link: "/hxafrica",
+      link: "/projects/hxafrica",
       live: true
 
     },
@@ -176,11 +177,9 @@ function Projects() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className='font-Montserrat'>
-      <Header />
+    <DefaultLayout>
       <div className='glow hidden md:flex lg:h-[500px] h-[400px] px-10 justify-center py-20 items-end   '>
         <div className=" text-center">
-
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             transition={{ duration: 0.5 }}
@@ -191,7 +190,6 @@ function Projects() {
             transition={{ duration: 0.5 }}
             whileInView={{ opacity: 1 }}
             className='text-gray-300'>Some selected projects I have worked on in the past</motion.h1>
-
         </div>
 
       </div>
@@ -281,10 +279,9 @@ function Projects() {
           ))}
 
         </div>
-        <Footer />
       </div >
 
-    </div >
+    </DefaultLayout>
   )
 }
 
