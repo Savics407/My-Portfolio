@@ -247,7 +247,7 @@ function Home() {
                             </motion.div>
                         ))}
 
-                        <div className={`-mt-12 font-Montserrat flex justify-center ${(projects.length) % 2 === 0 ? "lg:justify-start" : "lg:justify-end "} `}>
+                        <div className={`sm:-mt-12 font-Montserrat flex justify-center ${(projects.length) % 2 === 0 ? "lg:justify-start" : "lg:justify-end "} `}>
                             <Link to="/projects" >
                                 <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
 
