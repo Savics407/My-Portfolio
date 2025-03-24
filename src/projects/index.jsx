@@ -39,7 +39,7 @@ function Projects() {
       external: true,
       git_url: "https://github.com/Savics407/My-Portfolio",
       link: "https://simpoobusiness.com",
-      live: false
+      live: true
     }, {
       image: true,
       src: dora,
@@ -131,45 +131,45 @@ function Projects() {
       live: true
 
     },
-    {
-      image: false,
-      src: "",
-      title: "UFEDO",
-      desc: "An eCommerce Marketplace inspired to providing free stores to online vendors ",
-      tech: ["Wordpress"],
-      git: false,
-      external: true,
-      git_url: "",
-      link: "http://ufedo.povertymustdie.africa/",
-      live: true
+    // {
+    //   image: false,
+    //   src: "",
+    //   title: "UFEDO",
+    //   desc: "An eCommerce Marketplace inspired to providing free stores to online vendors ",
+    //   tech: ["Wordpress"],
+    //   git: false,
+    //   external: true,
+    //   git_url: "",
+    //   link: "http://ufedo.povertymustdie.africa/",
+    //   live: true
 
-    },
-    {
-      image: true,
-      src: logo,
-      title: "Savics",
-      desc: "A music inspired web app ",
-      tech: ["JavaScript", "git", "Netlify"],
-      git: true,
-      external: true,
-      git_url: "https://github.com/Savics407/music-app",
-      link: "https://savics-music-app.netlify.com/",
-      live: true
+    // },
+    // {
+    //   image: true,
+    //   src: logo,
+    //   title: "Savics",
+    //   desc: "A music inspired web app ",
+    //   tech: ["JavaScript", "git", "Netlify"],
+    //   git: true,
+    //   external: true,
+    //   git_url: "https://github.com/Savics407/music-app",
+    //   link: "https://savics-music-app.netlify.com/",
+    //   live: true
 
-    },
-    {
-      image: false,
-      src: "",
-      title: "edo.mba",
-      desc: "A musician personal website ",
-      tech: ["JavaScript", "Html", "Css3"],
-      git: false,
-      external: true,
-      git_url: "",
-      link: "https://edomba.com/",
-      live: true
+    // },
+    // {
+    //   image: false,
+    //   src: "",
+    //   title: "edo.mba",
+    //   desc: "A musician personal website ",
+    //   tech: ["JavaScript", "Html", "Css3"],
+    //   git: false,
+    //   external: true,
+    //   git_url: "",
+    //   link: "https://edomba.com/",
+    //   live: true
 
-    },
+    // },
 
   ]
 

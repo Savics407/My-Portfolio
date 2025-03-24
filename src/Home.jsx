@@ -59,22 +59,22 @@ function Home() {
             hover_src: 'before:bg-[url("/src/assets/dora/logo.svg")]',
             overlay_color: "before:bg-[#2266EE]/50"
         },
-        {
-            title: "Africurve",
-            desc: "Africurve is a unique modeling agency and human resource management platform that aims to equip talented models with the skills and resources they need to succeed in the modelling industry.",
-            tech: [
-                'Wordpress', "Elementor", "RevSlider"
-            ],
-            casestudy: true,
-            text: "africurve.com",
-            git: false,
-            git_url: "link",
-            external: false,
-            link: "/projects/africurve",
-            image: africurve,
-            hover_src: 'before:bg-[url("/src/assets/Africurve.png")]',
-            overlay_color: "before:bg-[#ffffffd6]"
-        },
+        // {
+        //     title: "Africurve",
+        //     desc: "Africurve is a unique modeling agency and human resource management platform that aims to equip talented models with the skills and resources they need to succeed in the modelling industry.",
+        //     tech: [
+        //         'Wordpress', "Elementor", "RevSlider"
+        //     ],
+        //     casestudy: true,
+        //     text: "africurve.com",
+        //     git: false,
+        //     git_url: "link",
+        //     external: false,
+        //     link: "/projects/africurve",
+        //     image: africurve,
+        //     hover_src: 'before:bg-[url("/src/assets/Africurve.png")]',
+        //     overlay_color: "before:bg-[#ffffffd6]"
+        // },
         {
             title: "HxAfrica",
             desc: "HxAfrica is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. ",
