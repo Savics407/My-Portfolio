@@ -8,7 +8,7 @@ import { GoLinkExternal } from 'react-icons/go'
 import Form from '../../Form';
 
 
-function CasestudyLayout({ title, projectImages, technologies, external, content }) {
+function CasestudyLayout({ children, title, projectImages, technologies, external }) {
     const settings = {
         dots: true,
         infinite: true,
@@ -25,7 +25,6 @@ function CasestudyLayout({ title, projectImages, technologies, external, content
             }
         }]
     };
-
 
     return (
         <DefaultLayout >
@@ -78,7 +77,10 @@ function CasestudyLayout({ title, projectImages, technologies, external, content
                         }
                     </div>
                     {/* Introduction: */}
-                    {content}
+                    <div>
+                        {children}
+                        
+                    </div>
 
                 </div>
             </div>
