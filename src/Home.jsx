@@ -41,11 +41,11 @@ function Home() {
     }
 
 
-    
+
     const projects = [
         {
             title: "Dora",
-            desc: "Dora: Advanced delivery optimization tool for multi-channel order management. It automates processes, selects optimal delivery methods, and ensures reliable and cost-effective delivery. Notifies sales teams for seamless coordination.",
+            desc: "Dora is an all-in-one delivery management platform designed for creating, assigning, notifying, and tracking delivery requests. It provides the infrastructure that enables local delivery companies and businesses to independently manage and offer delivery services.",
             tech: [
                 "Figma", 'Reactjs', "Nextjs", "TailwindCss", "Git"
             ],
@@ -118,163 +118,163 @@ function Home() {
 
     return (
         <DefaultLayout>
-        
+
             {/* Header Session */}
             {/* <div className='contain border max-w-[1172px] m-auto'> */}
-                {/* Hero Session */}
-                <div className='glow'>
-                    <div className="container flex-col-reverse flex md:flex-row  items-center pt-24 md:h-[580px] lg:h-[680px] lap">
-                        <div className='flex flex-col md:w-1/2 items-center justify-center'>
-                            <motion.div
-                                initial={{ opacity: 0, x: -30 }}
-                                transition={{ duration: 0.5 }}
-                                whileInView={{ opacity: 1, x: 0 }}
-                                className='rounded-full border-10 border-[#0a2e2f] w-[265px] h-96 shadow-2xl'>
-                                <img src={profile} alt="Victor Adighibe" className='object-cover w-full h-full rounded-full' />
-                            </motion.div>
-                        </div>
+            {/* Hero Session */}
+            <div className='glow'>
+                <div className="container flex-col-reverse flex md:flex-row  items-center pt-24 md:h-[580px] lg:h-[680px] lap">
+                    <div className='flex flex-col md:w-1/2 items-center justify-center'>
                         <motion.div
-
-                            initial="hidden"
-                            // transition={{ duration: 0.5 }}
-                            whileInView="visible"
-                            variants={list}
-                            className=' md:ml-10 md:w-1/2 py-20 px-10'>
-                            <div className='font-josefin mb-5'>
-                                <motion.h1
-                                    variants={item}
-
-                                    className='text-intro mb-5'>Hi, my name is
-                                </motion.h1>
-                                <motion.h1 variants={item} className='md:text-6xl text-5xl text-white font-bold tracking-wider '>Victor <br />Adighibe. <br />
-                                    {/* &lt;savics /&gt; */}
-                                </motion.h1>
-                                {/* <h2 className='text-5xl text-light '>Frontend Engineer.</h2> */}
-                            </div>
-                            <div>
-                                <motion.h1
-                                    variants={item}
-                                    className='font-Montserrat text-gray-300 text-sm lg:w-[450px]'>
-                                    I’m a software engineer specializing in building exceptional frontend products with great user experience.
-                                </motion.h1>
-                            </div>
-                            <motion.div
-                                variants={item}
-
-                                className='pt-10 font-Montserrat'>
-                                <a href='#contact'>
-                                    <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro'>Let's work </button></a>
-                            </motion.div>
+                            initial={{ opacity: 0, x: -30 }}
+                            transition={{ duration: 0.5 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            className='rounded-full border-10 border-[#0a2e2f] w-[265px] h-96 shadow-2xl'>
+                            <img src={profile} alt="Victor Adighibe" className='object-cover w-full h-full rounded-full' />
                         </motion.div>
                     </div>
-                </div>
+                    <motion.div
 
-                {/* About session */}
-                <About />
-                
+                        initial="hidden"
+                        // transition={{ duration: 0.5 }}
+                        whileInView="visible"
+                        variants={list}
+                        className=' md:ml-10 md:w-1/2 py-20 px-10'>
+                        <div className='font-josefin mb-5'>
+                            <motion.h1
+                                variants={item}
 
-                {/* Projects */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    variants={list}
-                    className="xl:p-40 lg:px-20 glow2 px-5">
-                    <div className="container">
+                                className='text-intro mb-5'>Hi, my name is
+                            </motion.h1>
+                            <motion.h1 variants={item} className='md:text-6xl text-5xl text-white font-bold tracking-wider '>Victor <br />Adighibe. <br />
+                                {/* &lt;savics /&gt; */}
+                            </motion.h1>
+                            {/* <h2 className='text-5xl text-light '>Frontend Engineer.</h2> */}
+                        </div>
+                        <div>
+                            <motion.h1
+                                variants={item}
+                                className='font-Montserrat text-gray-300 text-sm lg:w-[450px]'>
+                                I’m a software engineer specializing in building exceptional frontend products with great user experience.
+                            </motion.h1>
+                        </div>
                         <motion.div
                             variants={item}
-                            className=' lg:w-[78%] m-auto'>
-                            <h1 className='text-intro font-josefin text-center lg:text-left text-3xl md:text-4xl mb-10 md:mb-3 lines lg:before:w-[42%]'>Some Noteworthy Projects</h1>
+
+                            className='pt-10 font-Montserrat'>
+                            <a href='#contact'>
+                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro'>Let's work </button></a>
                         </motion.div>
+                    </motion.div>
+                </div>
+            </div>
 
-                        {projects.map((project, index) => (
-                            <motion.div key={index}
-                                variants={item}
-                                className={`flex flex-col  items-center md:py-12 ${(index + 1) % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}>
-                                <div className={`md:w-[60%] projects rounded-lg ${project.overlay_color} ${project.hover_src}`}
-                                >
-                                    <Link to={project.link}>
-                                        <img src={project.image} className='rounded-lg' alt={project.title} />
-                                    </Link>
-                                </div>
-                                <div className={`md:w-1/2 w-full z-20 py-10 md:px-0 ${(index + 1) % 2 !== 0 && "text-right"}`}>
-                                    <h1 className='font-josefin text-white mb-5 text-2xl'>{project.title}</h1>
-                                    <div
-                                        className={`bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 text-sm md:text-base ${(index + 1) % 2 === 0 ? "md:-mr-20" : "md:-ml-20"} `}>
-                                        <motion.p
-                                            initial={(index + 1) % 2 === 0 ? {
-                                                opacity: 0,
-                                                x: -20
-                                            } : {
-                                                opacity: 0,
-                                                x: 20
-                                            }
-                                            }
-                                            transition={{ duration: 0.5, type: "tween" }}
-                                            whileInView={{ opacity: 1, x: 0 }}
-                                        >{project.desc}</motion.p>
-                                    </div>
-                                    <div className={`flex justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3 gap-3 ${(index + 1) % 2 === 0 ? "lg:justify-start" : "lg:justify-end"}`}>
-                                        {project.tech.map((tech, index) => (
-                                            <h1 key={index} className='px-4 bg-border rounded py-1'>{tech}</h1>
-                                        ))}
+            {/* About session */}
+            <About />
 
-                                    </div>
-                                    <div className={`text-gray-400 flex items-center justify-center py-3 gap-5 text-xl ${(index + 1) % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
-                                        {project.casestudy &&
-                                            <Link to={project.link}>
-                                                <div className='bg-border rounded px-4 py-1 flex items-center'>
-                                                    <span className='text-xs mr-2 font-light'>{project.text}</span>
-                                                    <GoLinkExternal />
-                                                </div>
-                                            </Link>
+
+            {/* Projects */}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                variants={list}
+                className="xl:p-40 lg:px-20 glow2 px-5">
+                <div className="container">
+                    <motion.div
+                        variants={item}
+                        className=' lg:w-[78%] m-auto'>
+                        <h1 className='text-intro font-josefin text-center lg:text-left text-3xl md:text-4xl mb-10 md:mb-3 lines lg:before:w-[42%]'>Some Noteworthy Projects</h1>
+                    </motion.div>
+
+                    {projects.map((project, index) => (
+                        <motion.div key={index}
+                            variants={item}
+                            className={`flex flex-col  items-center md:py-12 ${(index + 1) % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}>
+                            <div className={`md:w-[60%] projects rounded-lg ${project.overlay_color} ${project.hover_src}`}
+                            >
+                                <Link to={project.link}>
+                                    <img src={project.image} className='rounded-lg' alt={project.title} />
+                                </Link>
+                            </div>
+                            <div className={`md:w-1/2 w-full z-20 py-10 md:px-0 ${(index + 1) % 2 !== 0 && "text-right"}`}>
+                                <h1 className='font-josefin text-white mb-5 text-2xl'>{project.title}</h1>
+                                <div
+                                    className={`bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 text-sm md:text-base ${(index + 1) % 2 === 0 ? "md:-mr-20" : "md:-ml-20"} `}>
+                                    <motion.p
+                                        initial={(index + 1) % 2 === 0 ? {
+                                            opacity: 0,
+                                            x: -20
+                                        } : {
+                                            opacity: 0,
+                                            x: 20
                                         }
+                                        }
+                                        transition={{ duration: 0.5, type: "tween" }}
+                                        whileInView={{ opacity: 1, x: 0 }}
+                                    >{project.desc}</motion.p>
+                                </div>
+                                <div className={`flex justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3 gap-3 ${(index + 1) % 2 === 0 ? "lg:justify-start" : "lg:justify-end"}`}>
+                                    {project.tech.map((tech, index) => (
+                                        <h1 key={index} className='px-4 bg-border rounded py-1'>{tech}</h1>
+                                    ))}
 
-                                        {project.external && <a href={project.link} target='_blank'>
+                                </div>
+                                <div className={`text-gray-400 flex items-center justify-center py-3 gap-5 text-xl ${(index + 1) % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
+                                    {project.casestudy &&
+                                        <Link to={project.link}>
                                             <div className='bg-border rounded px-4 py-1 flex items-center'>
                                                 <span className='text-xs mr-2 font-light'>{project.text}</span>
                                                 <GoLinkExternal />
                                             </div>
-                                        </a>}
-                                        {project.git &&
-                                            <a href={project.git_url} target='_blank'>
-                                                <div className='text-gray-300'>
-                                                    <FiGithub />
-                                                </div>
-                                            </a>
-                                        }
-                                    </div>
+                                        </Link>
+                                    }
+
+                                    {project.external && <a href={project.link} target='_blank'>
+                                        <div className='bg-border rounded px-4 py-1 flex items-center'>
+                                            <span className='text-xs mr-2 font-light'>{project.text}</span>
+                                            <GoLinkExternal />
+                                        </div>
+                                    </a>}
+                                    {project.git &&
+                                        <a href={project.git_url} target='_blank'>
+                                            <div className='text-gray-300'>
+                                                <FiGithub />
+                                            </div>
+                                        </a>
+                                    }
                                 </div>
-                            </motion.div>
-                        ))}
+                            </div>
+                        </motion.div>
+                    ))}
 
-                        <div className={`sm:-mt-12 font-Montserrat flex justify-center ${(projects.length) % 2 === 0 ? "lg:justify-start" : "lg:justify-end "} `}>
-                            <Link to="/projects" >
-                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
+                    <div className={`sm:-mt-12 font-Montserrat flex justify-center ${(projects.length) % 2 === 0 ? "lg:justify-start" : "lg:justify-end "} `}>
+                        <Link to="/projects" >
+                            <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
 
-                                    {/* <GoLinkExternal className='ml-3' /> */}
-                                </button>
-                            </Link>
-                        </div>
+                                {/* <GoLinkExternal className='ml-3' /> */}
+                            </button>
+                        </Link>
                     </div>
-                </motion.div>
-
-                {/* Testimonials */}
-                <Testimonials />
-                <div
-                    className='pt-28 glow4' id='contact'>
-                    <Form info={{
-                        title: "Let's Connect",
-                        description: `Thank you for visiting my website. Got a question or interested in working with me, my inbox is always open. Kindly reach out via email at <a href="mailto:savicstech@gmail.com" class="text-intro hover:underline">savicstech@gmail.com</a>, or use the form below to send me a message. I look forward to hearing from you!`,
-                        message: "enter your message"
-
-                    }}
-                    />
-
                 </div>
+            </motion.div>
+
+            {/* Testimonials */}
+            <Testimonials />
+            <div
+                className='pt-28 glow4' id='contact'>
+                <Form info={{
+                    title: "Let's Connect",
+                    description: `Thank you for visiting my website. Got a question or interested in working with me, my inbox is always open. Kindly reach out via email at <a href="mailto:savicstech@gmail.com" class="text-intro hover:underline">savicstech@gmail.com</a>, or use the form below to send me a message. I look forward to hearing from you!`,
+                    message: "enter your message"
+
+                }}
+                />
+
+            </div>
 
 
 
-      
+
         </DefaultLayout>
     )
 }
