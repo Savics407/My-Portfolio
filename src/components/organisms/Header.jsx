@@ -69,7 +69,7 @@ export default function () {
                         <div className={`md:w-10 w-8 border transition duration-500 mb-3 ${menu && "border-white md:border-main !w-8 -rotate-45 absolute"}`} onClick={() => setMenu(!menu)}></div>
                         <div className={`md:w-7 w-5 border transition duration-500 ${menu && "border-white md:border-main !w-8 absolute rotate-45"}`} onClick={() => setMenu(!menu)}></div>
                     </div>
-                    <AnimatePresence>   
+                    <AnimatePresence>
                         {menu &&
                             <motion.div
                                 exit={{
@@ -95,12 +95,12 @@ export default function () {
                                     </a>
                                 </div>
                                 <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat hidden md:block'>
-                                    <a href="/resume.pdf" target='_blank'>
+                                    <a href="https://drive.google.com/file/d/1l0ZqMl5uNvoKYu29ikyj8A5FS1PVzO7T/view?usp=sharing" target='_blank'>
                                         <button className='flex border border-main font-semibold w-full lg:w-auto
                              md:text-main px-5 py-2 rounded items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'>My Resume <GoLinkExternal className='ml-3' /></button></a>
                                 </motion.div>
                                 <motion.div variants={item} className='p-10 md:px-0 font-Montserrat md:hidden'>
-                                    <a href="/resume.pdf" target='_blank'>
+                                    <a href="https://drive.google.com/file/d/1l0ZqMl5uNvoKYu29ikyj8A5FS1PVzO7T/view?usp=sharing" target='_blank'>
                                         <button className='border-2 border-double border-main hover:text-main text-intro px-5 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center w-full justify-center'>My Resume <GoLinkExternal className='ml-3' /></button>
                                     </a>
                                 </motion.div>
