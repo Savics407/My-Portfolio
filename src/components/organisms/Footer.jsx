@@ -1,59 +1,60 @@
 import React from 'react'
-import { TiSocialLinkedin, TiSocialYoutube, TiSocialGithub, TiSocialTwitter } from 'react-icons/ti'
-import { GiLoveHowl } from 'react-icons/gi'
-import moment from 'moment/moment'
+import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from 'react-icons/fi'
 
+const SOCIAL = [
+  { icon: <FiGithub size={16} />, href: 'https://github.com/Savics407', label: 'GitHub' },
+  { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/victor-adighibe-b4a89923a/', label: 'LinkedIn' },
+  { icon: <FiTwitter size={16} />, href: 'https://twitter.com/_Savics', label: 'Twitter / X' },
+  { icon: <FiMail size={16} />, href: 'mailto:savicstech@gmail.com', label: 'Email' },
+]
 
-function Footer() {
-    // TODO: add scroll to top to your porfolio
-    const socialLinks = [
-        {
-            icon: <TiSocialLinkedin />,
-            link: "https://www.linkedin.com/in/victor-adighibe-b4a89923a/",
-        },
-          {
-              icon: <TiSocialTwitter />,
-              link: "https://twitter.com/intent/follow?ref_src=twsrc%5Etfw%7Ctwcamp%5Etweetembed%7Ctwterm%5E1618149381307498498%7Ctwgr%5Ee18da2e5388b93195a7b63bd6073ecff506f3bdd%7Ctwcon%5Es1_&ref_url=https%3A%2F%2Flinktr.ee%2Fsavics&screen_name=_Savics",
-        },
-        {
-            icon: <TiSocialGithub />,
-            link: "https://github.com/Savics407",
-        },
-        {
-            icon: <TiSocialYoutube />,
-            link: "https://www.youtube.com/channel/UC3hAnUSvsGeC6lnlmKNxyAA",
-        },
+const currentYear = new Date().getFullYear()
 
-    ]
+export default function Footer() {
+  const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
-    return (
-        <div>
-            <div className='md:border-t border-[#c4ffb245] lg:px-28 text-gray-300 text-sm'>
-                <div className="container py-5 px-5 lg:px-0 flex flex-wrap items-center justify-between">
-                    <div className='hidden md:block md:w-auto text-center'>
-                        <h1> &copy; Victor Adighibe {moment().format('yyyy')}.</h1>
-                    </div>
-                    <div className='text-gray-300 flex w-full md:w-36 items-center justify-center py-5 md:py-0 md:justify-between text-xl'>
-                        {socialLinks.map((social, index) => (
-                            <a key={index} href={social.link} target="_blank" rel="noopener noreferrer">
-                                <div className='bg-border p-1 mx-2 md:mx-0 rounded hover:border-[#80a674] shadow border border-[#0b4345] cursor-pointer'>
-                                     {social.icon}
-                                </div>
-                            </a>
-                        ))}
-                    </div>
-                    <div className='w-full md:w-auto'>
-                        <h1 className='flex items-center justify-center md:justify-start'>Built with
-                            {/* <AiFillHeart /> */}
-                            <span className='px-1 '>
-                                <GiLoveHowl />
-                            </span>
-                            by Savics</h1>
-                    </div>
-                </div>
+  return (
+    <footer style={{ borderTop: '1px solid #27272a' }}>
+      <div className="container mx-auto px-5 md:px-10 py-8">
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+
+          {/* Left — brand + copy */}
+          <div className="flex items-center gap-3">
+            <div className="w-6 h-6 rounded bg-accent/10 border border-accent/20 flex items-center justify-center">
+              <span className="text-accent font-mono text-xs font-bold">V</span>
             </div>
-        </div>
-    )
-}
+            <p className="text-muted text-xs">
+              © {currentYear} Victor Adighibe. Built with React & TypeScript.
+            </p>
+          </div>
 
-export default Footer
+          {/* Centre — social links */}
+          <div className="flex items-center gap-1">
+            {SOCIAL.map(({ icon, href, label }) => (
+              <a
+                key={label}
+                href={href}
+                target={href.startsWith('mailto') ? '_self' : '_blank'}
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="w-8 h-8 rounded-lg flex items-center justify-center text-muted hover:text-accent hover:bg-raised transition-all"
+              >
+                {icon}
+              </a>
+            ))}
+          </div>
+
+          {/* Right — back to top */}
+          <button
+            onClick={scrollToTop}
+            className="flex items-center gap-1.5 text-xs text-muted hover:text-accent transition-colors group"
+            aria-label="Back to top"
+          >
+            Back to top
+            <FiArrowUp size={13} className="group-hover:-translate-y-0.5 transition-transform" />
+          </button>
+        </div>
+      </div>
+    </footer>
+  )
+}

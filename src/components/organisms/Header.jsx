@@ -1,118 +1,186 @@
-import React, { useState } from 'react'
-import logo from '../../assets/white logo.png'
-import slogo from '../../assets/S-white logo.png'
-import blacklogo from '../../assets/savicsbk.png'
-import { GoLinkExternal } from 'react-icons/go'
-import { motion, AnimatePresence } from 'framer-motion'
+import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiGithub, FiLinkedin, FiMail, FiDownload, FiMenu, FiX } from 'react-icons/fi'
 
+const NAV_LINKS = [
+  { label: 'Work',     href: '#work' },
+  { label: 'Skills',   href: '#skills' },
+  { label: 'About',    href: '#about' },
+  { label: 'Contact',  href: '#contact' },
+]
 
+export default function Header() {
+  const [scrolled, setScrolled]   = useState(false)
+  const [menuOpen, setMenuOpen]   = useState(false)
+  const [activeSection, setActive] = useState('')
 
-export default function () {
+  const handleScroll = useCallback(() => {
+    setScrolled(window.scrollY > 40)
 
-    const [active, setActive] = useState(true)
-
-    const changeLogo = () => {
-        window.scrollY >= 700 ? setActive(false) : setActive(true)
+    const sections = ['work', 'skills', 'about', 'contact']
+    let current = ''
+    for (const id of sections) {
+      const el = document.getElementById(id)
+      if (el && window.scrollY >= el.offsetTop - 120) current = id
     }
+    setActive(current)
+  }, [])
 
-    window.addEventListener('scroll', changeLogo);
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [handleScroll])
 
-    const [menu, setMenu] = useState(false)
+  // lock body scroll when menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : ''
+    return () => { document.body.style.overflow = '' }
+  }, [menuOpen])
 
-    const list = {
-        visible: {
-            opacity: 1, scale: 1, transition: {
-                when: "beforeChildren",
-                staggerChildren: 0.05
-            }
-        },
-        hidden: {
-            opacity: 0, scale: 0.5, transition: {
-                when: "afterChildren"
-            }
-        },
+  const handleNavClick = (href) => {
+    setMenuOpen(false)
+    if (href.startsWith('#')) {
+      const el = document.getElementById(href.slice(1))
+      if (el) el.scrollIntoView({ behavior: 'smooth' })
     }
+  }
 
-    const item = {
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 20 },
-    }
+  return (
+    <>
+      {/* ─── Desktop Nav ─────────────────────────────────── */}
+      <header
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'nav-glass' : 'bg-transparent'
+        }`}
+      >
+        <div className="container mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
 
+          {/* Logo */}
+          <Link to="/" className="flex items-center gap-3 group" aria-label="Victor Adighibe home">
+            <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
+              <span className="text-accent font-mono text-sm font-bold leading-none">V</span>
+            </div>
+            <span className="text-fg font-semibold text-sm tracking-tight hidden sm:block">
+              Victor Adighibe
+            </span>
+          </Link>
 
-    return (
-        <div>
-            <div className='absolute md:fixed right-0 left-0 z-40'>
-                <div className="container py-8 flex justify-between items-center relative">
-                    {/* <h1 className='text-white text-3xl'>Savics</h1> */}
-                    <Link to="/" >
-                        {active ?
-                            <><motion.img
-                                initial={{ opacity: 0, x: "-10%" }}
-                                animate={{
-                                    opacity: 1, x: 0, transition: {
-                                        duration: 0.1
-                                    },
-                                }} src={logo} alt="savics" className='md:w-40 w-32' /> </>
-                            :
-                            <motion.img
-                                initial={{ opacity: 0, }}
-                                animate={{
-                                    opacity: 1, transition: {
-                                        duration: 0.1
-                                    },
-                                }}
-                                src={slogo} alt="savics" className='w-16 transition duration-300' />
-                        }
-                    </Link>
-                    <div className='flex flex-col items-end cursor-pointer p-5 relative z-40' onClick={() => setMenu(!menu)}>
-                        <div className={`md:w-10 w-8 border transition duration-500 mb-3 ${menu && "border-white md:border-main !w-8 -rotate-45 absolute"}`} onClick={() => setMenu(!menu)}></div>
-                        <div className={`md:w-7 w-5 border transition duration-500 ${menu && "border-white md:border-main !w-8 absolute rotate-45"}`} onClick={() => setMenu(!menu)}></div>
-                    </div>
-                    <AnimatePresence>
-                        {menu &&
-                            <motion.div
-                                exit={{
-                                    opacity: 0,
-                                }}
-                                initial="hidden"
-                                animate="visible"
-                                variants={list}
-                                className='fixed md:absolute w-full h-screen md:h-auto md:w-1/2 lg:w-[350px] top-0 right-0 md:p-10 md:top-8 md:bg-white bg-[#0a2e2f] z-30 rounded font-semibold'>
-                                <Link to="/"> <div className='py-8 md:hidden'>
-                                    <img src={logo} alt="Savics logo" className='w-32' />
-                                </div></Link>
-                                <div className='px-5 md:px-0 text-white md:text-black'>
-                                    <Link to={"/projects"} >
-                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Project Archive </motion.h1> </Link>
-                                    <a href="/#">
+          {/* Desktop Centre Links */}
+          <nav className="hidden md:flex items-center gap-1" aria-label="Primary navigation">
+            {NAV_LINKS.map(({ label, href }) => (
+              <a
+                key={label}
+                href={href}
+                onClick={(e) => { e.preventDefault(); handleNavClick(href) }}
+                className={`nav-link px-3 py-1.5 rounded-md transition-colors ${
+                  activeSection === href.slice(1)
+                    ? 'text-fg bg-raised'
+                    : 'hover:text-fg hover:bg-raised'
+                }`}
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
 
-                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Resources </motion.h1></a>
-                                    <a href="https://course.victoradighibe.com/">
-                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> Courses </motion.h1></a>
-                                    <a href='https://blog.victoradighibe.com'>
-                                        <motion.h1 variants={item} className="py-3 lg:px-0 lg:shadow-none lg:my-0 cursor-pointer shadow rounded-lg px-5 my-5"> My Articles </motion.h1>
-                                    </a>
-                                </div>
-                                <motion.div variants={item} className='pt-10 px-5 md:px-0 font-Montserrat hidden md:block'>
-                                    <a href="https://drive.google.com/file/d/1l0ZqMl5uNvoKYu29ikyj8A5FS1PVzO7T/view?usp=sharing" target='_blank'>
-                                        <button className='flex border border-main font-semibold w-full lg:w-auto
-                             md:text-main px-5 py-2 rounded items-center dots after:bg-main before:bg-main after:border-white before:border-white justify-center after:-right-2 before:-left-2'>My Resume <GoLinkExternal className='ml-3' /></button></a>
-                                </motion.div>
-                                <motion.div variants={item} className='p-10 md:px-0 font-Montserrat md:hidden'>
-                                    <a href="https://drive.google.com/file/d/1l0ZqMl5uNvoKYu29ikyj8A5FS1PVzO7T/view?usp=sharing" target='_blank'>
-                                        <button className='border-2 border-double border-main hover:text-main text-intro px-5 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center w-full justify-center'>My Resume <GoLinkExternal className='ml-3' /></button>
-                                    </a>
-                                </motion.div>
-                            </motion.div>
-                        }
-                    </AnimatePresence>
+          {/* Desktop Right CTAs */}
+          <div className="hidden md:flex items-center gap-3">
+            <span className="badge badge-green">
+              <span className="badge-dot" />
+              Available
+            </span>
+            <a
+              href="/resume.pdf"
+              download
+              className="btn-ghost text-xs py-1.5 px-3"
+              aria-label="Download resume"
+            >
+              <FiDownload size={13} />
+              Resume
+            </a>
+          </div>
+
+          {/* Mobile Hamburger */}
+          <button
+            className="md:hidden text-secondary hover:text-fg transition-colors p-2 rounded-md"
+            onClick={() => setMenuOpen(!menuOpen)}
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            {menuOpen ? <FiX size={20} /> : <FiMenu size={20} />}
+          </button>
+        </div>
+      </header>
+
+      {/* ─── Mobile Menu ─────────────────────────────────── */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'tween', duration: 0.25 }}
+            className="fixed inset-0 z-40 bg-bg flex flex-col"
+          >
+            {/* Mobile nav header */}
+            <div className="h-16 flex items-center justify-between px-5 border-b border-stroke/40">
+              <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
+                <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
+                  <span className="text-accent font-mono text-sm font-bold">V</span>
                 </div>
+                <span className="text-fg font-semibold text-sm">Victor Adighibe</span>
+              </Link>
+              <button
+                onClick={() => setMenuOpen(false)}
+                className="text-secondary hover:text-fg p-2 rounded-md"
+                aria-label="Close menu"
+              >
+                <FiX size={20} />
+              </button>
             </div>
 
+            {/* Nav links */}
+            <nav className="flex-1 flex flex-col justify-center px-8 gap-1">
+              {NAV_LINKS.map(({ label, href }, i) => (
+                <motion.a
+                  key={label}
+                  href={href}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: i * 0.06 }}
+                  onClick={(e) => { e.preventDefault(); handleNavClick(href) }}
+                  className="text-2xl font-semibold text-secondary hover:text-fg py-3 border-b border-stroke/30 transition-colors"
+                >
+                  {label}
+                </motion.a>
+              ))}
+            </nav>
 
-
-
-        </div >
-    )
+            {/* Mobile footer links */}
+            <div className="px-8 py-10 border-t border-stroke/40">
+              <div className="flex gap-4 mb-6">
+                <a href="https://github.com/Savics407" target="_blank" rel="noopener noreferrer"
+                  className="btn-ghost text-sm py-2 px-4">
+                  <FiGithub size={15} /> GitHub
+                </a>
+                <a href="https://www.linkedin.com/in/victor-adighibe-b4a89923a/" target="_blank" rel="noopener noreferrer"
+                  className="btn-ghost text-sm py-2 px-4">
+                  <FiLinkedin size={15} /> LinkedIn
+                </a>
+              </div>
+              <a
+                href="/resume.pdf"
+                download
+                className="btn-primary w-full justify-center"
+              >
+                <FiDownload size={15} />
+                Download Resume
+              </a>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
+  )
 }

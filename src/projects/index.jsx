@@ -1,288 +1,278 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import Header from '../components/organisms/Header'
-import { GoLinkExternal } from 'react-icons/go'
-import logo from './../assets/white logo.png'
-import { FiGithub } from 'react-icons/fi'
-import Footer from '../components/organisms/Footer'
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import reico from './../assets/reicoLogo.svg'
-import fe from './../assets/FE-logo.png'
-import pmd from './../assets/pmdlogo.png'
-import dora from "./../assets/dora/logo.svg"
-import simpoo from "./../assets/simpoo/logo.svg"
-import paymable from "./../assets/paymable/logo.svg"
+import { FiGithub, FiExternalLink, FiArrowLeft, FiArrowRight } from 'react-icons/fi'
 import DefaultLayout from '../components/layout/DefaultLayout'
 
-function Projects() {
-  const projects = [
-    {
-      image: true,
-      src: paymable,
-      title: "Paymable",
-      desc: "A Virtual payment processor",
-      tech: ["figma", "Nextjs", "TypeScript", "TailwindCss", "Git"],
-      git: false,
-      external: true,
-      git_url: "https://github.com/Savics407/My-Portfolio",
-      link: "https://paymable.co",
-      live: true
-    },
-    {
-      image: true,
-      src: simpoo,
-      title: "SimpooBusiness",
-      desc: "An Inventory Management Tool",
-      tech: ["figma", "Laravel", "Javascript", "TailwindCss", "Git"],
-      git: false,
-      external: true,
-      git_url: "https://github.com/Savics407/My-Portfolio",
-      link: "https://simpoobusiness.com",
-      live: true
-    }, {
-      image: true,
-      src: dora,
-      title: "Dora",
-      desc: "A Delivery Automation Tool",
-      tech: ["figma", "ReactJs", "NextJs", "TypeScript", "TailwindCss", "Git"],
-      git: false,
-      external: true,
-      git_url: "https://github.com/Savics407/My-Portfolio",
-      link: "https://usedora.com",
-      live: true
+import paymable from './../assets/paymable/logo.svg'
+import simpoo   from './../assets/simpoo/logo.svg'
+import dora     from './../assets/dora/logo.svg'
+import reico    from './../assets/reicoLogo.svg'
+import fe       from './../assets/FE-logo.png'
+import pmd      from './../assets/pmdlogo.png'
 
-    },
-    {
-      image: true,
-      src: logo,
-      title: "Savics",
-      desc: "A Personal Website",
-      tech: ["ReactJs", "TailwindCss", "Git"],
-      git: true,
-      external: false,
-      git_url: "https://github.com/Savics407/My-Portfolio",
-      link: "/",
-      live: true
+/* ─── Data ─────────────────────────────────────────────────────────── */
+const PROJECTS = [
+  {
+    logo: simpoo,
+    title: 'Simpoo Business',
+    desc: 'Full-featured business management platform — POS, inventory, reporting, and role-based access.',
+    role: 'Lead Frontend Engineer',
+    company: 'Jiffypay',
+    tech: ['React', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Tailwind CSS', 'REST APIs'],
+    casestudy: null,
+    external: 'https://simpoobusiness.com',
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: dora,
+    title: 'Dora',
+    desc: 'Browser-based VoIP communication system with WebRTC, SIP protocol, and Electron desktop wrapper.',
+    role: 'Frontend Engineer',
+    company: 'Dora',
+    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io'],
+    casestudy: null,
+    external: 'https://usedora.com',
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: reico,
+    title: 'HxAfrica',
+    desc: 'Blockchain-powered real estate investment platform connecting African investors with property opportunities.',
+    role: 'Frontend Engineer',
+    company: 'HxAfrica',
+    tech: ['React', 'Tailwind CSS', 'Figma'],
+    casestudy: '/projects/hxafrica',
+    external: null,
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: paymable,
+    title: 'Paymable',
+    desc: 'Virtual payment processor platform with modern checkout flows and payment integration.',
+    role: 'Frontend Engineer',
+    company: 'Paymable',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
+    casestudy: null,
+    external: 'https://paymable.co',
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: null,
+    title: 'Africurve',
+    desc: 'WordPress site for a modelling agency — custom theme, Elementor, Rev Slider animations.',
+    role: 'WordPress Developer',
+    company: 'Africurve',
+    tech: ['WordPress', 'Elementor', 'RevSlider'],
+    casestudy: '/projects/africurve',
+    external: null,
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: fe,
+    title: 'Fabulous Edutainment',
+    desc: 'Talent management company website — vanilla HTML/CSS/JS with performance-first build.',
+    role: 'Frontend Developer',
+    company: 'Fabulous Edutainment',
+    tech: ['JavaScript', 'HTML', 'CSS3'],
+    casestudy: null,
+    external: 'https://fabulousedutainment.com/',
+    github: 'https://github.com/Savics407/Fabulous-Edutainment',
+    status: 'live',
+  },
+  {
+    logo: null,
+    title: 'ACIMT',
+    desc: 'African College of Information and Medical Technology — WordPress institution site.',
+    role: 'WordPress Developer',
+    company: 'ACIMT',
+    tech: ['WordPress', 'Elementor'],
+    casestudy: null,
+    external: 'https://acimt.org/',
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: pmd,
+    title: 'PmdAfrica',
+    desc: 'Non-Governmental Organisation site with donation flows and event management.',
+    role: 'WordPress Developer',
+    company: 'PmdAfrica',
+    tech: ['WordPress', 'Elementor'],
+    casestudy: null,
+    external: 'http://povertymustdie.africa/',
+    github: null,
+    status: 'live',
+  },
+  {
+    logo: null,
+    title: 'npm Packages',
+    desc: 'Published reusable npm packages including a Tailwind CSS prefixing utility used across multiple projects.',
+    role: 'Author',
+    company: 'Open Source',
+    tech: ['TypeScript', 'Rollup', 'npm'],
+    casestudy: null,
+    external: null,
+    github: 'https://github.com/Savics407',
+    status: 'live',
+  },
+]
 
-    },
-    {
-      image: false,
-      src: "",
-      title: "Africurve",
-      desc: "A Modeling Agency",
-      tech: ["Wordpress", "Elementor", "RevSlider"],
-      git: false,
-      external: false,
-      git_url: "",
-      link: "/projects/africurve",
-      live: true
+/* ─── Card ────────────────────────────────────────────────────────── */
+function ProjectCard({ project, index }) {
+  const linkHref = project.casestudy || project.external || project.github
 
-    },
-    {
-      image: true,
-      src: reico,
-      title: "HxAfrica",
-      desc: "Real Estate Company",
-      tech: ["Reactjs", "Figma", "TailwindCss", "Git"],
-      git: false,
-      external: false,
-      git_url: "",
-      link: "/projects/hxafrica",
-      live: true
+  const CardWrapper = ({ children }) =>
+    project.casestudy ? (
+      <Link to={project.casestudy} className="block h-full">{children}</Link>
+    ) : project.external ? (
+      <a href={project.external} target="_blank" rel="noopener noreferrer" className="block h-full">{children}</a>
+    ) : (
+      <div className="h-full">{children}</div>
+    )
 
-    },
-    {
-      image: true,
-      src: fe,
-      title: "Fe",
-      desc: "Talent Management company",
-      tech: ["JavaScript", "Html", "Css3"],
-      git: true,
-      external: true,
-      git_url: "https://github.com/Savics407/Fabulous-Edutainment",
-      link: "https://fabulousedutainment.com/",
-      live: true
-
-    },
-    {
-      image: false,
-      src: "fe",
-      title: "ACIMT",
-      desc: "African college of Information and Medical Technology",
-      tech: ["Wordpress", "Elementor"],
-      git: false,
-      external: true,
-      git_url: "",
-      link: "https://acimt.org/",
-      live: true
-
-    },
-    {
-      image: true,
-      src: pmd,
-      title: "PmdAfrica",
-      desc: "A Non-Governmental Organization",
-      tech: ["Wordpress", "Elementor"],
-      git: false,
-      external: true,
-      git_url: "",
-      link: "http://povertymustdie.africa/",
-      live: true
-
-    },
-    // {
-    //   image: false,
-    //   src: "",
-    //   title: "UFEDO",
-    //   desc: "An eCommerce Marketplace inspired to providing free stores to online vendors ",
-    //   tech: ["Wordpress"],
-    //   git: false,
-    //   external: true,
-    //   git_url: "",
-    //   link: "http://ufedo.povertymustdie.africa/",
-    //   live: true
-
-    // },
-    // {
-    //   image: true,
-    //   src: logo,
-    //   title: "Savics",
-    //   desc: "A music inspired web app ",
-    //   tech: ["JavaScript", "git", "Netlify"],
-    //   git: true,
-    //   external: true,
-    //   git_url: "https://github.com/Savics407/music-app",
-    //   link: "https://savics-music-app.netlify.com/",
-    //   live: true
-
-    // },
-    // {
-    //   image: false,
-    //   src: "",
-    //   title: "edo.mba",
-    //   desc: "A musician personal website ",
-    //   tech: ["JavaScript", "Html", "Css3"],
-    //   git: false,
-    //   external: true,
-    //   git_url: "",
-    //   link: "https://edomba.com/",
-    //   live: true
-
-    // },
-
-  ]
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
   return (
-    <DefaultLayout>
-      <div className='glow hidden md:flex lg:h-[500px] h-[400px] px-10 justify-center py-20 items-end   '>
-        <div className=" text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='text-intro font-josefin text-3xl lg:text-5xl mb-3'>Project Archive</motion.h1>
-          <motion.h1
-            initial={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            whileInView={{ opacity: 1 }}
-            className='text-gray-300'>Some selected projects I have worked on in the past</motion.h1>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.4, delay: (index % 3) * 0.06 }}
+      className="card hover-lift flex flex-col"
+      style={{ minHeight: '260px' }}
+    >
+      {/* Top */}
+      <div className="p-5 flex-1 flex flex-col">
+        {/* Logo or title text */}
+        <div className="flex items-start justify-between mb-4">
+          <div className="h-8 flex items-center">
+            {project.logo ? (
+              <img
+                src={project.logo}
+                alt={project.title}
+                className="h-full w-auto object-contain"
+                style={{ filter: 'brightness(0) invert(1)', maxWidth: '100px' }}
+                loading="lazy"
+              />
+            ) : (
+              <span className="text-fg font-bold text-lg tracking-tight">{project.title}</span>
+            )}
+          </div>
+          <span className="flex items-center gap-1.5 text-xs text-secondary">
+            <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+            Live
+          </span>
         </div>
 
-      </div>
-      <div className=' md:hidden h-[400px] flex px-10 items-end py-20 '>
-        <div className=" text-center">
-
-          <motion.h1
-            initial={{ opacity: 0, y: 30 }}
-            transition={{ duration: 0.5 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className='text-intro font-josefin text-3xl lg:text-5xl mb-3'>Project Archive</motion.h1>
-          <motion.h1
-            initial={{ opacity: 0 }}
-            transition={{ duration: 0.5 }}
-            whileInView={{ opacity: 1 }}
-            className='text-gray-300'>Some selected projects I have worked on in the past</motion.h1>
-
+        {/* Meta */}
+        <div className="mb-3">
+          <p className="text-accent text-xs font-medium">{project.role}</p>
+          <p className="text-muted text-xs">{project.company}</p>
         </div>
 
+        {/* Description */}
+        <p className="text-secondary text-sm leading-relaxed flex-1">{project.desc}</p>
       </div>
-      <div className='glow4'>
-        <div className='container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-center pb-36 px-5 md:px-10'>
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-              whileInView={{ opacity: 1, y: 0 }}
-              className={`bg-[#0a2e2f] flex flex-col items-center shadow-2xl p-5 rounded-xl transition ease-in-out duration-300 relative hover:-translate-y-2 ${projects.length % 3 !== 0 && projects.length - 1 === index && 'lg:col-start-2'}`}>
-              <div className='absolute left-5 top-5 rounded bg-border px-2 py-1 text-xs font-normal text-gray-400'>{project.live ? <h1 className='flex gap-1 items-center'><span className='w-2 h-2 rounded-full bg-intro'></span> Live</h1> : <h1 className='flex gap-2 items-center'>
-                <span className='w-2 h-2 rounded-full bg-gray-400'></span>
-                In development</h1>}</div>
-              {project.external ?
-                <a href={project.link} target='_blank'>
-                  {project.image ?
-                    <div
-                      className='py-10 w-44'>
-                      <img src={project.src} alt='logo name' className='w-full' />
-                    </div> : <div
-                      className='py-10'>
-                      <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>{project.title}</h1>
-                    </div>
-                  }
-                </a>
-                :
-                <Link to={project.link}>
-                  {project.image ?
-                    <div
-                      className='py-10 w-44'>
-                      <img src={project.src} alt='logo name' className='w-full' />
-                    </div> : <div
-                      className='py-10'>
-                      <h1 className='text-white text-4xl font-josefin font-bold uppercase py-4'>{project.title}</h1>
-                    </div>
-                  }
-                </Link>}
 
-              <div className='text-gray-300 w-full font-josefin px-4 text-center'>
-                <h1>{project.desc}</h1>
-              </div>
-              <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-center flex-wrap gap-3'>
-                {project.tech.map((tech, index) => (
-                  <h1 className=' px-4 bg-border rounded py-1'>{tech}</h1>
-
-                ))}
-              </div>
-              <div className='text-gray-300 flex w-full py-3 text-xl justify-center items-center'>
-                {project.git && <a target="_blank" href={project.git_url}>
-                  <div className='mr-4'>
-                    <FiGithub />
-                  </div>
-                </a>}
-
-                {project.external ? <a href={project.link} target='_blank'>
-                  <div className=''>
-                    <GoLinkExternal />
-                  </div>
-                </a> : <Link to={project.link}>
-                  <div className=''>
-                    <GoLinkExternal />
-                  </div>
-                </Link>}
-
-              </div>
-            </motion.div>
+      {/* Bottom — tags + links */}
+      <div
+        className="px-5 py-4 flex items-end justify-between gap-3"
+        style={{ borderTop: '1px solid #27272a' }}
+      >
+        <div className="flex flex-wrap gap-1.5">
+          {project.tech.slice(0, 3).map((t) => (
+            <span key={t} className="skill-tag">{t}</span>
           ))}
-
+          {project.tech.length > 3 && (
+            <span className="skill-tag">+{project.tech.length - 3}</span>
+          )}
         </div>
-      </div >
 
-    </DefaultLayout>
+        <div className="flex items-center gap-2 flex-shrink-0">
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition-colors"
+              aria-label={`${project.title} on GitHub`}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <FiGithub size={15} />
+            </a>
+          )}
+          {project.casestudy ? (
+            <Link
+              to={project.casestudy}
+              className="text-muted hover:text-accent transition-colors"
+              aria-label={`${project.title} case study`}
+            >
+              <FiArrowRight size={15} />
+            </Link>
+          ) : project.external ? (
+            <a
+              href={project.external}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-accent transition-colors"
+              aria-label={`${project.title} live site`}
+            >
+              <FiExternalLink size={15} />
+            </a>
+          ) : null}
+        </div>
+      </div>
+    </motion.div>
   )
 }
 
-export default Projects
+/* ─── Page ─────────────────────────────────────────────────────────── */
+export default function Projects() {
+  useEffect(() => { window.scrollTo(0, 0) }, [])
+
+  return (
+    <DefaultLayout>
+      {/* Hero banner */}
+      <div
+        className="pt-28 pb-14 px-5 md:px-10"
+        style={{ borderBottom: '1px solid #27272a' }}
+      >
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+          >
+            <Link
+              to="/"
+              className="inline-flex items-center gap-1.5 text-muted text-xs hover:text-accent transition-colors mb-8"
+            >
+              <FiArrowLeft size={12} /> Back to home
+            </Link>
+            <p className="section-label mb-3">Archive</p>
+            <h1 className="section-title mb-4">Everything I've shipped</h1>
+            <p className="section-subtitle text-secondary max-w-xl">
+              A complete list of projects — production systems, client sites, open source packages,
+              and freelance work. Some have case studies, all were shipped.
+            </p>
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Grid */}
+      <div className="px-5 md:px-10 py-14">
+        <div className="container mx-auto">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {PROJECTS.map((project, i) => (
+              <ProjectCard key={project.title} project={project} index={i} />
+            ))}
+          </div>
+        </div>
+      </div>
+    </DefaultLayout>
+  )
+}

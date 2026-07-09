@@ -1,31 +1,25 @@
-
-import AnimCursor from './components/AnimCursor'
-import Home from './Home'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
+import Home from './Home'
+import Projects from './projects'
 import Africurve from './projects/Africurve'
 import Reico from './projects/HxAfrica'
-import Projects from './projects'
-
+import AnimCursor from './components/AnimCursor'
 
 function App() {
-
   return (
-    <div className="">
-      <Router>
-
-        <AnimCursor />
-        <AnimatePresence exitBeforeEnter >
-          <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/projects" element={<Projects />} />
-            <Route exact path="/projects/africurve" element={<Africurve />} />
-            <Route exact path="/projects/hxafrica" element={<Reico />} />
-          </Routes>
-        </AnimatePresence>
-      </Router>
-
-    </div>
+    <Router>
+      <AnimCursor />
+      <AnimatePresence mode="wait">
+        <Routes>
+          <Route path="/"                    element={<Home />} />
+          <Route path="/projects"            element={<Projects />} />
+          <Route path="/projects/africurve"  element={<Africurve />} />
+          <Route path="/projects/hxafrica"   element={<Reico />} />
+        </Routes>
+      </AnimatePresence>
+    </Router>
   )
 }
 
