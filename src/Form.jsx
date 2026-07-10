@@ -2,27 +2,28 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { useForm, ValidationError } from '@formspree/react'
 import { FiMail, FiGithub, FiLinkedin, FiSend, FiCheck } from 'react-icons/fi'
+import { EMAIL, GITHUB_URL, LINKEDIN_URL } from './data/narrative'
 
 const CONTACT_LINKS = [
   {
     icon: <FiMail size={16} />,
     label: 'Email',
-    value: 'savicstech@gmail.com',
-    href: 'mailto:savicstech@gmail.com',
+    value: EMAIL,
+    href: `mailto:${EMAIL}`,
     description: 'Fastest way to reach me',
   },
   {
     icon: <FiGithub size={16} />,
     label: 'GitHub',
     value: 'github.com/Savics407',
-    href: 'https://github.com/Savics407',
+    href: GITHUB_URL,
     description: 'See the code',
   },
   {
     icon: <FiLinkedin size={16} />,
     label: 'LinkedIn',
     value: 'Victor Adighibe',
-    href: 'https://www.linkedin.com/in/victor-adighibe-b4a89923a/',
+    href: LINKEDIN_URL,
     description: 'Professional profile',
   },
 ]
@@ -69,8 +70,7 @@ export default function Form() {
           >
             <p className="section-label mb-3">Contact</p>
             <h2 className="section-title mb-6">
-              Looking for someone who can<br />
-              <span className="text-accent">own it end to end?</span>
+              Looking for someone who can <span className="text-accent">own it end to end?</span>
             </h2>
             <p className="text-secondary text-sm leading-relaxed mb-8 max-w-md">
               Whether you're building a new product, scaling an existing one, or need

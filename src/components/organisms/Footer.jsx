@@ -1,11 +1,14 @@
 import React from 'react'
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiArrowUp } from 'react-icons/fi'
+import { FiGithub, FiLinkedin, FiMail, FiArrowUp } from 'react-icons/fi'
+import { GITHUB_URL, LINKEDIN_URL, X_URL, EMAIL } from '../../data/narrative'
+import savicsLogo from '../../assets/S-white logo.png'
+import { FaXTwitter } from 'react-icons/fa6'
 
 const SOCIAL = [
-  { icon: <FiGithub size={16} />, href: 'https://github.com/Savics407', label: 'GitHub' },
-  { icon: <FiLinkedin size={16} />, href: 'https://www.linkedin.com/in/victor-adighibe-b4a89923a/', label: 'LinkedIn' },
-  { icon: <FiTwitter size={16} />, href: 'https://twitter.com/_Savics', label: 'Twitter / X' },
-  { icon: <FiMail size={16} />, href: 'mailto:savicstech@gmail.com', label: 'Email' },
+  { icon: <FiGithub size={16} />, href: GITHUB_URL, label: 'GitHub' },
+  { icon: <FiLinkedin size={16} />, href: LINKEDIN_URL, label: 'LinkedIn' },
+  { icon: <FaXTwitter size={16} />, href: X_URL, label: 'Twitter / X' },
+  { icon: <FiMail size={16} />, href: `mailto:${EMAIL}`, label: 'Email' },
 ]
 
 const currentYear = new Date().getFullYear()
@@ -20,11 +23,11 @@ export default function Footer() {
 
           {/* Left — brand + copy */}
           <div className="flex items-center gap-3">
-            <div className="w-6 h-6 rounded bg-accent/10 border border-accent/20 flex items-center justify-center">
-              <span className="text-accent font-mono text-xs font-bold">V</span>
+            <div className="w-6 h-6 rounded bg-raised border border-border flex items-center justify-center p-1">
+              <img src={savicsLogo} alt="Savics mark" className="w-full h-full object-contain opacity-85" />
             </div>
             <p className="text-muted text-xs">
-              © {currentYear} Victor Adighibe. Built with React & TypeScript.
+              © {currentYear} <span className="text-fg font-medium">Victor Adighibe</span> <span className="font-mono">(Savics)</span>. 
             </p>
           </div>
 

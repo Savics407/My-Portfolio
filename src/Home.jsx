@@ -4,91 +4,23 @@ import { motion } from 'framer-motion'
 import { FiDownload, FiMail, FiGithub, FiLinkedin, FiExternalLink, FiArrowRight } from 'react-icons/fi'
 import DefaultLayout from './components/layout/DefaultLayout'
 import Stats from './components/organisms/Stats'
+import About from './components/organisms/About'
 import Experience from './components/organisms/Experience'
 import Skills from './components/organisms/Skills'
 import Principles from './components/organisms/Principles'
 import Testimonials from './Testimonials'
 import Form from './Form'
-
-// Project screenshots — using existing assets
-import doraImg from './assets/dora/dora.svg'
-import reicoImg from './assets/reico/body.svg'
-import simpooLogo from './assets/simpoo/logo.svg'
-
-/* ─── Data ────────────────────────────────────────────────────────── */
-const PROJECTS = [
-  {
-    id: 'simpoo',
-    title: 'Simpoo Business',
-    company: 'Jiffypay',
-    role: 'Lead Frontend Engineer',
-    tagline: 'Full-featured business management platform — POS, inventory, reporting, and role-based access — built from scratch.',
-    problem:
-      'Local businesses needed an all-in-one platform to manage inventory, run point-of-sale transactions, generate reports, and manage staff permissions — without stitching together five separate tools.',
-    impact: 'Owned the entire frontend architecture and shipped all core modules. [ Placeholder: Add production metric — e.g. active merchants, transaction volume ]',
-    tech: ['React', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Tailwind CSS', 'REST APIs'],
-    casestudyLink: null,
-    externalLink: null,
-    githubLink: null,
-    image: simpooLogo,
-    featured: true,
-  },
-  {
-    id: 'dora',
-    title: 'Dora VoIP System',
-    company: 'Dora',
-    role: 'Frontend Engineer',
-    tagline: 'Browser-based communication system with real-time WebRTC, SIP protocol, and Electron desktop wrapper.',
-    problem:
-      'A delivery management company needed a fully integrated, browser-based VoIP system — not a third-party widget, but a custom-built solution deeply integrated into their workflow.',
-    impact: 'Built the entire communication layer including SIP.js integration, WebRTC signalling, and SDK architecture. [ Placeholder: Call volume / user count ]',
-    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io', 'Janus', 'Asterisk'],
-    casestudyLink: null,
-    externalLink: 'https://usedora.com',
-    githubLink: null,
-    image: doraImg,
-    featured: true,
-  },
-  {
-    id: 'hxafrica',
-    title: 'HxAfrica',
-    company: 'HxAfrica',
-    role: 'Frontend Engineer',
-    tagline: 'Blockchain-powered real estate investment platform connecting African investors with property opportunities.',
-    problem:
-      'Real estate investment in Africa was opaque and inaccessible. HxAfrica needed a secure, trustworthy frontend that could communicate complex blockchain concepts to non-technical investors.',
-    impact: 'Delivered complete frontend from design to production. Case study available.',
-    tech: ['React', 'Tailwind CSS', 'Figma'],
-    casestudyLink: '/projects/hxafrica',
-    externalLink: null,
-    githubLink: null,
-    image: reicoImg,
-    featured: true,
-  },
-  {
-    id: 'sdk',
-    title: 'Reusable SDK & npm Packages',
-    company: 'Internal / Open Source',
-    role: 'Author',
-    tagline: 'Production npm packages including a Tailwind CSS prefixing utility, consumed across multiple projects.',
-    problem:
-      'Sharing Tailwind-based component libraries across projects caused class name collisions. Existing solutions were too heavy or required configuration sprawl.',
-    impact: 'Published standalone npm packages with full TypeScript types, rollup bundling, and documentation.',
-    tech: ['TypeScript', 'Rollup', 'npm', 'Tailwind CSS'],
-    casestudyLink: null,
-    externalLink: null,
-    githubLink: 'https://github.com/Savics407',
-    image: null,
-    featured: false,
-  },
-]
+import EngineeringChallenges from './components/organisms/EngineeringChallenges'
+import { FEATURED_PROJECTS } from './data/projects'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, EMAIL, ROLE_TITLE, HERO_TAGLINE, YEARS_EXPERIENCE } from './data/narrative'
 
 /* ─── Hero Terminal Lines ─────────────────────────────────────────── */
 const TERMINAL_LINES = [
   { indent: 0, content: <><span style={{color:'#7c3aed'}}>const</span> <span style={{color:'#4ade80'}}>engineer</span> = {'{'}</> },
   { indent: 1, content: <><span style={{color:'#f59e0b'}}>name</span>: <span style={{color:'#86efac'}}>"Victor Adighibe"</span>,</> },
-  { indent: 1, content: <><span style={{color:'#f59e0b'}}>title</span>: <span style={{color:'#86efac'}}>"Senior Frontend Engineer"</span>,</> },
-  { indent: 1, content: <><span style={{color:'#f59e0b'}}>yearsExp</span>: <span style={{color:'#fb923c'}}>7</span>,</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>handle</span>: <span style={{color:'#86efac'}}>"Savics"</span>, <span style={{color:'#52525b'}}>// engineering identity</span></> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>title</span>: <span style={{color:'#86efac'}}>"{ROLE_TITLE}"</span>,</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>yearsExp</span>: <span style={{color:'#fb923c'}}>{YEARS_EXPERIENCE}</span>,</> },
   { indent: 1, content: <><span style={{color:'#f59e0b'}}>stack</span>: [<span style={{color:'#86efac'}}>"React"</span>, <span style={{color:'#86efac'}}>"TypeScript"</span>, <span style={{color:'#86efac'}}>"Node.js"</span>],</> },
   { indent: 1, content: <><span style={{color:'#f59e0b'}}>available</span>: <span style={{color:'#4ade80'}}>true</span>,  <span style={{color:'#3f3f46'}}>// open to opportunities</span></> },
   { indent: 0, content: <>{'}'}</> },
@@ -104,10 +36,10 @@ function ProjectCard({ project, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.05 }}
-      className={`grid md:grid-cols-2 gap-10 md:gap-16 items-center ${!isEven ? 'md:[direction:rtl]' : ''}`}
+      className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
     >
       {/* Image / Placeholder */}
-      <div className={`${!isEven ? 'md:[direction:ltr]' : ''}`}>
+      <div className={!isEven ? 'order-1 md:order-2' : 'order-1'}>
         {project.image ? (
           <div
             className="project-card-img rounded-xl overflow-hidden"
@@ -147,14 +79,15 @@ function ProjectCard({ project, index }) {
       </div>
 
       {/* Content */}
-      <div className={`${!isEven ? 'md:[direction:ltr]' : ''}`}>
+      <div className={!isEven ? 'order-2 md:order-1' : 'order-2'}>
         <div className="flex items-center gap-2 mb-3">
           <span className="text-accent text-xs font-mono">{String(index + 1).padStart(2, '0')}</span>
           <span className="text-muted text-xs">·</span>
-          <span className="text-muted text-xs">{project.company}</span>
-          {project.featured && (
+          {project.flagship ? (
+            <span className="badge badge-green ml-1 font-semibold tracking-wide">★ Flagship Engineering Project</span>
+          ) : project.featured ? (
             <span className="badge badge-green ml-1">Featured</span>
-          )}
+          ) : null}
         </div>
 
         <h3 className="text-fg font-bold text-2xl mb-1 leading-tight">{project.title}</h3>
@@ -186,14 +119,14 @@ function ProjectCard({ project, index }) {
 
         {/* Links */}
         <div className="flex flex-wrap gap-3">
-          {project.casestudyLink && (
-            <Link to={project.casestudyLink} className="btn-primary text-sm py-2 px-4">
+          {project.casestudyRoute && (
+            <Link to={project.casestudyRoute} className="btn-primary text-sm py-2 px-4">
               View case study <FiArrowRight size={13} />
             </Link>
           )}
-          {project.externalLink && (
+          {project.externalUrl && (
             <a
-              href={project.externalLink}
+              href={project.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-sm py-2 px-4"
@@ -201,9 +134,9 @@ function ProjectCard({ project, index }) {
               <FiExternalLink size={13} /> Live site
             </a>
           )}
-          {project.githubLink && (
+          {project.githubUrl && (
             <a
-              href={project.githubLink}
+              href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="btn-ghost text-sm py-2 px-4"
@@ -248,11 +181,17 @@ export default function Home() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.4 }}
-              className="mb-8"
+              className="mb-8 flex flex-wrap items-center gap-2.5"
             >
               <span className="badge badge-green">
                 <span className="badge-dot" />
                 Available for new opportunities
+              </span>
+              <span
+                className="text-secondary text-xs font-mono border border-border/80 px-3 py-1 rounded-full"
+                style={{ background: 'rgba(24, 24, 27, 0.7)' }}
+              >
+                Victor Adighibe 
               </span>
             </motion.div>
 
@@ -268,8 +207,8 @@ export default function Home() {
                 fontFamily: 'Inter, sans-serif',
               }}
             >
-              I build products<br />
-              <span className="text-accent">people love using.</span>
+              I engineer products,<br />
+              <span className="text-accent">platforms & real-time systems.</span>
             </motion.h1>
 
             {/* Sub copy */}
@@ -279,9 +218,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-secondary text-lg leading-relaxed mb-10 max-w-lg"
             >
-              Senior Software Engineer with 7+ years shipping production software.
-              React, TypeScript, Node.js. From zero-to-one startups to systems serving
-              millions of API requests.
+              {HERO_TAGLINE}
             </motion.p>
 
             {/* CTAs */}
@@ -291,31 +228,12 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="flex flex-wrap gap-3 mb-10"
             >
-              <a href="/resume.pdf" download className="btn-primary">
+              <a href="#work" className="btn-primary">
+                Explore Selected Work
+              </a>
+              <a href={RESUME_URL} download className="btn-ghost">
                 <FiDownload size={15} />
-                Download Resume
-              </a>
-              <a href="mailto:savicstech@gmail.com" className="btn-ghost">
-                <FiMail size={15} />
-                savicstech@gmail.com
-              </a>
-              <a
-                href="https://github.com/Savics407"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-                aria-label="GitHub"
-              >
-                <FiGithub size={15} />
-              </a>
-              <a
-                href="https://www.linkedin.com/in/victor-adighibe-b4a89923a/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-ghost"
-                aria-label="LinkedIn"
-              >
-                <FiLinkedin size={15} />
+                View Resume
               </a>
             </motion.div>
 
@@ -353,6 +271,9 @@ export default function Home() {
       {/* ─── Stats ─────────────────────────────────────────── */}
       <Stats />
 
+      {/* ─── About ──────────────────────────────────────────── */}
+      <About />
+
       {/* ─── Selected Work ─────────────────────────────────── */}
       <section id="work" className="section">
         <div className="container mx-auto">
@@ -372,7 +293,7 @@ export default function Home() {
           </motion.div>
 
           <div className="space-y-24">
-            {PROJECTS.map((project, i) => (
+            {FEATURED_PROJECTS.map((project, i) => (
               <ProjectCard key={project.id} project={project} index={i} />
             ))}
           </div>
@@ -390,6 +311,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+
+      {/* ─── Engineering Challenges Solved ─────────────────── */}
+      <EngineeringChallenges />
 
       {/* ─── Skills ─────────────────────────────────────────── */}
       <Skills />

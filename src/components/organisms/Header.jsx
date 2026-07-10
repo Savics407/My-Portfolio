@@ -2,11 +2,13 @@ import React, { useState, useEffect, useCallback } from 'react'
 import { Link } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiMenu, FiX } from 'react-icons/fi'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL } from '../../data/narrative'
+import savicsLogo from '../../assets/S-white logo.png'
 
 const NAV_LINKS = [
+  { label: 'About',    href: '#about' },
   { label: 'Work',     href: '#work' },
   { label: 'Skills',   href: '#skills' },
-  { label: 'About',    href: '#about' },
   { label: 'Contact',  href: '#contact' },
 ]
 
@@ -18,7 +20,7 @@ export default function Header() {
   const handleScroll = useCallback(() => {
     setScrolled(window.scrollY > 40)
 
-    const sections = ['work', 'skills', 'about', 'contact']
+    const sections = ['about', 'work', 'skills', 'contact']
     let current = ''
     for (const id of sections) {
       const el = document.getElementById(id)
@@ -57,13 +59,18 @@ export default function Header() {
         <div className="container mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
 
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group" aria-label="Victor Adighibe home">
-            <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center group-hover:bg-accent/20 transition-colors">
-              <span className="text-accent font-mono text-sm font-bold leading-none">V</span>
+          <Link to="/" className="flex items-center gap-2.5 group" aria-label="Victor Adighibe home">
+            <div className="w-7 h-7 rounded-md bg-raised border border-border flex items-center justify-center p-1.5 group-hover:border-accent/40 transition-colors">
+              <img src={savicsLogo} alt="Savics mark" className="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
             </div>
-            <span className="text-fg font-semibold text-sm tracking-tight hidden sm:block">
-              Victor Adighibe
-            </span>
+            <div className="flex items-baseline gap-1.5 hidden sm:flex">
+              <span className="text-fg font-semibold text-sm tracking-tight">
+                Victor Adighibe
+              </span>
+              <span className="text-muted text-xs font-mono">
+                (Savics)
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Centre Links */}
@@ -91,7 +98,7 @@ export default function Header() {
               Available
             </span>
             <a
-              href="/resume.pdf"
+              href={RESUME_URL}
               download
               className="btn-ghost text-xs py-1.5 px-3"
               aria-label="Download resume"
@@ -125,11 +132,14 @@ export default function Header() {
           >
             {/* Mobile nav header */}
             <div className="h-16 flex items-center justify-between px-5 border-b border-stroke/40">
-              <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-accent/10 border border-accent/20 flex items-center justify-center">
-                  <span className="text-accent font-mono text-sm font-bold">V</span>
+              <Link to="/" onClick={() => setMenuOpen(false)} className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-md bg-raised border border-border flex items-center justify-center p-1.5">
+                  <img src={savicsLogo} alt="Savics mark" className="w-full h-full object-contain opacity-85" />
                 </div>
-                <span className="text-fg font-semibold text-sm">Victor Adighibe</span>
+                <div className="flex items-baseline gap-1.5">
+                  <span className="text-fg font-semibold text-sm">Victor Adighibe</span>
+                  <span className="text-muted text-xs font-mono">(Savics)</span>
+                </div>
               </Link>
               <button
                 onClick={() => setMenuOpen(false)}
@@ -160,17 +170,17 @@ export default function Header() {
             {/* Mobile footer links */}
             <div className="px-8 py-10 border-t border-stroke/40">
               <div className="flex gap-4 mb-6">
-                <a href="https://github.com/Savics407" target="_blank" rel="noopener noreferrer"
+                <a href={GITHUB_URL} target="_blank" rel="noopener noreferrer"
                   className="btn-ghost text-sm py-2 px-4">
                   <FiGithub size={15} /> GitHub
                 </a>
-                <a href="https://www.linkedin.com/in/victor-adighibe-b4a89923a/" target="_blank" rel="noopener noreferrer"
+                <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer"
                   className="btn-ghost text-sm py-2 px-4">
                   <FiLinkedin size={15} /> LinkedIn
                 </a>
               </div>
               <a
-                href="/resume.pdf"
+                href={RESUME_URL}
                 download
                 className="btn-primary w-full justify-center"
               >

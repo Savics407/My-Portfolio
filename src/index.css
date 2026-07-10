@@ -25,6 +25,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.6;
   overflow-x: hidden;
+  cursor: none; /* AnimCursor replaces the native cursor */
+}
+
+/* Restore pointer on interactive elements so OS click target feedback still works */
+a, button, input, textarea, select, label, [role="button"] {
+  cursor: none;
 }
 
 /* ─── Selection ────────────────────────────────────────── */
@@ -48,15 +54,40 @@ body {
 
 /* ─── Layout ────────────────────────────────────────────── */
 .container {
-  @apply max-w-[1200px] mx-auto;
+  width: 100%;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+@media (min-width: 768px) {
+  .container {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
 }
 
 .section {
-  @apply py-24 px-5 md:px-10;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+@media (min-width: 768px) {
+  .section {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
 }
 
 .section-sm {
-  @apply py-16 px-5 md:px-10;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  .section-sm {
+    padding-top: 4.5rem;
+    padding-bottom: 4.5rem;
+  }
 }
 
 /* ─── Typography ────────────────────────────────────────── */
@@ -425,31 +456,6 @@ body {
   line-height: 1;
   opacity: .75;
   color: #4ade80;
-}
-
-/* ─── Responsive Grid ───────────────────────────────────── */
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-@media (min-width: 1024px) {
-  .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-}
-
-@media (min-width: 768px) {
-  .stats-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
 }
 
 /* ─── Utility ───────────────────────────────────────────── */

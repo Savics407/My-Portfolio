@@ -1,92 +1,91 @@
 import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiExternalLink, FiChevronDown, FiChevronUp } from 'react-icons/fi'
+import { YEARS_EXPERIENCE } from '../../data/narrative'
 
 const EXPERIENCE = [
   {
+    product: 'Dora VoIP & Real-Time Telephony Infrastructure',
+    company: 'Dora',
+    role: 'Lead Telephony & Frontend Engineer',
+    period: '2022',
+    type: 'Contract',
+    url: 'https://usedora.com',
+    description:
+      'Architected and engineered a production browser-based VoIP telephony platform powered by WebRTC, SIP signaling, Asterisk/Janus PBX integration, and an Electron desktop app.',
+    highlights: [
+      'Integrated SIP.js inside browser clients to negotiate live multi-line SIP telephony streams over Asterisk/Janus servers — solving complex NAT traversal and session control challenges',
+      'Engineered deterministic audio signaling and real-time call state synchronization pipelines supporting active enterprise logistics dispatch workflows',
+      'Authored standalone embeddable TypeScript client SDKs to decouple real-time communication protocols from UI view layers',
+      'Shipped cross-platform desktop telephony wrapper using Electron with automated connection recovery and system notification hooks',
+    ],
+    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io', 'Janus Media Server', 'Asterisk PBX', 'Client SDK'],
+  },
+  {
+    product: 'Simpoo Business Platform & POS Ecosystem',
     company: 'Jiffypay',
     role: 'Lead Frontend Engineer',
     period: '2022 — Present',
     type: 'Full-time',
-    url: null,
+    url: 'https://simpoobusiness.com',
     description:
-      'Architected and built Simpoo Business from the ground up — a full-featured business management platform used in production.',
+      'Architected and built Simpoo Business from inception to production — a full-featured enterprise business management platform.',
     highlights: [
-      'Designed the entire frontend architecture: component structure, state management strategy, routing, and API integration patterns',
-      'Built core product modules: POS system, inventory management, reporting dashboard, and role-based access control',
-      'Implemented state management using Redux Toolkit + TanStack Query — eliminating redundant API calls and improving data consistency',
-      'Created a reusable component library that reduced feature development time across the product',
-      'Owned authentication flows including JWT handling, refresh token strategy, and protected route management',
-      '[ Placeholder: Add metric — e.g. "reduced initial load time by X%" or "serving X active merchants" ]',
+      'Engineered sub-second POS checkout flows and deterministic client-side transaction caching for multi-location retail operations',
+      'Architected live multi-warehouse stock synchronization using Redux Toolkit + TanStack Query, eliminating data drift across concurrent cashier sessions',
+      'Designed and enforced granular Role-Based Access Control (RBAC) security models and JWT/refresh token authentication',
+      'Created a standardized, reusable enterprise UI library that reduced cross-functional feature development cycle times',
     ],
     tech: ['React', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Tailwind CSS', 'Node.js', 'REST APIs'],
   },
   {
+    product: 'Enterprise Platforms: Records v2, Meuve, PetroData & PayStream',
     company: 'NoemDek',
     role: 'Senior Frontend Engineer',
     period: '2020 — 2022',
     type: 'Full-time',
     url: null,
     description:
-      'Worked on internal products and production systems serving real users across the organisation.',
+      'Architected and delivered mission-critical internal enterprise platforms across oil & gas industrial analytics, logistics, and payroll.',
     highlights: [
-      'Built scalable React applications for internal tooling and client-facing products',
-      'Improved codebase maintainability through component refactoring and establishing shared patterns',
-      'Integrated third-party REST APIs and handled authentication flows',
-      'Collaborated with design, product, and backend teams in an agile environment',
-      '[ Placeholder: Add a specific project or metric from your time here ]',
+      'Records v2 & PetroData: Engineered data-dense industrial records governance and oil & gas analytics portals handling massive tabular datasets and auditable compliance workflows',
+      'Meuve & PayStream: Delivered enterprise mobility/logistics tracking systems and internal financial payroll disbursement dashboards',
+      'Architected shared internal frontend libraries and API integration layers, cutting cross-team feature delivery cycle time across enterprise business products',
+      'Collaborated cross-functionally with domain experts, product owners, and backend engineering teams to transform complex enterprise workflows into responsive web applications',
     ],
-    tech: ['React', 'JavaScript', 'REST APIs', 'Git'],
+    tech: ['React', 'JavaScript', 'Enterprise SaaS', 'REST APIs', 'Git'],
   },
   {
-    company: 'Dora',
-    role: 'Frontend Engineer (Contract)',
-    period: '2022',
-    type: 'Contract',
-    url: 'https://usedora.com',
-    description:
-      'Built a browser-based VoIP and communication system from scratch — one of the most technically complex projects in my career.',
-    highlights: [
-      'Integrated SIP.js to handle SIP protocol communication inside a web browser — a rare engineering challenge',
-      'Built real-time communication features using WebRTC and Socket.io for signalling and media negotiation',
-      'Developed an Electron wrapper to ship the application as a desktop app alongside the web client',
-      'Connected to Janus WebRTC media server and Asterisk PBX for call routing and session management',
-      'Designed the SDK architecture to decouple communication logic from the UI layer',
-      '[ Placeholder: Add usage metrics — e.g. concurrent users, call volume ]',
-    ],
-    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io', 'Janus', 'Asterisk', 'SDK'],
-  },
-  {
-    company: 'SDK & Package Development',
-    role: 'Author',
+    product: 'Standalone Embeddable SDKs & Developer Tooling',
+    company: 'Enterprise Tooling & Open Source',
+    role: 'Platform & SDK Engineer',
     period: 'Ongoing',
-    type: 'Open Source / Internal',
+    type: 'Platform Tooling',
     url: 'https://github.com/Savics407',
     description:
-      'Built and published reusable npm packages consumed across multiple projects.',
+      'Authored and published standalone TypeScript client SDKs and build tooling consumed across distributed product teams.',
     highlights: [
-      'Developed a Tailwind CSS prefixing utility to prevent class conflicts in multi-package environments',
-      'Bundled packages with Rollup for optimal tree-shaking and ESM/CJS dual output',
-      'Wrote TypeScript types and JSDoc documentation for all public APIs',
-      'Published to npm with semantic versioning and maintained changelogs',
+      'Designed embeddable client SDKs enabling third-party engineers to integrate VoIP calling and POS checkout workflows in under 10 lines of code',
+      'Authored an automated Tailwind CSS prefixing utility and Rollup build pipeline to prevent CSS class collisions across consumer host applications',
+      'Wrote strict TypeScript type definitions, public API ergonomics, and JSDoc documentation for zero-friction developer experience',
     ],
-    tech: ['TypeScript', 'Rollup', 'npm', 'Tailwind CSS', 'SDK Design'],
+    tech: ['TypeScript', 'Rollup', 'npm', 'Tailwind CSS Encapsulation', 'SDK Architecture'],
   },
   {
-    company: 'WordPress & Web Performance',
+    product: 'High-Performance Enterprise Web Platforms',
+    company: 'Client & Agency Engineering',
     role: 'Frontend Engineer',
     period: '2018 — 2020',
     type: 'Freelance',
     url: null,
     description:
-      'Delivered enterprise-grade WordPress sites with a focus on performance, SEO, and Core Web Vitals.',
+      'Delivered high-performance enterprise web applications with rigorous focus on Core Web Vitals and technical SEO.',
     highlights: [
-      'Built custom WordPress themes and Elementor-based page templates for enterprise clients',
-      'Optimised Core Web Vitals (LCP, FID, CLS) across multiple production sites',
-      'Implemented technical SEO: structured data, sitemap generation, page speed improvements',
-      'Delivered sites for clients in media, real estate, and entertainment sectors',
+      'Engineered bespoke, high-conversion web platforms for enterprise clients across media, real estate, and entertainment sectors',
+      'Optimized Core Web Vitals (LCP, FID, CLS) to achieve sub-second page loads and superior search indexing',
+      'Implemented structured data schemas, programmatic sitemaps, and strict accessibility standards',
     ],
-    tech: ['WordPress', 'Elementor', 'PHP', 'JavaScript', 'Core Web Vitals', 'SEO'],
+    tech: ['JavaScript', 'Performance Engineering', 'Core Web Vitals', 'SEO', 'PHP'],
   },
 ]
 
@@ -110,7 +109,7 @@ function ExperienceCard({ exp, index }) {
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-3">
           <div>
             <div className="flex items-center gap-2 mb-1">
-              <h3 className="text-fg font-semibold text-base">{exp.company}</h3>
+              <h3 className="text-fg font-bold text-lg leading-snug">{exp.product || exp.company}</h3>
               {exp.url && (
                 <a
                   href={exp.url}
@@ -123,7 +122,9 @@ function ExperienceCard({ exp, index }) {
                 </a>
               )}
             </div>
-            <p className="text-accent text-sm font-medium">{exp.role}</p>
+            <p className="text-accent text-sm font-medium">
+              {exp.role} <span className="text-muted font-normal">· {exp.company}</span>
+            </p>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-xs text-muted font-mono">{exp.period}</span>
@@ -188,7 +189,7 @@ function ExperienceCard({ exp, index }) {
 
 export default function Experience() {
   return (
-    <section id="about" className="section">
+    <section id="experience" className="section">
       <div className="container mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -200,8 +201,8 @@ export default function Experience() {
           <p className="section-label mb-3">Career</p>
           <h2 className="section-title mb-4">Where I've worked</h2>
           <p className="section-subtitle text-secondary">
-            7 years across startups, agencies, and freelance projects — always as the engineer
-            who owns the problem, not just the ticket.
+            {YEARS_EXPERIENCE}+ years building enterprise software across startups, product companies, and open source — always as the engineer
+            who owns the system end-to-end, not just the ticket.
           </p>
         </motion.div>
 

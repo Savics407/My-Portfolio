@@ -72,28 +72,21 @@ function HxAfrica() {
 
     return (
         <CasestudyLayout title={"HxAfrica"} projectImages={projectImages} technologies={tools} external={"https://hxafrica.com"}>
-            <p>
-                <span className='font-josefin text-intro'> Introduction:</span>
-                <br />
-                HxAfrica is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. The platform was designed and developed with a focus on user experience, and leverages the latest web technologies, including Reactjs, TailwindCss, Figma, Git, and RESTful APIs.
-                <br />
-                <br />
-                One of the biggest challenges in developing the HxAfrica platform was to create a user-friendly interface that would make it easy for users to navigate the platform and access the information they need. Additionally, the platform needed to be optimized for speed and performance, while also being secure and reliable. The platform was also required to seamlessly integrate with the backend services provided by the RESTful APIs.
-                <br />
-                <br />
-
-                To meet these challenges, I leveraged the latest web technologies, including Reactjs, TailwindCss, Figma, and Git, to create a high-performance and user-friendly real estate investment platform. We used Figma to design a clean and modern interface that was easy to navigate, and I utilized Reactjs and TailwindCss to ensure that the platform was both fast and responsive. Additionally, I consumed the RESTful APIs provided by the backend developer using POSTMAN, which allowed us to seamlessly integrate the frontend and backend services.
-                <br />
-                <br />
-
-                <span className='font-josefin text-intro'> Design and Development:</span>
-                <br />
-
-                The HxAfrica platform was designed to be user-friendly and easy to navigate, with a clean and modern interface. We used Figma to create a visual design that was both aesthetically pleasing and functional, and I leveraged the power of Reactjs and TailwindCss to ensure that the platform was fast and responsive. I also utilized Git for version control, which allowed me to easily manage and track changes to the platform as it was developed. The platform was integrated with the backend services using the RESTful APIs provided by the backend developer, ensuring seamless communication between the frontend and backend.
-                <br />
-                <br />
-
-                The HxAfrica real estate investment platform is a great example of how the latest web technologies can be leveraged to create a user-friendly and high-performing platform. By focusing on design, performance, integration, and user experience, we were able to create a platform that not only looks great, but also delivers results. The seamless integration of the frontend and backend services using RESTful APIs has been a key factor in the success of the platform.</p>
+            <div className="space-y-5">
+                <div>
+                    <h2 className="text-fg font-semibold text-base mb-2">Introduction</h2>
+                    <p>HxAfrica is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. The platform was designed and developed with a focus on user experience, and leverages the latest web technologies, including React, Tailwind CSS, Figma, Git, and RESTful APIs.</p>
+                </div>
+                <div>
+                    <h2 className="text-fg font-semibold text-base mb-2">The Challenge</h2>
+                    <p>One of the biggest challenges in developing HxAfrica was creating a user-friendly interface that made it easy for users to navigate and access information. The platform needed to be optimized for speed and performance while also being secure and reliable — and seamlessly integrated with the backend RESTful APIs.</p>
+                </div>
+                <div>
+                    <h2 className="text-fg font-semibold text-base mb-2">Design &amp; Development</h2>
+                    <p>I leveraged React and Tailwind CSS to build a high-performance, responsive platform. Figma was used for the design system, and Git for version control. The backend integration was handled via RESTful APIs consumed using Postman for thorough testing before integration.</p>
+                    <p className="mt-3">The HxAfrica platform is a strong example of how modern web technologies can be used to deliver a high-performing, visually polished product. By focusing on design, performance, and user experience, we shipped a platform that looks great and delivers real results.</p>
+                </div>
+            </div>
         </CasestudyLayout>
     )
 }

@@ -1,24 +1,71 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DefaultLayout from './DefaultLayout'
-import Slider from 'react-slick'
-import 'slick-carousel/slick/slick.css'
-import 'slick-carousel/slick/slick-theme.css'
-import { motion } from 'framer-motion'
-import { FiExternalLink } from 'react-icons/fi'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiExternalLink, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 import Form from '../../Form'
 
-const sliderSettings = {
-  dots: true,
-  infinite: true,
-  speed: 1000,
-  slidesToShow: 1,
-  slidesToScroll: 1,
-  lazyLoad: true,
-  autoplay: true,
-  responsive: [{ breakpoint: 800, settings: { arrows: false } }],
+function CaseStudyCarousel({ images = [] }) {
+  const [current, setCurrent] = useState(0)
+  if (!images.length) return null
+
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
+
+  return (
+    <div className="relative max-w-5xl mx-auto">
+      <div className="overflow-hidden rounded-xl bg-raised border border-border relative aspect-[16/10] flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            src={images[current].src}
+            alt={images[current].alt || `Screenshot ${current + 1}`}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="w-full h-full object-contain"
+          />
+        </AnimatePresence>
+
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              aria-label="Previous image"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg/80 border border-border flex items-center justify-center text-fg hover:bg-accent hover:text-bg transition-colors"
+            >
+              <FiChevronLeft size={20} />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next image"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg/80 border border-border flex items-center justify-center text-fg hover:bg-accent hover:text-bg transition-colors"
+            >
+              <FiChevronRight size={20} />
+            </button>
+          </>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                current === idx ? 'w-8 bg-accent' : 'w-2 bg-border hover:bg-muted'
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
 }
 
-function CasestudyLayout({ children, title, projectImages, technologies, external }) {
+function CasestudyLayout({ children, title, projectImages = [], technologies = [], external }) {
   return (
     <DefaultLayout>
       {/* Hero banner */}
@@ -52,24 +99,13 @@ function CasestudyLayout({ children, title, projectImages, technologies, externa
       {/* Image carousel */}
       <div className="px-5 md:px-10 py-12">
         <div className="container mx-auto">
-          <Slider {...sliderSettings}>
-            {projectImages.map((item) => (
-              <div key={item.id} className="px-2 md:px-4">
-                <img
-                  src={item.src}
-                  alt={item.alt}
-                  className="rounded-xl w-full"
-                  style={{ border: '1px solid #27272a' }}
-                />
-              </div>
-            ))}
-          </Slider>
+          <CaseStudyCarousel images={projectImages} />
         </div>
       </div>
 
       {/* Content */}
       <div className="px-5 md:px-10 pb-16">
-        <div className="container mx-auto">
+        <div className="container mx-auto max-w-4xl">
           <div
             className="rounded-xl p-6 md:p-10 lg:p-12"
             style={{ background: '#111113', border: '1px solid #27272a' }}
@@ -95,7 +131,7 @@ function CasestudyLayout({ children, title, projectImages, technologies, externa
             </div>
 
             {/* Case study body */}
-            <div className="text-secondary text-sm leading-relaxed prose-style">
+            <div className="text-secondary text-sm leading-relaxed space-y-4">
               {children}
             </div>
           </div>

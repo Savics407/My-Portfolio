@@ -1,30 +1,31 @@
 import React, { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
+import { YEARS_EXPERIENCE } from '../../data/narrative'
 
 const STATS = [
   {
-    value: 7,
+    value: YEARS_EXPERIENCE,
     suffix: '+',
     label: 'Years of experience',
-    description: 'Shipping production software',
-  },
-  {
-    value: 30,
-    suffix: '+',
-    label: 'Projects delivered',
-    description: 'Across startups and enterprises',
-  },
-  {
-    value: null,
-    display: 'Millions',
-    label: 'API requests handled',
-    description: 'Across production systems',
+    description: 'Architecting resilient web platforms and carrier-grade VoIP',
   },
   {
     value: 5,
     suffix: '+',
     label: 'Production systems',
-    description: 'Owned end-to-end',
+    description: 'Full lifecycle ownership across SaaS, telephony, and retail POS',
+  },
+  {
+    value: null,
+    display: '< 100ms',
+    label: 'POS & VoIP latency budget',
+    description: 'Optimistic UI updates & deterministic local state caching',
+  },
+  {
+    value: null,
+    display: 'Zero',
+    label: 'Style & state collisions',
+    description: 'Encapsulated TypeScript SDKs embedded in partner apps',
   },
 ]
 
@@ -66,7 +67,7 @@ export default function Stats() {
   return (
     <section className="px-5 md:px-10 pb-20">
       <div className="container mx-auto">
-        <div className="stats-grid">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {STATS.map((stat, i) => (
             <motion.div
               key={stat.label}

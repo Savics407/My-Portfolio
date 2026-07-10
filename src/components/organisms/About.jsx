@@ -2,6 +2,7 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
 import profile from '../../assets/profile.jpg'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, EMAIL, ROLE_TITLE, YEARS_EXPERIENCE } from '../../data/narrative'
 
 const QUICK_FACTS = [
   { label: 'Location', value: 'Nigeria — Remote worldwide' },
@@ -12,7 +13,7 @@ const QUICK_FACTS = [
 
 export default function About() {
   return (
-    <section className="section" style={{ background: '#111113' }}>
+    <section id="about" className="section" style={{ background: '#111113' }}>
       <div className="container mx-auto">
         <div className="grid lg:grid-cols-2 gap-16 items-start">
 
@@ -31,22 +32,13 @@ export default function About() {
 
             <div className="space-y-4 text-secondary text-sm leading-relaxed">
               <p>
-                I'm Victor Adighibe — a Senior Frontend Engineer with over 7 years of experience
-                building production software that people actually use. I've led frontend at Jiffypay,
-                built browser-based VoIP systems from scratch, published npm packages, and shipped
-                WordPress sites with 90+ Lighthouse scores.
+                Working across high-volume retail POS, enterprise real estate, and carrier-grade telecommunications taught me early on that product failures rarely happen in isolated UI components—they happen at network boundaries, during race conditions, and under state drift.
               </p>
               <p>
-                My edge isn't just that I can write clean React and TypeScript. It's that I think
-                like a product engineer. I understand the business logic behind the UI. I ask
-                why before how. And I own features end-to-end — from architecture decisions to
-                production monitoring.
+                Known professionally across engineering teams and client networks as <span className="text-fg font-medium">Savics</span>, my mindset was shaped by environments where downtime meant immediate lost revenue or broken operations. That discipline drives how I build: minimizing moving parts, enforcing clear domain boundaries, and owning features from systems architecture down to the final browser interaction.
               </p>
               <p>
-                I'm actively working toward becoming a well-rounded Full Stack Engineer while
-                maintaining deep frontend expertise. If you're building something that needs
-                someone who can ship independently and communicate clearly with design, product,
-                and backend — I'm your person.
+                I thrive in environments where engineering teams care deeply about reliability, user trust, and long-term maintainability—not just shipping features quickly to hit an arbitrary deadline.
               </p>
             </div>
 
@@ -71,40 +63,24 @@ export default function About() {
               ))}
             </div>
 
-            {/* CTAs */}
-            <div className="mt-8 flex flex-wrap gap-3">
-              <a href="/resume.pdf" download className="btn-primary">
-                <FiDownload size={14} />
-                Download Resume
-              </a>
+            {/* Unique About CTA */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <a
-                href="mailto:savicstech@gmail.com"
-                className="btn-ghost"
-              >
-                <FiMail size={14} />
-                Say hello
-              </a>
-            </div>
-
-            {/* Social links */}
-            <div className="mt-6 flex gap-3">
-              <a
-                href="https://github.com/Savics407"
+                href={GITHUB_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-colors"
-                aria-label="GitHub profile"
+                className="btn-ghost text-sm"
               >
-                <FiGithub size={18} />
+                <FiGithub size={15} />
+                Explore Code & Open Source
               </a>
               <a
-                href="https://www.linkedin.com/in/victor-adighibe-b4a89923a/"
+                href={LINKEDIN_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-muted hover:text-accent transition-colors"
-                aria-label="LinkedIn profile"
+                className="text-muted hover:text-accent transition-colors text-sm flex items-center gap-1.5"
               >
-                <FiLinkedin size={18} />
+                <FiLinkedin size={15} /> LinkedIn
               </a>
             </div>
           </motion.div>
@@ -155,8 +131,8 @@ export default function About() {
               </div>
               <div className="p-4 text-xs space-y-1" style={{ color: '#a1a1aa' }}>
                 <div><span style={{ color: '#7c3aed' }}>const</span> <span style={{ color: '#4ade80' }}>victor</span> = {'{'}</div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>role</span>: <span style={{ color: '#86efac' }}>"Senior Frontend Engineer"</span>,</div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>experience</span>: <span style={{ color: '#fb923c' }}>7</span>,  <span style={{ color: '#3f3f46' }}>// years</span></div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>role</span>: <span style={{ color: '#86efac' }}>"{ROLE_TITLE}"</span>,</div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>experience</span>: <span style={{ color: '#fb923c' }}>{YEARS_EXPERIENCE}</span>,  <span style={{ color: '#3f3f46' }}>// years</span></div>
                 <div className="pl-4"><span style={{ color: '#f59e0b' }}>stack</span>: [<span style={{ color: '#86efac' }}>"React"</span>, <span style={{ color: '#86efac' }}>"TS"</span>, <span style={{ color: '#86efac' }}>"Node"</span>],</div>
                 <div className="pl-4"><span style={{ color: '#f59e0b' }}>available</span>: <span style={{ color: '#4ade80' }}>true</span>,</div>
                 <div>{'}'}</div>

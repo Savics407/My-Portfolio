@@ -4,33 +4,33 @@ import { motion } from 'framer-motion'
 const PRINCIPLES = [
   {
     number: '01',
-    title: 'Performance is a feature',
-    body: "A slow product is a broken product. I treat Lighthouse scores, Core Web Vitals, and bundle size as first-class engineering concerns — not post-launch optimisations.",
+    title: 'Deterministic State Over Ad-Hoc Sync',
+    body: "Client state should be a predictable function of server truth and local intent. I eliminate race conditions by designing normalized state trees and optimistic caching rules before writing UI components.",
   },
   {
     number: '02',
-    title: 'Accessible by default',
-    body: "Accessibility isn't a checklist I run at the end. Semantic HTML, keyboard navigation, focus management, and WCAG compliance are built in from the start.",
+    title: 'Strict Public API Boundaries',
+    body: "Whether designing a React component, a client SDK, or a network protocol wrapper, make illegal states unrepresentable. Strong type contracts and clear ergonomic boundaries prevent downstream regressions.",
   },
   {
     number: '03',
-    title: 'Architecture that scales with the team',
-    body: "I build for the engineer who joins six months from now. Clear boundaries, documented patterns, and component APIs that are impossible to misuse.",
+    title: 'Resilience Under Unfavorable Network Conditions',
+    body: "Production systems must degrade gracefully when corporate NATs drop packets or high-volume merchant terminals encounter flaky networks—not just in idealized localhost environments.",
   },
   {
     number: '04',
-    title: 'Business-first engineering',
-    body: "Every technical decision has a business consequence. I ask why we're building this before I ask how. The best code is the code that directly moves a metric.",
+    title: 'Performance & Accessibility as Architectural Primitives',
+    body: "Sub-second Core Web Vitals, deterministic rendering, keyboard focus management, and WCAG compliance are structural engineering foundations—never post-launch patches.",
   },
   {
     number: '05',
-    title: 'Own it end to end',
-    body: "I'm comfortable going from design token to deployed endpoint. Owning a feature fully — across frontend, API integration, and production monitoring — is what I do best.",
+    title: 'Zero-Collision Encapsulation',
+    body: "Building embeddable tooling and distributed modules demands strict CSS scoping, automated prefixing, and aggressive tree-shaking so consumer host applications remain decoupled and lightweight.",
   },
   {
     number: '06',
-    title: 'Code is communication',
-    body: "Code is read far more than it is written. Naming, structure, and clarity are not luxuries — they are the foundation of a maintainable codebase.",
+    title: 'Optimizing for the Next Maintainer',
+    body: "Code is read ten times more than it is written. Clear architectural separation, explicit naming, and self-documenting APIs create compounding velocity for the entire engineering team.",
   },
 ]
 
