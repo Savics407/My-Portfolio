@@ -5,92 +5,93 @@ import { YEARS_EXPERIENCE } from '../../data/narrative'
 
 const EXPERIENCE = [
   {
-    product: 'Dora VoIP & Real-Time Telephony Infrastructure',
-    company: 'Dora',
-    role: 'Lead Telephony & Frontend Engineer',
-    period: '2022',
-    type: 'Contract',
-    url: 'https://usedora.com',
+    product: 'Enterprise Platforms: Records, Konvoy, PetroData & PayStream',
+    company: 'NoemDek',
+    role: 'Senior Software Engineer',
+    period: '2025 — Present',
+    type: 'Full-time',
+    url: null,
     description:
-      'Architected and engineered a production browser-based VoIP telephony platform powered by WebRTC, SIP signaling, Asterisk/Janus PBX integration, and an Electron desktop app.',
+      'Architected and delivered mission-critical internal enterprise platforms across business intelligence, industrial oil & gas telemetry, and financial payroll.',
     highlights: [
-      'Integrated SIP.js inside browser clients to negotiate live multi-line SIP telephony streams over Asterisk/Janus servers — solving complex NAT traversal and session control challenges',
-      'Engineered deterministic audio signaling and real-time call state synchronization pipelines supporting active enterprise logistics dispatch workflows',
-      'Authored standalone embeddable TypeScript client SDKs to decouple real-time communication protocols from UI view layers',
-      'Shipped cross-platform desktop telephony wrapper using Electron with automated connection recovery and system notification hooks',
+      'Records & PetroData: Engineered data-dense business intelligence portals and oil & gas fleet telemetry dashboards handling massive tabular datasets and compliance workflows',
+      'Konvoy & PayStream: Delivered enterprise logistics tracking systems (`Meuve`) and internal financial treasury/bulk payment disbursement dashboards',
+      'Architected shared internal frontend libraries and API integration layers (`Zustand` & `TanStack Table`), cutting cross-team feature delivery cycle times across enterprise business products',
+      'Collaborated cross-functionally with domain experts, product owners, and backend engineering teams to transform complex enterprise operations into responsive web applications',
     ],
-    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io', 'Janus Media Server', 'Asterisk PBX', 'Client SDK'],
+    tech: ['React', 'TypeScript', 'Enterprise SaaS', 'Zustand', 'TanStack Table', 'REST APIs', 'Git'],
   },
   {
-    product: 'Simpoo Business Platform & POS Ecosystem',
+    product: 'SimpooBusiness Platform, POS & Marketplace Ecosystem',
     company: 'Jiffypay',
     role: 'Lead Frontend Engineer',
-    period: '2022 — Present',
+    period: '2023 — 2025',
     type: 'Full-time',
     url: 'https://simpoobusiness.com',
     description:
-      'Architected and built Simpoo Business from inception to production — a full-featured enterprise business management platform.',
+      'Architected and built SimpooBusiness from inception to scale across 185 store locations — centralizing POS checkout, inventory ledgers, and consumer e-commerce.',
     highlights: [
-      'Engineered sub-second POS checkout flows and deterministic client-side transaction caching for multi-location retail operations',
-      'Architected live multi-warehouse stock synchronization using Redux Toolkit + TanStack Query, eliminating data drift across concurrent cashier sessions',
-      'Designed and enforced granular Role-Based Access Control (RBAC) security models and JWT/refresh token authentication',
-      'Created a standardized, reusable enterprise UI library that reduced cross-functional feature development cycle times',
+      'Engineered sub-second offline-first POS checkout flows and deterministic client-side transaction caching (`Redux Toolkit` + `TanStack Query`) for multi-location retail operations',
+      'Built Simpoo Marketplace (`simpoomarket_nextjs`), enabling multi-vendor split cart checkout and real-time stock reservation sync with physical in-store POS ledgers',
+      'Authored standalone embeddable TypeScript client SDKs (`@simpoo/sdk`) bundled via Rollup, allowing partner teams to embed checkout widgets in under 10 lines of code',
+      'Integrated `Tiptap` document/invoice editor and client-side PDF/Excel export pipeline (`jspdf`, `xlsx`, `react-barcode`) for automated retail accounting and barcode printing',
     ],
-    tech: ['React', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Tailwind CSS', 'Node.js', 'REST APIs'],
+    tech: ['Next.js 14', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Electron', 'Rollup SDK', 'Tiptap', 'Tailwind CSS'],
   },
   {
-    product: 'Enterprise Platforms: Records v2, Meuve, PetroData & PayStream',
-    company: 'NoemDek',
-    role: 'Senior Frontend Engineer',
-    period: '2020 — 2022',
-    type: 'Full-time',
+    product: 'Dora Cell Telephony Infrastructure & Dora Fleet Logistics',
+    company: 'Dora',
+    role: 'Founding Frontend Engineer',
+    period: '2023 — Present',
+    type: 'Founding Engineer',
+    url: 'https://usedora.com',
+    description:
+      'Architected and engineered production browser-based VoIP telephony infrastructure and enterprise logistics dispatch systems.',
+    highlights: [
+      'Built Dora Cell (`@dora-cell/sdk` monorepo): Integrated `SIP.js` over `Asterisk/Janus` media servers to negotiate live multi-line WebRTC telephony with deterministic audio device routing and an Electron desktop app',
+      'Built Dora Fleet: Engineered real-time logistics dashboard featuring `react-leaflet` vector tracking at 60 FPS and custom polygon geofencing (`Geoman`) for automated route alerts',
+      'Embedded `@dora-cell/sdk-react` directly into active vehicle tracking cards on the dispatch map, enabling one-click WebRTC VoIP calling to drivers without context switching',
+      'Published and maintained modular NPM packages (`@dora-cell/sdk`, `@dora-cell/sdk-react`, `@dora-cell/ghl`) supporting cross-platform web and CRM integrations',
+    ],
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'WebRTC & SIP.js', 'Janus Media Server', 'Asterisk PBX', 'React-Leaflet', 'Socket.io', 'Monorepo SDK'],
+  },
+  {
+    product: 'HxAfrica Real Estate & Asset Tokenization Platform',
+    company: 'HxAfrica Platform',
+    role: 'Principal Frontend Engineer',
+    period: '2022 — 2023',
+    type: 'Contract',
     url: null,
     description:
-      'Architected and delivered mission-critical internal enterprise platforms across oil & gas industrial analytics, logistics, and payroll.',
+      'Delivered the production web application connecting institutional property opportunities across Africa with global real estate investors.',
     highlights: [
-      'Records v2 & PetroData: Engineered data-dense industrial records governance and oil & gas analytics portals handling massive tabular datasets and auditable compliance workflows',
-      'Meuve & PayStream: Delivered enterprise mobility/logistics tracking systems and internal financial payroll disbursement dashboards',
-      'Architected shared internal frontend libraries and API integration layers, cutting cross-team feature delivery cycle time across enterprise business products',
-      'Collaborated cross-functionally with domain experts, product owners, and backend engineering teams to transform complex enterprise workflows into responsive web applications',
+      'Architected and built the institutional investment web portal with seamless property catalog discovery and structured KYC/AML onboarding flows',
+      'Designed real-time financial portfolio reporting dashboards and dividend tracking tables for property shareholders',
+      'Collaborated closely with product and compliance teams to ensure intuitive UI ergonomics across regulatory tokenization workflows',
     ],
-    tech: ['React', 'JavaScript', 'Enterprise SaaS', 'REST APIs', 'Git'],
+    tech: ['React', 'Tailwind CSS', 'Figma', 'REST APIs', 'Portfolio Reporting'],
   },
   {
-    product: 'Standalone Embeddable SDKs & Developer Tooling',
-    company: 'Enterprise Tooling & Open Source',
-    role: 'Platform & SDK Engineer',
-    period: 'Ongoing',
-    type: 'Platform Tooling',
-    url: 'https://github.com/Savics407',
-    description:
-      'Authored and published standalone TypeScript client SDKs and build tooling consumed across distributed product teams.',
-    highlights: [
-      'Designed embeddable client SDKs enabling third-party engineers to integrate VoIP calling and POS checkout workflows in under 10 lines of code',
-      'Authored an automated Tailwind CSS prefixing utility and Rollup build pipeline to prevent CSS class collisions across consumer host applications',
-      'Wrote strict TypeScript type definitions, public API ergonomics, and JSDoc documentation for zero-friction developer experience',
-    ],
-    tech: ['TypeScript', 'Rollup', 'npm', 'Tailwind CSS Encapsulation', 'SDK Architecture'],
-  },
-  {
-    product: 'High-Performance Enterprise Web Platforms',
-    company: 'Client & Agency Engineering',
+    product: 'High-Performance Institutional & Agency Web Platforms',
+    company: 'Agency & Client Engineering',
     role: 'Frontend Engineer',
-    period: '2018 — 2020',
-    type: 'Freelance',
+    period: '2019 — 2022',
+    type: 'Freelance & Client Work',
     url: null,
     description:
-      'Delivered high-performance enterprise web applications with rigorous focus on Core Web Vitals and technical SEO.',
+      'Delivered high-performance institutional portals and agency web applications across education, non-profit, and talent management sectors.',
     highlights: [
-      'Engineered bespoke, high-conversion web platforms for enterprise clients across media, real estate, and entertainment sectors',
-      'Optimized Core Web Vitals (LCP, FID, CLS) to achieve sub-second page loads and superior search indexing',
-      'Implemented structured data schemas, programmatic sitemaps, and strict accessibility standards',
+      'Engineered bespoke, high-conversion web platforms including Africurve, ACIMT (Institutional Portal), Fabulous Edutainment, and PmdAfrica (NGO)',
+      'Optimized Core Web Vitals (LCP, FID, CLS) to achieve sub-second page loads and superior performance metrics across mobile devices',
+      'Implemented custom CMS architectures, structured donation workflows, and strict web accessibility guidelines',
     ],
-    tech: ['JavaScript', 'Performance Engineering', 'Core Web Vitals', 'SEO', 'PHP'],
+    tech: ['JavaScript', 'WordPress', 'Performance Engineering', 'Core Web Vitals', 'Custom Theme Architecture', 'HTML5/CSS3'],
   },
 ]
 
 function ExperienceCard({ exp, index }) {
   const [expanded, setExpanded] = useState(index === 0)
+  const isPrimary = exp.type === 'Full-time' || exp.type === 'Founding Engineer'
 
   return (
     <motion.div
@@ -128,10 +129,10 @@ function ExperienceCard({ exp, index }) {
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-xs text-muted font-mono">{exp.period}</span>
-            <span className="badge" style={{
-              color: exp.type === 'Full-time' ? '#4ade80' : '#a1a1aa',
-              borderColor: exp.type === 'Full-time' ? 'rgba(74,222,128,0.25)' : 'rgba(161,161,170,0.2)',
-              background: exp.type === 'Full-time' ? 'rgba(74,222,128,0.08)' : 'rgba(161,161,170,0.05)',
+            <span className="badge font-semibold" style={{
+              color: isPrimary ? '#4ade80' : '#a1a1aa',
+              borderColor: isPrimary ? 'rgba(74,222,128,0.25)' : 'rgba(161,161,170,0.2)',
+              background: isPrimary ? 'rgba(74,222,128,0.08)' : 'rgba(161,161,170,0.05)',
             }}>
               {exp.type}
             </span>

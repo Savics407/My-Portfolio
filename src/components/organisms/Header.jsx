@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import { FiGithub, FiLinkedin, FiMail, FiDownload, FiMenu, FiX } from 'react-icons/fi'
 import { RESUME_URL, GITHUB_URL, LINKEDIN_URL } from '../../data/narrative'
@@ -13,6 +13,7 @@ const NAV_LINKS = [
 ]
 
 export default function Header() {
+  const navigate = useNavigate()
   const [scrolled, setScrolled]   = useState(false)
   const [menuOpen, setMenuOpen]   = useState(false)
   const [activeSection, setActive] = useState('')
@@ -43,8 +44,15 @@ export default function Header() {
   const handleNavClick = (href) => {
     setMenuOpen(false)
     if (href.startsWith('#')) {
-      const el = document.getElementById(href.slice(1))
-      if (el) el.scrollIntoView({ behavior: 'smooth' })
+      if (window.location.pathname === '/') {
+        const el = document.getElementById(href.slice(1))
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+          window.history.pushState(null, '', href)
+        }
+      } else {
+        navigate('/' + href)
+      }
     }
   }
 
@@ -52,9 +60,13 @@ export default function Header() {
     <>
       {/* ─── Desktop Nav ─────────────────────────────────── */}
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'nav-glass' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,border-color,box-shadow] duration-200 gpu-layer ${
+          scrolled ? 'nav-glass shadow-xl shadow-black/20' : 'bg-transparent border-b border-transparent'
         }`}
+        style={{
+          WebkitBackfaceVisibility: 'hidden',
+          backfaceVisibility: 'hidden',
+        }}
       >
         <div className="container mx-auto px-5 md:px-10 h-16 flex items-center justify-between">
 
@@ -185,7 +197,7 @@ export default function Header() {
                 className="btn-primary w-full justify-center"
               >
                 <FiDownload size={15} />
-                Download Resume
+                View Resume
               </a>
             </div>
           </motion.div>

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { FiDownload, FiMail, FiGithub, FiLinkedin, FiExternalLink, FiArrowRight } from 'react-icons/fi'
 import DefaultLayout from './components/layout/DefaultLayout'
@@ -48,32 +48,18 @@ function ProjectCard({ project, index }) {
             <img
               src={project.image}
               alt={project.title}
-              className="w-full h-auto object-cover"
-              style={{ maxHeight: '320px', objectFit: 'cover' }}
+              className="w-full object-cover aspect-[16/10]"
               loading="lazy"
             />
           </div>
         ) : (
           <div
-            className="rounded-xl flex items-center justify-center h-64"
-            style={{ background: '#111113', border: '1px solid #27272a' }}
+            className="aspect-[16/10] rounded-xl flex flex-col items-center justify-center p-8 text-center"
+            style={{ background: '#18181b', border: '1px dashed #3f3f46' }}
           >
-            {/* Placeholder — code snippet */}
-            <div className="terminal w-[90%]">
-              <div className="terminal-bar">
-                <span className="terminal-dot" style={{ background: '#ef4444' }} />
-                <span className="terminal-dot" style={{ background: '#f59e0b' }} />
-                <span className="terminal-dot" style={{ background: '#22c55e' }} />
-                <span className="text-muted text-xs ml-2">{project.id}.tsx</span>
-              </div>
-              <div className="p-4 text-xs space-y-1 font-mono" style={{ color: '#a1a1aa' }}>
-                <div><span style={{color:'#7c3aed'}}>export</span> <span style={{color:'#7c3aed'}}>function</span> <span style={{color:'#4ade80'}}>{project.title.replace(/\s/g, '')}</span>() {'{'}</div>
-                <div className="pl-4"><span style={{color:'#71717a'}}>// production-grade</span></div>
-                <div className="pl-4"><span style={{color:'#71717a'}}>// {project.tech[0]} + {project.tech[1]}</span></div>
-                <div className="pl-4"><span style={{color:'#7c3aed'}}>return</span> <span style={{color:'#f59e0b'}}>&lt;ShippedProduct /&gt;</span></div>
-                <div>{'}'}</div>
-              </div>
-            </div>
+            <span className="text-3xl mb-3">🛠️</span>
+            <p className="text-fg font-bold mb-1">{project.title}</p>
+            <p className="text-muted text-xs font-mono">{project.role}</p>
           </div>
         )}
       </div>
@@ -81,67 +67,77 @@ function ProjectCard({ project, index }) {
       {/* Content */}
       <div className={!isEven ? 'order-2 md:order-1' : 'order-2'}>
         <div className="flex items-center gap-2 mb-3">
-          <span className="text-accent text-xs font-mono">{String(index + 1).padStart(2, '0')}</span>
+          <span className="text-xs font-mono text-accent">{project.year}</span>
           <span className="text-muted text-xs">·</span>
-          {project.flagship ? (
-            <span className="badge badge-green ml-1 font-semibold tracking-wide">★ Flagship Engineering Project</span>
-          ) : project.featured ? (
-            <span className="badge badge-green ml-1">Featured</span>
-          ) : null}
+          <span className="text-xs font-mono text-secondary">{project.company}</span>
+          <span className="text-muted text-xs">·</span>
+          <span className="text-xs font-mono text-muted">{project.categories[0]}</span>
         </div>
 
-        <h3 className="text-fg font-bold text-2xl mb-1 leading-tight">{project.title}</h3>
-        <p className="text-accent text-xs font-medium mb-4">{project.role}</p>
-
-        <p className="text-secondary text-sm leading-relaxed mb-4">{project.tagline}</p>
-
-        {/* Problem */}
-        <div
-          className="rounded-lg p-4 mb-5 text-sm"
-          style={{ background: '#111113', border: '1px solid #27272a' }}
-        >
-          <p className="text-muted text-xs font-semibold uppercase tracking-wide mb-1.5">The problem</p>
-          <p className="text-secondary leading-relaxed">{project.problem}</p>
-        </div>
-
-        {/* Impact */}
-        <p className="text-xs text-secondary mb-5 leading-relaxed">
-          <span className="text-accent font-medium">Impact: </span>
-          {project.impact}
+        <h3 className="text-2xl font-bold text-fg mb-2 tracking-tight">
+          {project.title}
+        </h3>
+        <p className="text-secondary text-sm leading-relaxed mb-6">
+          {project.tagline || project.desc}
         </p>
 
-        {/* Tech */}
-        <div className="flex flex-wrap gap-2 mb-6">
+        {/* Problem -> Impact mini flow */}
+        {(project.problem || project.impact) && (
+          <div
+            className="rounded-xl p-4 mb-6 space-y-3 text-xs"
+            style={{ background: '#111113', border: '1px solid #27272a' }}
+          >
+            {project.problem && (
+              <div>
+                <span className="font-mono text-muted uppercase tracking-wider block mb-0.5">The Challenge</span>
+                <p className="text-secondary leading-relaxed">{project.problem}</p>
+              </div>
+            )}
+            {project.impact && (
+              <div>
+                <span className="font-mono text-accent uppercase tracking-wider block mb-0.5">Engineering Impact</span>
+                <p className="text-fg leading-relaxed font-medium">{project.impact}</p>
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Tech Badges */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.tech.map((t) => (
             <span key={t} className="skill-tag">{t}</span>
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex flex-wrap gap-3">
-          {project.casestudyRoute && (
-            <Link to={project.casestudyRoute} className="btn-primary text-sm py-2 px-4">
-              View case study <FiArrowRight size={13} />
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          {project.casestudyRoute ? (
+            <Link
+              to={project.casestudyRoute}
+              className="btn-primary py-2 px-4 text-xs font-semibold"
+            >
+              Read Case Study <FiArrowRight size={14} />
             </Link>
-          )}
-          {project.externalUrl && (
+          ) : project.externalUrl ? (
             <a
               href={project.externalUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost text-sm py-2 px-4"
+              className="btn-primary py-2 px-4 text-xs font-semibold"
             >
-              <FiExternalLink size={13} /> Live site
+              Live Site <FiExternalLink size={14} />
             </a>
-          )}
+          ) : null}
+
           {project.githubUrl && (
             <a
               href={project.githubUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-ghost text-sm py-2 px-4"
+              className="btn-ghost py-2 px-4 text-xs"
+              aria-label="View source code on GitHub"
             >
-              <FiGithub size={13} /> GitHub
+              <FiGithub size={14} /> Source Code
             </a>
           )}
         </div>
@@ -152,7 +148,21 @@ function ProjectCard({ project, index }) {
 
 /* ─── Home ─────────────────────────────────────────────────────────── */
 export default function Home() {
-  useEffect(() => { window.scrollTo(0, 0) }, [])
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1)
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 60)
+      return
+    }
+    window.scrollTo(0, 0)
+  }, [location.hash])
 
   return (
     <DefaultLayout>
@@ -284,11 +294,11 @@ export default function Home() {
             transition={{ duration: 0.4 }}
             className="mb-16"
           >
-            <p className="section-label mb-3">Selected work</p>
-            <h2 className="section-title mb-4">Projects that mattered</h2>
+            <p className="section-label mb-3">Professional work & case studies</p>
+            <h2 className="section-title mb-4">Systems that mattered</h2>
             <p className="section-subtitle text-secondary">
-              Not screenshots — each project represents a real problem solved, a real
-              system shipped, and real lessons learned.
+              Not demos or isolated builds — each system represents a real problem solved, a production
+              platform shipped, and real engineering impact.
             </p>
           </motion.div>
 
@@ -305,8 +315,8 @@ export default function Home() {
             transition={{ duration: 0.4 }}
             className="mt-16 flex justify-center"
           >
-            <Link to="/projects" className="btn-ghost">
-              View project archive <FiArrowRight size={14} />
+            <Link to="/work" className="btn-ghost text-sm py-2.5 px-5">
+              View complete work archive <FiArrowRight size={15} />
             </Link>
           </motion.div>
         </div>
