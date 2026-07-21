@@ -121,10 +121,10 @@ export default function Projects() {
                 <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`text-xs md:text-sm font-medium px-3.5 py-1.5 rounded-lg whitespace-nowrap transition-all ${
+                  className={`text-xs font-medium px-3 py-1.5 rounded-md whitespace-nowrap transition-all duration-200 ${
                     isActive
                       ? 'bg-accent text-bg font-semibold'
-                      : 'text-secondary hover:text-fg hover:bg-raised'
+                      : 'text-muted hover:text-fg hover:bg-raised/80'
                   }`}
                 >
                   {tab.label}
@@ -135,25 +135,25 @@ export default function Projects() {
 
           {/* Search Bar + View Mode Toggle */}
           <div className="flex items-center gap-3">
-            {/* Search Input */}
-            <div className="relative flex-1 md:w-64">
+            {/* Search Input — reduced visual weight */}
+            <div className="relative">
               <FiSearch
-                size={15}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-muted"
+                size={13}
+                className="absolute left-2.5 top-1/2 -translate-y-1/2 text-muted/60"
               />
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Search tech, focus, domain..."
-                className="w-full bg-raised border border-border rounded-lg pl-9 pr-8 py-2 text-xs md:text-sm text-fg placeholder:text-muted focus:outline-none focus:border-accent transition-colors"
+                placeholder="Search projects..."
+                className="w-48 md:w-56 search-input rounded-md pl-8 pr-7 py-1.5 text-xs focus:outline-none focus:ring-0"
               />
               {searchQuery && (
                 <button
                   onClick={() => setSearchQuery('')}
-                  className="absolute right-2.5 top-1/2 -translate-y-1/2 text-muted hover:text-fg"
+                  className="absolute right-2 top-1/2 -translate-y-1/2 text-muted hover:text-fg transition-colors"
                 >
-                  <FiX size={14} />
+                  <FiX size={12} />
                 </button>
               )}
             </div>

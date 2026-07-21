@@ -66,44 +66,49 @@ function ProjectCard({ project, index }) {
 
       {/* Content */}
       <div className={!isEven ? 'order-2 md:order-1' : 'order-2'}>
-        <div className="flex items-center gap-2 mb-3">
-          <span className="text-xs font-mono text-accent">{project.year}</span>
+        {/* Metadata row */}
+        <div className="flex items-center gap-2 mb-3.5">
+          <span className="text-xs font-mono" style={{ color: '#4ade80', opacity: 0.9 }}>{project.year}</span>
           <span className="text-muted text-xs">·</span>
-          <span className="text-xs font-mono text-secondary">{project.company}</span>
+          <span className="text-xs font-mono" style={{ color: '#c4c4cc' }}>{project.company}</span>
           <span className="text-muted text-xs">·</span>
           <span className="text-xs font-mono text-muted">{project.categories[0]}</span>
         </div>
 
-        <h3 className="text-2xl font-bold text-fg mb-2 tracking-tight">
+        {/* Title — largest, most prominent */}
+        <h3 className="text-[1.5rem] font-bold text-fg mb-1.5 tracking-tight leading-snug">
           {project.title}
         </h3>
-        <p className="text-secondary text-sm leading-relaxed mb-6">
+        {/* Role — clearly subordinate */}
+        <p className="text-[0.8125rem] font-mono text-zinc-400 mb-4">{project.role}</p>
+        {/* Description — comfortable contrast */}
+        <p className="text-[0.9375rem] leading-[1.85] mb-6" style={{ color: '#b4b4be' }}>
           {project.tagline || project.desc}
         </p>
 
-        {/* Problem -> Impact mini flow */}
+        {/* Problem → Impact mini flow */}
         {(project.problem || project.impact) && (
           <div
-            className="rounded-xl p-4 mb-6 space-y-3 text-xs"
-            style={{ background: '#111113', border: '1px solid #27272a' }}
+            className="rounded-xl p-4 mb-6 space-y-3.5 text-xs"
+            style={{ background: '#111113', border: '1px solid #2a2a2e' }}
           >
             {project.problem && (
               <div>
-                <span className="font-mono text-muted uppercase tracking-wider block mb-0.5">The Challenge</span>
-                <p className="text-secondary leading-relaxed">{project.problem}</p>
+                <span className="font-mono text-muted uppercase tracking-wider block mb-1">The Challenge</span>
+                <p className="leading-relaxed" style={{ color: '#b0b0ba' }}>{project.problem}</p>
               </div>
             )}
             {project.impact && (
               <div>
-                <span className="font-mono text-accent uppercase tracking-wider block mb-0.5">Engineering Impact</span>
-                <p className="text-fg leading-relaxed font-medium">{project.impact}</p>
+                <span className="font-mono text-accent uppercase tracking-wider block mb-1">Engineering Impact</span>
+                <p className="leading-relaxed font-medium" style={{ color: '#e4e4e8' }}>{project.impact}</p>
               </div>
             )}
           </div>
         )}
 
-        {/* Tech Badges */}
-        <div className="flex flex-wrap gap-1.5 mb-6">
+        {/* Tech Badges — neutral dark chips */}
+        <div className="flex flex-wrap gap-1.5 mb-7">
           {project.tech.map((t) => (
             <span key={t} className="skill-tag">{t}</span>
           ))}
@@ -221,12 +226,13 @@ export default function Home() {
               <span className="text-accent">platforms & real-time systems.</span>
             </motion.h1>
 
-            {/* Sub copy */}
+            {/* Sub copy — raised contrast */}
             <motion.p
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="text-secondary text-lg leading-relaxed mb-10 max-w-lg"
+              className="text-lg leading-[1.85] mb-10 max-w-lg"
+              style={{ color: '#b4b4be' }}
             >
               {HERO_TAGLINE}
             </motion.p>

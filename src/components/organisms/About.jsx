@@ -30,12 +30,12 @@ export default function About() {
               <span className="text-accent">I solve business problems.</span>
             </h2>
 
-            <div className="space-y-4 text-secondary text-sm leading-relaxed">
+            <div className="space-y-5 text-[0.9375rem] leading-[1.9]" style={{ color: '#b4b4be' }}>
               <p>
                 Working across high-volume retail POS, enterprise real estate, and carrier-grade telecommunications taught me early on that product failures rarely happen in isolated UI components—they happen at network boundaries, during race conditions, and under state drift.
               </p>
               <p>
-                Known professionally across engineering teams and client networks as <span className="text-fg font-medium">Savics</span>, my mindset was shaped by environments where downtime meant immediate lost revenue or broken operations. That discipline drives how I build: minimizing moving parts, enforcing clear domain boundaries, and owning features from systems architecture down to the final browser interaction.
+                Known professionally across engineering teams and client networks as <span className="text-fg font-semibold">Savics</span>, my mindset was shaped by environments where downtime meant immediate lost revenue or broken operations. That discipline drives how I build: minimizing moving parts, enforcing clear domain boundaries, and owning features from systems architecture down to the final browser interaction.
               </p>
               <p>
                 I thrive in environments where engineering teams care deeply about reliability, user trust, and long-term maintainability—not just shipping features quickly to hit an arbitrary deadline.

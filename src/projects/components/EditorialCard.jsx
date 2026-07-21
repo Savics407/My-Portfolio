@@ -12,15 +12,16 @@ export default function EditorialCard({ project, index, onSelectProject }) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, scale: 0.96 }}
       transition={{ duration: 0.3 }}
-      className="card hover-lift flex flex-col justify-between p-6 md:p-7 group border border-border/80 bg-raised/60 hover:bg-raised transition-all rounded-xl"
+      className="card hover-lift flex flex-col justify-between p-6 md:p-8 group border border-border/70 bg-raised/50 hover:bg-raised transition-all rounded-xl"
       style={{ minHeight: '300px' }}
     >
       <div>
         {/* Top Metadata Row: Year, Industry & Status */}
         <div className="flex flex-wrap items-center justify-between gap-2 mb-4 text-xs font-mono">
           <div className="flex items-center gap-2">
-            <span className="text-muted font-bold">{project.year}</span>
-            <span className="text-accent bg-accent/10 border border-accent/20 px-2.5 py-0.5 rounded-full font-medium">
+            <span className="text-muted">{project.year}</span>
+            {/* Industry — neutral chip, not green */}
+            <span className="tech-chip">
               {project.industry}
             </span>
           </div>
@@ -34,47 +35,48 @@ export default function EditorialCard({ project, index, onSelectProject }) {
         </div>
 
         {/* Title + Flagship pill */}
-        <div className="flex items-center justify-between gap-2 mb-1.5">
+        <div className="flex items-start justify-between gap-2 mb-2">
           {project.casestudyRoute ? (
-            <Link to={project.casestudyRoute} className="text-fg font-bold text-lg md:text-xl tracking-tight group-hover:text-accent transition-colors flex items-center gap-2">
+            <Link
+              to={project.casestudyRoute}
+              className="project-title-link font-bold text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug flex items-center gap-2"
+            >
               {project.title}
             </Link>
           ) : (
             <button
               type="button"
               onClick={() => onSelectProject && onSelectProject(project)}
-              className="text-fg font-bold text-lg md:text-xl tracking-tight group-hover:text-accent transition-colors flex items-center gap-2 text-left cursor-pointer"
+              className="project-title-link font-bold text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug flex items-center gap-2 text-left cursor-pointer"
             >
               {project.title}
             </button>
           )}
           {project.flagship && (
-            <span className="text-[10px] font-mono font-bold text-bg bg-accent px-2 py-0.5 rounded-full uppercase tracking-wider">
+            <span className="text-[10px] font-mono font-bold text-bg bg-accent px-2 py-0.5 rounded-full uppercase tracking-wider flex-shrink-0">
               ★ Flagship
             </span>
           )}
         </div>
 
-        {/* Role & Company */}
-        <div className="text-sm font-mono text-secondary mb-4 flex items-center gap-1.5">
-          <span className="text-fg font-normal">{project.role}</span>
-          <span className="text-muted">at {project.company}</span>
+        {/* Role & Company — subordinate to title */}
+        <div className="text-[0.8125rem] font-mono mb-4 flex items-center gap-1.5 flex-wrap">
+          <span className="text-zinc-300 font-medium">{project.role}</span>
+          <span className="text-muted">·</span>
+          <span className="text-muted">{project.company}</span>
         </div>
 
-        {/* Concise Description */}
-        <p className="text-secondary text-sm leading-relaxed mb-6 line-clamp-3">
+        {/* Concise Description — improved contrast & line-height */}
+        <p className="text-[#b4b4be] text-[0.875rem] leading-[1.8] mb-6 line-clamp-3">
           {project.desc}
         </p>
       </div>
 
       <div>
-        {/* Minimal Built-With Stack */}
+        {/* Tech Stack — neutral chips, not green */}
         <div className="flex flex-wrap gap-1.5 mb-5">
           {project.tech && project.tech.map((t) => (
-            <span
-              key={t}
-              className="text-xs text-secondary bg-bg/80 border border-border/80 px-2.5 py-1 rounded-md"
-            >
+            <span key={t} className="tech-chip">
               {t}
             </span>
           ))}

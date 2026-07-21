@@ -76,12 +76,12 @@ export default function EngineeringChallenges() {
                 <h3 className="text-fg font-bold text-xl mb-3 leading-snug">
                   {challenge.title}
                 </h3>
-                <div className="space-y-2 mb-6">
-                  <p className="text-secondary text-sm leading-relaxed">
-                    <span className="text-fg font-medium">Problem:</span> {challenge.problem}
+                <div className="space-y-2.5 mb-6">
+                  <p className="text-sm leading-[1.8]" style={{ color: '#b0b0ba' }}>
+                    <span className="text-fg font-semibold">Problem:</span> {challenge.problem}
                   </p>
-                  <p className="text-secondary text-sm leading-relaxed">
-                    <span className="text-accent font-medium">Engineered Solution:</span> {challenge.solution}
+                  <p className="text-sm leading-[1.8]" style={{ color: '#b0b0ba' }}>
+                    <span className="text-accent font-semibold">Engineered Solution:</span> {challenge.solution}
                   </p>
                 </div>
               </div>

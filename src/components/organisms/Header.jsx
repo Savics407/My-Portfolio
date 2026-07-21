@@ -94,8 +94,8 @@ export default function Header() {
                 onClick={(e) => { e.preventDefault(); handleNavClick(href) }}
                 className={`nav-link px-3 py-1.5 rounded-md transition-colors ${
                   activeSection === href.slice(1)
-                    ? 'text-fg bg-raised'
-                    : 'hover:text-fg hover:bg-raised'
+                    ? "text-accent font-medium bg-raised"
+                    : "hover:text-fg hover:bg-raised/60"
                 }`}
               >
                 {label}

@@ -123,8 +123,9 @@ function ExperienceCard({ exp, index }) {
                 </a>
               )}
             </div>
-            <p className="text-accent text-sm font-medium">
-              {exp.role} <span className="text-muted font-normal">· {exp.company}</span>
+            <p className="text-accent text-sm font-semibold">
+              {exp.role}
+              <span className="text-muted font-normal text-[0.8125rem]"> · {exp.company}</span>
             </p>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
@@ -140,7 +141,7 @@ function ExperienceCard({ exp, index }) {
         </div>
 
         {/* Description */}
-        <p className="text-secondary text-sm leading-relaxed mb-4">{exp.description}</p>
+        <p className="text-[#b4b4be] text-[0.875rem] leading-[1.85] mb-5">{exp.description}</p>
 
         {/* Expandable highlights */}
         <AnimatePresence initial={false}>
@@ -152,10 +153,10 @@ function ExperienceCard({ exp, index }) {
               transition={{ duration: 0.25 }}
               style={{ overflow: 'hidden' }}
             >
-              <ul className="space-y-2 mb-5">
+              <ul className="space-y-3 mb-5">
                 {exp.highlights.map((h, i) => (
-                  <li key={i} className="flex gap-3 text-sm text-secondary leading-relaxed">
-                    <span className="text-accent mt-1 flex-shrink-0">›</span>
+                  <li key={i} className="flex gap-3 text-[0.875rem] text-[#b0b0ba] leading-[1.8]">
+                    <span className="text-accent mt-[0.2rem] flex-shrink-0 text-base leading-none">›</span>
                     <span className={h.startsWith('[') ? 'text-muted italic' : ''}>{h}</span>
                   </li>
                 ))}
@@ -164,9 +165,9 @@ function ExperienceCard({ exp, index }) {
           )}
         </AnimatePresence>
 
-        {/* Tech tags + toggle */}
+        {/* Tech tags (neutral) + toggle */}
         <div className="flex items-center justify-between gap-4 flex-wrap">
-          <div className="flex flex-wrap gap-2">
+          <div className="flex flex-wrap gap-1.5">
             {exp.tech.map((t) => (
               <span key={t} className="skill-tag">{t}</span>
             ))}

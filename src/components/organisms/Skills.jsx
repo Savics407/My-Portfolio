@@ -95,7 +95,7 @@ export default function Skills() {
               </div>
 
               {/* Description */}
-              <p className="text-muted text-xs leading-relaxed mb-4">
+              <p className="text-xs leading-relaxed mb-4" style={{ color: '#8e8e9a' }}>
                 {group.description}
               </p>
 
