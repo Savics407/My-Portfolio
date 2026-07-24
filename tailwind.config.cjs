@@ -20,9 +20,9 @@ module.exports = {
         border:   "#27272a",
         stroke:   "#3f3f46",
         // Text
-        fg:       "#fafafa",
-        secondary:"#a1a1aa",
-        muted:    "#71717a",
+        fg:       "#ffffff",
+        secondary:"#d4d4d8",
+        muted:    "#a1a1aa",
         // Accent (Savics green — refined)
         accent:   "#4ade80",
         "accent-dim": "#16a34a",

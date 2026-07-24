@@ -11,29 +11,15 @@ import {
   FiShield,
   FiTerminal,
   FiTrendingUp,
-  FiImage,
   FiShoppingCart,
   FiTag,
   FiDollarSign,
 } from 'react-icons/fi'
 import CasestudyLayout from '../components/layout/CasestudyLayout'
 import simpooLogo from '../assets/simpoo/logo.svg'
-
-/* Sleek Image Placeholder Slot for architectural diagrams and UI screenshots */
-function ImagePlaceholder({ title, caption }) {
-  return (
-    <div className="my-8 rounded-xl border border-dashed border-border/80 bg-raised/50 p-6 flex flex-col items-center justify-center text-center group hover:border-accent/50 transition-colors">
-      <div className="w-12 h-12 rounded-full bg-bg border border-border flex items-center justify-center text-muted group-hover:text-accent transition-colors mb-3">
-        <FiImage size={22} />
-      </div>
-      <p className="text-fg font-medium text-sm mb-1">{title}</p>
-      <p className="text-muted text-xs max-w-md">{caption}</p>
-      <span className="mt-3 text-[11px] font-mono text-accent/80 bg-accent/10 px-2.5 py-0.5 rounded border border-accent/20">
-        Image Slot — Drop screenshot or multi-vendor order routing diagram here
-      </span>
-    </div>
-  )
-}
+import cartImg from '../assets/simpoo-market/Cart.svg'
+import checkoutImg from '../assets/simpoo-market/checkout.svg'
+import darkNavBarImg from '../assets/simpoo-market/Dark Nav Bar.svg'
 
 export default function SimpooMarketCaseStudy() {
   useEffect(() => {
@@ -43,8 +29,18 @@ export default function SimpooMarketCaseStudy() {
   const projectImages = [
     {
       id: 1,
-      src: simpooLogo,
-      alt: 'Simpoo Marketplace Multi-Vendor Retail Ecosystem',
+      src: darkNavBarImg,
+      alt: 'Simpoo Marketplace — Navigation and Storefront Header Layout',
+    },
+    {
+      id: 2,
+      src: cartImg,
+      alt: 'Simpoo Marketplace — Split Cart Management',
+    },
+    {
+      id: 3,
+      src: checkoutImg,
+      alt: 'Simpoo Marketplace — Secure Checkout Flow',
     },
   ]
 
@@ -93,7 +89,7 @@ export default function SimpooMarketCaseStudy() {
           <strong className="text-fg">Simpoo Marketplace</strong> is a high-performance digital commerce platform built to extend our SimpooBusiness retail ecosystem directly into consumer e-commerce. It empowers multi-location brick-and-mortar retailers and independent merchants to sell their physical inventories online across a central multi-vendor marketplace, with every order, discount, and stock count synchronized in real time with their physical in-store POS terminals.
         </p>
         <p className="text-secondary leading-relaxed">
-          As <strong className="text-fg">Lead Frontend Engineer</strong>, I architected and built the marketplace frontend using Next.js 14 and TypeScript (`simpoomarket_nextjs`). I designed our split-cart checkout engine capable of routing mixed customer carts to individual store inventory ledgers, implemented strict schema validation using `Zod` and `React Hook Form`, and built rich media product galleries using `Swiper` and `Lightbox` with zero-shift layout performance.
+          As <strong className="text-fg">Lead Frontend Engineer</strong>, I architected and built the marketplace frontend using Next.js 14 and TypeScript. I designed our split-cart checkout engine capable of routing mixed customer carts to individual store inventory ledgers, implemented strict schema validation using `Zod` and `React Hook Form`, and built rich media product galleries using `Swiper` and `Lightbox` with zero-shift layout performance.
         </p>
       </section>
 
@@ -126,11 +122,17 @@ export default function SimpooMarketCaseStudy() {
         </p>
       </section>
 
-      {/* Image Placeholder 1: Marketplace UI */}
-      <ImagePlaceholder
-        title="Simpoo Marketplace Multi-Vendor Catalog & Split Checkout UI"
-        caption="Screenshot illustrating product discovery grids, merchant badges, and multi-vendor split cart checkout breakdown."
-      />
+      {/* Marketplace UI Screenshot */}
+      <div className="my-8 rounded-xl overflow-hidden border border-border/60">
+        <img
+          src={cartImg}
+          alt="Simpoo Marketplace — Split Cart Checkout UI"
+          className="w-full object-cover"
+        />
+        <p className="text-xs text-muted text-center py-2.5 bg-raised border-t border-border/40">
+          Simpoo Marketplace — Multi-vendor cart management splitting orders across merchant locations
+        </p>
+      </div>
 
       {/* 3. MY ROLE & ENGINEERING LEADERSHIP */}
       <section className="space-y-4 mb-12">
@@ -187,12 +189,6 @@ export default function SimpooMarketCaseStudy() {
             E-commerce conversion rates depend heavily on frictionless, error-free checkout experiences. By coupling `Zod` runtime validation schemas directly with `React Hook Form`, we eliminated UI re-render delays while enforcing strict validation across multi-step delivery addresses, payment gateway selection, and coupon application workflows.
           </p>
         </div>
-
-        {/* Image Placeholder 2: Order Routing Diagram */}
-        <ImagePlaceholder
-          title="Multi-Vendor Order Routing & POS Inventory Synchronization Pipeline"
-          caption="Architectural diagram illustrating how consumer marketplace orders sync with physical in-store POS ledgers."
-        />
 
         {/* Module 3: Vendor Storefront Management */}
         <div className="p-6 rounded-xl bg-raised border border-border space-y-3">

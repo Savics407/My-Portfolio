@@ -37,7 +37,10 @@
  */
 
 import simpooLogo    from '../assets/simpoo/logo.svg'
-import doraImg       from '../assets/dora/dora.svg'
+import simpooLanding from '../assets/simpoo/simpoobusiness-landingpage.png'
+import simpooMarketCart from '../assets/simpoo-market/Cart.svg'
+import doraLanding   from '../assets/dora/dora-landing-page.png'
+import doraCellHero  from '../assets/dora-cell/Hero Section.png'
 import doraLogo      from '../assets/dora/logo.svg'
 import reicoImg      from '../assets/reico/body.svg'
 import reicoLogo     from '../assets/reicoLogo.svg'
@@ -55,7 +58,7 @@ const PROJECTS = [
     title: 'Records',
     company: 'NoemDek',
     industry: 'Business Intelligence',
-    role: 'Senior Software Engineer',
+    role: 'Senior Frontend Engineer',
     categories: ['business-intelligence', 'enterprise-saas'],
     desc: 'Enterprise research platform allowing users to discover companies, evaluate organizations and access structured business information.',
     tech: ['React', 'TypeScript', 'Enterprise SaaS', 'Data Visualization', 'Business Intelligence', 'REST APIs'],
@@ -89,11 +92,11 @@ const PROJECTS = [
     title: 'Dora Cell',
     company: 'Dora',
     industry: 'Telecommunications',
-    role: 'Founding Frontend Engineer',
+    role: 'Founding Engineer (Frontend Lead)',
     categories: ['telecommunications', 'developer-tooling'],
     desc: 'Browser-based VoIP platform providing reliable communication infrastructure for businesses.',
-    tech: ['React', 'Next.js', 'Electron', 'SIP.js', 'WebRTC', 'Socket.io', 'Janus Media Server', 'Asterisk PBX', 'Client SDK'],
-    engineeringFocus: ['WebRTC', 'SIP', 'Janus', 'Asterisk', 'Electron', 'SDK Development', 'Real-time Systems'],
+    tech: ['React', 'Next.js', 'SIP.js', 'WebRTC', 'Socket.io', 'Asterisk PBX', 'Client SDK'],
+    engineeringFocus: ['WebRTC', 'SIP', 'Asterisk', 'SDK Development', 'Real-time Systems'],
     status: 'live',
     displayStatus: 'Production',
     year: '2025',
@@ -104,13 +107,13 @@ const PROJECTS = [
     featured: true,
     flagship: true,
     // Home card narrative fields
-    image: doraImg,
-    thumbnail: doraImg,
-    tagline: 'Production browser telephony infrastructure powered by WebRTC peer negotiation, SIP signaling, Asterisk/Janus PBX integration, and an Electron desktop app.',
+    image: doraCellHero,
+    thumbnail: doraCellHero,
+    tagline: 'Production browser telephony infrastructure powered by WebRTC peer negotiation, SIP signaling, and Asterisk PBX integration.',
     problem:
       'Off-the-shelf communication widgets broke down under enterprise logistics dispatch—dropping NAT sessions, introducing high audio latency, and providing zero programmatic control over multi-line SIP telephony states inside web browsers.',
     impact:
-      'Architected and shipped the complete client telephony layer. Engineered deterministic audio device routing, live NAT traversal, and real-time SIP state synchronization across web and Electron desktop clients.',
+      'Architected and shipped the complete client telephony layer. Engineered deterministic audio device routing, live NAT traversal, and real-time SIP state synchronization across web clients and CRM integrations.',
     logo: doraLogo,
   },
 
@@ -119,7 +122,7 @@ const PROJECTS = [
     title: 'Konvoy',
     company: 'NoemDek',
     industry: 'Transportation',
-    role: 'Senior Software Engineer',
+    role: 'Senior Frontend Engineer',
     categories: ['logistics', 'enterprise-saas'],
     desc: 'Transport operations platform supporting drivers, sales teams and operations through role-based workflows.',
     tech: ['React', 'TypeScript', 'Role-based Systems', 'REST APIs', 'Fleet Management', 'Operations Workflows'],
@@ -152,7 +155,7 @@ const PROJECTS = [
     title: 'Paystream',
     company: 'NoemDek',
     industry: 'Payroll',
-    role: 'Senior Software Engineer',
+    role: 'Senior Frontend Engineer',
     categories: ['internal-systems', 'enterprise-saas'],
     desc: 'Internal payroll platform streamlining employee payment workflows and administrative operations.',
     tech: ['React', 'TypeScript', 'Node.js', 'REST APIs', 'Payroll Workflows', 'Internal Dashboard'],
@@ -185,7 +188,7 @@ const PROJECTS = [
     title: 'PetroData',
     company: 'NoemDek',
     industry: 'Enterprise',
-    role: 'Senior Software Engineer',
+    role: 'Senior Frontend Engineer',
     categories: ['enterprise-saas', 'internal-systems'],
     desc: 'Enterprise software maintained and modernized through continuous feature development and platform improvements.',
     tech: ['React', 'TypeScript', 'Legacy Architecture', 'Data Analytics', 'REST APIs'],
@@ -231,8 +234,8 @@ const PROJECTS = [
     caseStudyStatus: 'Case Study Available',
     featured: true,
     flagship: false,
-    image: null,
-    thumbnail: null,
+    image: simpooMarketCart,
+    thumbnail: simpooMarketCart,
     logo: simpooLogo,
     tagline: null, problem: null, impact: null,
   },
@@ -258,7 +261,7 @@ const PROJECTS = [
     featured: true,
     flagship: true,
     // Home card narrative fields
-    image: simpooLogo,
+    image: simpooLanding,
     thumbnail: simpooLogo,
     tagline: 'Enterprise retail management suite featuring sub-second POS checkout, multi-warehouse inventory synchronization, and granular role-based access control.',
     problem:
@@ -368,7 +371,7 @@ const PROJECTS = [
     title: 'Dora Fleet',
     company: 'Dora',
     industry: 'Logistics',
-    role: 'Founding Frontend Engineer',
+    role: 'Founding Engineer (Frontend Lead)',
     categories: ['logistics', 'enterprise-saas'],
     desc: 'Fleet management platform helping logistics companies manage drivers, deliveries and operational workflows.',
     tech: ['React', 'TypeScript', 'REST APIs', 'Socket.io', 'Real-time Tracking', 'Enterprise SaaS'],

@@ -17,8 +17,8 @@ const STATS = [
   },
   {
     value: null,
-    display: '< 100ms',
-    label: 'POS & VoIP latency budget',
+    display: 'low',
+    label: 'latency POS & VoIP experiences',
     description: 'Optimistic UI updates & deterministic local state caching',
   },
   {

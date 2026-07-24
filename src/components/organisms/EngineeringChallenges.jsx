@@ -7,8 +7,8 @@ const CHALLENGES = [
     title: 'Browser-Based SIP & WebRTC Infrastructure',
     problem: 'Off-the-shelf VoIP widgets drop calls behind corporate NATs and offer zero programmatic control over multi-line SIP telephony states.',
     solution:
-      'Engineered custom client-side signaling pipelines with SIP.js, WebRTC, and Socket.io over Asterisk & Janus media servers—shipping deterministic device routing and an Electron wrapper for logistics dispatchers.',
-    tags: ['WebRTC', 'SIP.js', 'Janus', 'Asterisk', 'Electron'],
+      'Engineered custom client-side signaling pipelines with SIP.js, WebRTC, and Socket.io over Asterisk media servers—shipping deterministic device routing and real-time multi-line telephony in the browser.',
+    tags: ['WebRTC', 'SIP.js', 'Asterisk', 'Socket.io'],
   },
   {
     category: 'Enterprise SaaS Architecture',
@@ -31,7 +31,7 @@ const CHALLENGES = [
     title: 'High-Throughput Enterprise Analytics & Compliance',
     problem: 'Complex industrial workflows (oil & gas data, logistics dispatch, enterprise payroll) require rendering dense tabular data and strict multi-tier auditability.',
     solution:
-      'Built high-performance enterprise portals (Records v2, PetroData, PayStream) with responsive virtualized tables, granular RBAC security models, and end-to-end auditable compliance.',
+      'Built high-performance enterprise portals (Records, PetroData, PayStream) with responsive virtualized tables, granular RBAC security models, and end-to-end auditable compliance.',
     tags: ['Enterprise SaaS', 'Records Governance', 'Oil & Gas Analytics', 'Security'],
   },
 ]

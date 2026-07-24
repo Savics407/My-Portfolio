@@ -25,7 +25,7 @@ export default function ArchiveTable({ projects, onSelectProject }) {
               className="archive-row group border-b border-border/30 last:border-0"
             >
               {/* Year */}
-              <td className="py-5 pr-6 pl-2 font-mono text-xs text-muted align-top pt-[1.35rem] whitespace-nowrap">
+              <td className="py-5 pr-6 pl-2 text-xs font-mono font-semibold text-muted align-top pt-[1.35rem] whitespace-nowrap">
                 {project.year}
               </td>
 

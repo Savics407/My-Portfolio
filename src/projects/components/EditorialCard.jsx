@@ -39,7 +39,7 @@ export default function EditorialCard({ project, index, onSelectProject }) {
           {project.casestudyRoute ? (
             <Link
               to={project.casestudyRoute}
-              className="project-title-link font-bold text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug flex items-center gap-2"
+              className="project-title-link font-bold text-[1.15rem] md:text-[1.3rem] tracking-tight leading-snug flex items-center gap-2"
             >
               {project.title}
             </Link>
@@ -47,7 +47,7 @@ export default function EditorialCard({ project, index, onSelectProject }) {
             <button
               type="button"
               onClick={() => onSelectProject && onSelectProject(project)}
-              className="project-title-link font-bold text-[1.1rem] md:text-[1.2rem] tracking-tight leading-snug flex items-center gap-2 text-left cursor-pointer"
+              className="project-title-link font-bold text-[1.15rem] md:text-[1.3rem] tracking-tight leading-snug flex items-center gap-2 text-left cursor-pointer"
             >
               {project.title}
             </button>
@@ -61,13 +61,13 @@ export default function EditorialCard({ project, index, onSelectProject }) {
 
         {/* Role & Company — subordinate to title */}
         <div className="text-[0.8125rem] font-mono mb-4 flex items-center gap-1.5 flex-wrap">
-          <span className="text-zinc-300 font-medium">{project.role}</span>
+          <span className="text-zinc-300 font-semibold">{project.role}</span>
           <span className="text-muted">·</span>
           <span className="text-muted">{project.company}</span>
         </div>
 
         {/* Concise Description — improved contrast & line-height */}
-        <p className="text-[#b4b4be] text-[0.875rem] leading-[1.8] mb-6 line-clamp-3">
+        <p className="text-secondary text-[0.875rem] leading-[1.85] mb-6 line-clamp-3">
           {project.desc}
         </p>
       </div>

@@ -68,21 +68,21 @@ function ProjectCard({ project, index }) {
       <div className={!isEven ? 'order-2 md:order-1' : 'order-2'}>
         {/* Metadata row */}
         <div className="flex items-center gap-2 mb-3.5">
-          <span className="text-xs font-mono" style={{ color: '#4ade80', opacity: 0.9 }}>{project.year}</span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#4ade80', opacity: 0.9 }}>{project.year}</span>
           <span className="text-muted text-xs">·</span>
-          <span className="text-xs font-mono" style={{ color: '#c4c4cc' }}>{project.company}</span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#e4e4e7' }}>{project.company}</span>
           <span className="text-muted text-xs">·</span>
           <span className="text-xs font-mono text-muted">{project.categories[0]}</span>
         </div>
 
         {/* Title — largest, most prominent */}
-        <h3 className="text-[1.5rem] font-bold text-fg mb-1.5 tracking-tight leading-snug">
+        <h3 className="text-[1.65rem] font-bold text-fg mb-1.5 tracking-tight leading-snug">
           {project.title}
         </h3>
         {/* Role — clearly subordinate */}
         <p className="text-[0.8125rem] font-mono text-zinc-400 mb-4">{project.role}</p>
         {/* Description — comfortable contrast */}
-        <p className="text-[0.9375rem] leading-[1.85] mb-6" style={{ color: '#b4b4be' }}>
+        <p className="text-[0.9375rem] leading-[1.85] mb-6" style={{ color: '#d4d4d8' }}>
           {project.tagline || project.desc}
         </p>
 
@@ -95,13 +95,13 @@ function ProjectCard({ project, index }) {
             {project.problem && (
               <div>
                 <span className="font-mono text-muted uppercase tracking-wider block mb-1">The Challenge</span>
-                <p className="leading-relaxed" style={{ color: '#b0b0ba' }}>{project.problem}</p>
+                <p className="leading-relaxed" style={{ color: '#d4d4d8' }}>{project.problem}</p>
               </div>
             )}
             {project.impact && (
               <div>
                 <span className="font-mono text-accent uppercase tracking-wider block mb-1">Engineering Impact</span>
-                <p className="leading-relaxed font-medium" style={{ color: '#e4e4e8' }}>{project.impact}</p>
+                <p className="leading-relaxed font-semibold" style={{ color: '#ffffff' }}>{project.impact}</p>
               </div>
             )}
           </div>

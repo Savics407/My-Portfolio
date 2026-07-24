@@ -121,17 +121,30 @@ a, button, input, textarea, select, label, [role="button"] {
 }
 
 /* ─── Paragraph & Body Text Contrast ───────────────────── */
-/* Base secondary prose color: raised from #a1a1aa → #b4b4be */
+/* Base secondary prose color: raised to #d4d4d8 for premium contrast */
 .prose-secondary {
-  color: #b4b4be;
-  line-height: 1.8;
+  color: #d4d4d8;
+  line-height: 1.85;
 }
 
 /* Description blocks — comfortable reading */
 .desc-text {
-  color: #b4b4be;
-  line-height: 1.85;
+  color: #d4d4d8;
+  line-height: 1.9;
   font-size: 0.9375rem;
+}
+
+/* Global paragraph spacing and default line-height */
+p {
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+p:last-child {
+  margin-bottom: 0;
+}
+
+.leading-relaxed {
+  line-height: 1.85 !important;
 }
 
 /* ─── Cards ─────────────────────────────────────────────── */

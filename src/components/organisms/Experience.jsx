@@ -7,7 +7,7 @@ const EXPERIENCE = [
   {
     product: 'Enterprise Platforms: Records, Konvoy, PetroData & PayStream',
     company: 'NoemDek',
-    role: 'Senior Software Engineer',
+    role: 'Senior Frontend Engineer',
     period: '2025 — Present',
     type: 'Full-time',
     url: null,
@@ -15,7 +15,7 @@ const EXPERIENCE = [
       'Architected and delivered mission-critical internal enterprise platforms across business intelligence, industrial oil & gas telemetry, and financial payroll.',
     highlights: [
       'Records & PetroData: Engineered data-dense business intelligence portals and oil & gas fleet telemetry dashboards handling massive tabular datasets and compliance workflows',
-      'Konvoy & PayStream: Delivered enterprise logistics tracking systems (`Meuve`) and internal financial treasury/bulk payment disbursement dashboards',
+      'Konvoy & PayStream: Delivered enterprise logistics tracking systems (Konvoy) and internal financial treasury/bulk payment disbursement dashboards',
       'Architected shared internal frontend libraries and API integration layers (`Zustand` & `TanStack Table`), cutting cross-team feature delivery cycle times across enterprise business products',
       'Collaborated cross-functionally with domain experts, product owners, and backend engineering teams to transform complex enterprise operations into responsive web applications',
     ],
@@ -32,8 +32,8 @@ const EXPERIENCE = [
       'Architected and built SimpooBusiness from inception to scale across 185 store locations — centralizing POS checkout, inventory ledgers, and consumer e-commerce.',
     highlights: [
       'Engineered sub-second offline-first POS checkout flows and deterministic client-side transaction caching (`Redux Toolkit` + `TanStack Query`) for multi-location retail operations',
-      'Built Simpoo Marketplace (`simpoomarket_nextjs`), enabling multi-vendor split cart checkout and real-time stock reservation sync with physical in-store POS ledgers',
-      'Authored standalone embeddable TypeScript client SDKs (`@simpoo/sdk`) bundled via Rollup, allowing partner teams to embed checkout widgets in under 10 lines of code',
+      'Built Simpoo Marketplace, enabling multi-vendor split cart checkout and real-time stock reservation sync with physical in-store POS ledgers',
+      'Authored standalone embeddable TypeScript client SDKs (`@simpoo/sdk`) bundled via Rollup, allowing partner teams to embed inventory widgets in under 10 lines of code',
       'Integrated `Tiptap` document/invoice editor and client-side PDF/Excel export pipeline (`jspdf`, `xlsx`, `react-barcode`) for automated retail accounting and barcode printing',
     ],
     tech: ['Next.js 14', 'TypeScript', 'Redux Toolkit', 'TanStack Query', 'Electron', 'Rollup SDK', 'Tiptap', 'Tailwind CSS'],
@@ -41,19 +41,19 @@ const EXPERIENCE = [
   {
     product: 'Dora Cell Telephony Infrastructure & Dora Fleet Logistics',
     company: 'Dora',
-    role: 'Founding Frontend Engineer',
+    role: 'Founding Engineer (Frontend Lead)',
     period: '2023 — Present',
     type: 'Founding Engineer',
     url: 'https://usedora.com',
     description:
       'Architected and engineered production browser-based VoIP telephony infrastructure and enterprise logistics dispatch systems.',
     highlights: [
-      'Built Dora Cell (`@dora-cell/sdk` monorepo): Integrated `SIP.js` over `Asterisk/Janus` media servers to negotiate live multi-line WebRTC telephony with deterministic audio device routing and an Electron desktop app',
+      'Built Dora Cell (`@dora-cell/sdk` monorepo): Integrated `SIP.js` over `Asterisk` media servers to negotiate live multi-line WebRTC telephony with deterministic audio device routing',
       'Built Dora Fleet: Engineered real-time logistics dashboard featuring `react-leaflet` vector tracking at 60 FPS and custom polygon geofencing (`Geoman`) for automated route alerts',
       'Embedded `@dora-cell/sdk-react` directly into active vehicle tracking cards on the dispatch map, enabling one-click WebRTC VoIP calling to drivers without context switching',
       'Published and maintained modular NPM packages (`@dora-cell/sdk`, `@dora-cell/sdk-react`, `@dora-cell/ghl`) supporting cross-platform web and CRM integrations',
     ],
-    tech: ['Next.js 16', 'React 19', 'TypeScript', 'WebRTC & SIP.js', 'Janus Media Server', 'Asterisk PBX', 'React-Leaflet', 'Socket.io', 'Monorepo SDK'],
+    tech: ['Next.js 16', 'React 19', 'TypeScript', 'WebRTC & SIP.js', 'Asterisk PBX', 'React-Leaflet', 'Socket.io', 'Monorepo SDK'],
   },
   {
     product: 'HxAfrica Real Estate & Asset Tokenization Platform',
@@ -65,7 +65,7 @@ const EXPERIENCE = [
     description:
       'Delivered the production web application connecting institutional property opportunities across Africa with global real estate investors.',
     highlights: [
-      'Architected and built the institutional investment web portal with seamless property catalog discovery and structured KYC/AML onboarding flows',
+      'Architected and built the institutional investment web portal with seamless property catalog discovery and structured KYC/AML (Anti-Money Laundering) onboarding flows',
       'Designed real-time financial portfolio reporting dashboards and dividend tracking tables for property shareholders',
       'Collaborated closely with product and compliance teams to ensure intuitive UI ergonomics across regulatory tokenization workflows',
     ],

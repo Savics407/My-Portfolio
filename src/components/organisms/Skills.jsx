@@ -12,12 +12,12 @@ const SKILL_GROUPS = [
     ],
   },
   {
-    category: 'Backend & APIs',
+    category: ' APIs & Integrations',
     icon: '⬡',
     description: 'Comfortable on the server — building the APIs and systems that power frontend products.',
     skills: [
-      'Node.js', 'Express', 'REST APIs', 'WebSockets',
-      'Authentication', 'JWT', 'Session Management',
+      'REST APIs', 'WebSockets',
+      'Authentication', 'JWT', 'Session Management', 'API Integration', 'Third-party SDKs',
     ],
   },
   {
@@ -34,8 +34,8 @@ const SKILL_GROUPS = [
     icon: '⬡',
     description: 'Rare expertise in browser-based real-time systems — from VoIP to live collaboration.',
     skills: [
-      'WebRTC', 'Socket.io', 'SIP.js', 'Janus Media Server',
-      'Asterisk PBX', 'Electron',
+      'WebRTC', 'Socket.io', 'SIP.js',
+      'Asterisk PBX',
     ],
   },
   {
@@ -43,8 +43,8 @@ const SKILL_GROUPS = [
     icon: '⬡',
     description: 'Serious about the developer experience — fast builds, clean pipelines, sharp tooling.',
     skills: [
-      'Vite', 'Rollup', 'Webpack', 'Git', 'GitHub Actions',
-      'Vercel', 'CI / CD', 'Docker (basics)',
+      'Vite', 'Rollup', 'Webpack', 'Git',
+      'Vercel', 'CI / CD', 
     ],
   },
   {
@@ -52,9 +52,9 @@ const SKILL_GROUPS = [
     icon: '⬡',
     description: 'Performance isn\'t a checklist item — it\'s a discipline I apply from the first commit.',
     skills: [
-      'Core Web Vitals', 'Lighthouse Optimisation', 'Lazy Loading',
-      'Code Splitting', 'Bundle Analysis', 'Accessibility (WCAG)',
-      'SEO', 'WordPress Performance',
+      "Optimistic UI", "Local State Persistence", "Offline-first UX",
+      "Bundle Optimization", "Accessibility", "Performance Profiling",
+      "Rendering Optimization"
     ],
   },
 ]

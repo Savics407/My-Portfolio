@@ -5,7 +5,7 @@ const PRINCIPLES = [
   {
     number: '01',
     title: 'Deterministic State Over Ad-Hoc Sync',
-    body: "Client state should be a predictable function of server truth and local intent. I eliminate race conditions by designing normalized state trees and optimistic caching rules before writing UI components.",
+    body: "I design predictable state flows by separating server truth, local state, and user intent before building complex interfaces.",
   },
   {
     number: '02',
@@ -14,23 +14,23 @@ const PRINCIPLES = [
   },
   {
     number: '03',
-    title: 'Resilience Under Unfavorable Network Conditions',
-    body: "Production systems must degrade gracefully when corporate NATs drop packets or high-volume merchant terminals encounter flaky networks—not just in idealized localhost environments.",
+    title: 'Designing for Real-World Network Conditions',
+    body: "Production applications must handle unreliable networks gracefully. Offline workflows, retry strategies, and synchronization patterns are part of building dependable systems.",
   },
   {
     number: '04',
-    title: 'Performance & Accessibility as Architectural Primitives',
-    body: "Sub-second Core Web Vitals, deterministic rendering, keyboard focus management, and WCAG compliance are structural engineering foundations—never post-launch patches.",
+    title: 'Performance & Accessibility as Architectural Decisions',
+    body: "Performance and accessibility are considered from the beginning — shaping rendering strategies, loading behaviour, and user experiences.",
   },
   {
     number: '05',
     title: 'Zero-Collision Encapsulation',
-    body: "Building embeddable tooling and distributed modules demands strict CSS scoping, automated prefixing, and aggressive tree-shaking so consumer host applications remain decoupled and lightweight.",
+    body: "Whether building embeddable widgets, client SDKs, or browser extensions, I use strict encapsulation and naming strategies to prevent style collisions and runtime conflicts.",
   },
   {
     number: '06',
     title: 'Optimizing for the Next Maintainer',
-    body: "Code is read ten times more than it is written. Clear architectural separation, explicit naming, and self-documenting APIs create compounding velocity for the entire engineering team.",
+    body: "Code is maintained more often than it is written. Clear architecture, explicit naming, and thoughtful APIs create long-term velocity.",
   },
 ]
 

@@ -1,14 +1,14 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
-import profile from '../../assets/profile.jpg'
+import profile from '../../assets/victor_adighibe.jpeg'
 import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, EMAIL, ROLE_TITLE, YEARS_EXPERIENCE } from '../../data/narrative'
 
 const QUICK_FACTS = [
   { label: 'Location', value: 'Nigeria — Remote worldwide' },
   { label: 'Current focus', value: 'Full-stack product engineering' },
   { label: 'Availability', value: 'Open to new opportunities' },
-  { label: 'Blog', value: 'blog.victoradighibe.com', href: 'https://blog.victoradighibe.com' },
+  // { label: 'Blog', value: 'blog.victoradighibe.com', href: 'https://blog.victoradighibe.com' },
 ]
 
 export default function About() {
