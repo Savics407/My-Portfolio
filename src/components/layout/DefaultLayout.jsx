@@ -10,7 +10,7 @@ function DefaultLayout({ children }) {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
-      className="font-Inter text-fg bg-bg min-h-screen"
+      className="font-Inter text-fg bg-bg min-h-screen overflow-x-hidden"
     >
       <Header />
       <main>{children}</main>

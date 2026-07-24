@@ -202,12 +202,12 @@ export default function Home() {
                 <span className="badge-dot" />
                 Available for new opportunities
               </span>
-              <span
+              {/* <span
                 className="text-secondary text-xs font-mono border border-border/80 px-3 py-1 rounded-full"
                 style={{ background: 'rgba(24, 24, 27, 0.7)' }}
               >
                 Victor Adighibe 
-              </span>
+              </span> */}
             </motion.div>
 
             {/* Headline */}

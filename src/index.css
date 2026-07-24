@@ -15,6 +15,7 @@ html {
   scroll-behavior: smooth;
   -webkit-scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
 }
 
 body {
@@ -175,6 +176,7 @@ p:last-child {
 
 .hero-glow {
   position: relative;
+  overflow: hidden;
 }
 
 .hero-glow::before {

@@ -75,7 +75,7 @@ export default function Header() {
             <div className="w-7 h-7 rounded-md bg-raised border border-border flex items-center justify-center p-1.5 group-hover:border-accent/40 transition-colors">
               <img src={savicsLogo} alt="Savics mark" className="w-full h-full object-contain opacity-85 group-hover:opacity-100 transition-opacity" />
             </div>
-            <div className="flex items-baseline gap-1.5 hidden sm:flex">
+            <div className="flex items-baseline gap-1.5">
               <span className="text-fg font-semibold text-sm tracking-tight">
                 Victor Adighibe
               </span>
@@ -148,10 +148,10 @@ export default function Header() {
                 <div className="w-7 h-7 rounded-md bg-raised border border-border flex items-center justify-center p-1.5">
                   <img src={savicsLogo} alt="Savics mark" className="w-full h-full object-contain opacity-85" />
                 </div>
-                <div className="flex items-baseline gap-1.5">
+                {/* <div className="flex items-baseline gap-1.5">
                   <span className="text-fg font-semibold text-sm">Victor Adighibe</span>
                   <span className="text-muted text-xs font-mono">(Savics)</span>
-                </div>
+                </div> */}
               </Link>
               <button
                 onClick={() => setMenuOpen(false)}
