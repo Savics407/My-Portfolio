@@ -82,9 +82,9 @@ export default function SimpooMarketCaseStudy() {
         </div>
       </div>
 
-      {/* 1. OVERVIEW */}
+      {/* 1. OVERVIEW & SOLUTION */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Overview</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Overview & Solution</h2>
         <p className="text-secondary leading-relaxed">
           <strong className="text-fg">Simpoo Marketplace</strong> is a high-performance digital commerce platform built to extend our SimpooBusiness retail ecosystem directly into consumer e-commerce. It empowers multi-location brick-and-mortar retailers and independent merchants to sell their physical inventories online across a central multi-vendor marketplace, with every order, discount, and stock count synchronized in real time with their physical in-store POS terminals.
         </p>
@@ -93,9 +93,9 @@ export default function SimpooMarketCaseStudy() {
         </p>
       </section>
 
-      {/* 2. THE ENGINEERING PROBLEM */}
+      {/* 2. THE PROBLEM */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">The Engineering Problem: Multi-Vendor Inventory & Cart Complexity</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Problem: Multi-Vendor Inventory & Cart Complexity</h2>
         <p className="text-secondary leading-relaxed">
           Building a standard single-store e-commerce site is straightforward, but operating a multi-vendor marketplace connected to real-time physical store inventory introduces immense synchronization challenges.
         </p>
@@ -156,9 +156,9 @@ export default function SimpooMarketCaseStudy() {
         </ul>
       </section>
 
-      {/* 4. WHAT I BUILT */}
+      {/* 4. THE SOLUTION: CORE MODULES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">What I Built: Core Engine & Modules</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Solution: Core Modules I Built</h2>
 
         {/* Module 1: Split Cart Checkout Engine */}
         <div className="p-6 rounded-xl bg-raised border border-border space-y-3">
@@ -202,9 +202,9 @@ export default function SimpooMarketCaseStudy() {
         </div>
       </section>
 
-      {/* 5. TECHNICAL DECISIONS & CHALLENGES */}
+      {/* 5. ENGINEERING CHALLENGES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Key Technical Decisions & Challenges</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Engineering Challenges</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
@@ -227,9 +227,9 @@ export default function SimpooMarketCaseStudy() {
         </div>
       </section>
 
-      {/* 6. RESULTS & IMPACT */}
+      {/* 6. RESULTS & BUSINESS IMPACT */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Production Results & Impact</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Results & Business Impact</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-5 rounded-xl bg-raised border border-border text-center">
             <p className="text-2xl md:text-3xl font-bold text-fg font-mono">100%</p>

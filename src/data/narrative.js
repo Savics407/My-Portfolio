@@ -34,16 +34,16 @@ export const YEARS_EXPERIENCE = 7
 /**
  * Role title — the primary professional label shown across the site.
  */
-export const ROLE_TITLE = 'Senior Software Engineer'
+export const ROLE_TITLE = 'Senior Frontend / Product Engineer'
 
 /**
  * Primary hero subtitle/tagline. Leads with domain breadth and scope before tools.
  */
 export const HERO_TAGLINE =
-  'Senior Software Engineer specializing in real-time communication, embeddable developer tooling, and web platforms. I am drawn to systems where clean architecture and low latency directly determine whether a product feels effortless or broken.'
+  'I build high-performance client infrastructure, browser telephony platforms, and developer SDKs. I focus on sub-second rendering, WebRTC media orchestration, and offline-resilient state engines—turning complex technical requirements into fast, reliable interfaces.'
 
 /**
  * SEO meta description for page title tags and social previews.
  */
 export const META_DESCRIPTION =
-  'Victor Adighibe is a Senior Software Engineer with 7+ years building enterprise SaaS platforms, real-time communication systems, and developer tooling.'
+  'Victor Adighibe is a Senior Frontend / Product Engineer with 7+ years building enterprise SaaS platforms, real-time communication systems, and developer tooling.'

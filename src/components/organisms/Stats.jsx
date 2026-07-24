@@ -6,26 +6,26 @@ const STATS = [
   {
     value: YEARS_EXPERIENCE,
     suffix: '+',
-    label: 'Years of experience',
-    description: 'Architecting resilient web platforms and carrier-grade VoIP',
+    label: 'Years Building Products',
+    description: 'Shipping scalable software from idea to production.',
   },
   {
-    value: 5,
+    value: 7,
     suffix: '+',
-    label: 'Production systems',
-    description: 'Full lifecycle ownership across SaaS, telephony, and retail POS',
+    label: 'Production Systems Shipped',
+    description: 'Across fintech, telecom, logistics & enterprise',
   },
   {
     value: null,
-    display: 'low',
-    label: 'latency POS & VoIP experiences',
-    description: 'Optimistic UI updates & deterministic local state caching',
+    display: 'Real-time',
+    label: 'Platforms & SDKs',
+    description: 'WebRTC, VoIP, offline-first & developer tooling',
   },
   {
     value: null,
-    display: 'Zero',
-    label: 'Style & state collisions',
-    description: 'Encapsulated TypeScript SDKs embedded in partner apps',
+    display: 'End-to-End',
+    label: 'Product Ownership',
+    description: 'From architecture and UX to deployment',
   },
 ]
 

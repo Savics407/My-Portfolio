@@ -72,9 +72,9 @@ export default function DoraFleetCaseStudy() {
         </p>
       </div>
 
-      {/* 1. OVERVIEW */}
+      {/* 1. OVERVIEW & SOLUTION */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Overview</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Overview & Solution</h2>
         <p className="text-secondary leading-relaxed">
           <strong className="text-fg">Dora Fleet</strong> is an all-in-one delivery management platform that replaces the WhatsApp group chats, Excel spreadsheets, and fragmented manual processes that most local logistics businesses run on. It gives any business that does order delivery—restaurants, pharmacies, logistics companies, e-commerce stores, manufacturers—a single system to plan, create, assign, track, and notify across their entire fulfilment workflow.
         </p>
@@ -149,9 +149,9 @@ export default function DoraFleetCaseStudy() {
         </ul>
       </section>
 
-      {/* 4. CORE MODULES */}
+      {/* 4. THE SOLUTION: CORE MODULES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Core Product Modules I Built</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Solution: Core Modules I Built</h2>
 
         {/* Module 1 */}
         <div className="p-6 rounded-xl bg-raised border border-border space-y-3">
@@ -214,9 +214,9 @@ export default function DoraFleetCaseStudy() {
         </div>
       </section>
 
-      {/* 5. TECHNICAL DECISIONS */}
+      {/* 5. ENGINEERING CHALLENGES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Key Technical Decisions</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Engineering Challenges</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
@@ -239,9 +239,9 @@ export default function DoraFleetCaseStudy() {
         </div>
       </section>
 
-      {/* 6. RESULTS */}
+      {/* 6. RESULTS & BUSINESS IMPACT */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Impact</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Results & Business Impact</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-5 rounded-xl bg-raised border border-border text-center">
             <p className="text-2xl md:text-3xl font-bold text-fg font-mono">1 System</p>

@@ -480,7 +480,7 @@ p:last-child {
 
 /* ─── Stat Counter ──────────────────────────────────────── */
 .stat-number {
-  font-size: clamp(2rem, 5vw, 3rem);
+  font-size: clamp(1rem, 5vw, 2rem);
   font-weight: 800;
   letter-spacing: -0.04em;
   color: #fafafa;

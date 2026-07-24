@@ -8,7 +8,7 @@ import savicsLogo from '../../assets/S-white logo.png'
 const NAV_LINKS = [
   { label: 'About',    href: '#about' },
   { label: 'Work',     href: '#work' },
-  { label: 'Skills',   href: '#skills' },
+  { label: 'Tech',     href: '#skills' },
   { label: 'Contact',  href: '#contact' },
 ]
 

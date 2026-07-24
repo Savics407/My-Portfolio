@@ -7,7 +7,6 @@ import Stats from './components/organisms/Stats'
 import About from './components/organisms/About'
 import Experience from './components/organisms/Experience'
 import Skills from './components/organisms/Skills'
-import Principles from './components/organisms/Principles'
 import Testimonials from './Testimonials'
 import Form from './Form'
 import EngineeringChallenges from './components/organisms/EngineeringChallenges'
@@ -331,14 +330,11 @@ export default function Home() {
       {/* ─── Engineering Challenges Solved ─────────────────── */}
       <EngineeringChallenges />
 
-      {/* ─── Skills ─────────────────────────────────────────── */}
-      <Skills />
-
-      {/* ─── Principles ─────────────────────────────────────── */}
-      <Principles />
-
       {/* ─── Experience ─────────────────────────────────────── */}
       <Experience />
+
+      {/* ─── Skills (Core Technologies) ────────────────────── */}
+      <Skills />
 
       {/* ─── Testimonials ───────────────────────────────────── */}
       <Testimonials />

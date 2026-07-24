@@ -109,11 +109,11 @@ const PROJECTS = [
     // Home card narrative fields
     image: doraCellHero,
     thumbnail: doraCellHero,
-    tagline: 'Production browser telephony infrastructure powered by WebRTC peer negotiation, SIP signaling, and Asterisk PBX integration.',
+    tagline: 'Production-grade browser telephony infrastructure built on WebRTC signaling and Asterisk media servers.',
     problem:
-      'Off-the-shelf communication widgets broke down under enterprise logistics dispatch—dropping NAT sessions, introducing high audio latency, and providing zero programmatic control over multi-line SIP telephony states inside web browsers.',
+      'Enterprise logistics dispatchers were bound to physical desk phones and unstable desktop softphones—causing frequent call drops, voice latency over NAT routes, and zero integration with operational CRM tools.',
     impact:
-      'Architected and shipped the complete client telephony layer. Engineered deterministic audio device routing, live NAT traversal, and real-time SIP state synchronization across web clients and CRM integrations.',
+      'Architected and published modular client SDKs (@dora-cell/sdk) to handle live multi-line calling directly in-browser. Implemented deterministic audio routing and real-time state sync to ensure 99.9% call signaling reliability.',
     logo: doraLogo,
   },
 
@@ -263,11 +263,11 @@ const PROJECTS = [
     // Home card narrative fields
     image: simpooLanding,
     thumbnail: simpooLogo,
-    tagline: 'Enterprise retail management suite featuring sub-second POS checkout, multi-warehouse inventory synchronization, and granular role-based access control.',
+    tagline: 'Enterprise retail management suite featuring sub-second POS checkout and multi-warehouse inventory sync.',
     problem:
-      'Multi-location retail merchants were forced to run fragmented POS terminals and manual spreadsheets for warehouse stock—causing frequent inventory mismatches and missing permission boundaries across staff roles.',
+      'Multi-location retail operators faced inventory drift and slow POS transaction checkouts, resulting in oversold stocks, long cashier queues, and complete system failure during local network drops.',
     impact:
-      'Delivered the production web platform end-to-end. Engineered optimistic UI updates for sub-second POS transactions, live multi-store inventory sync, and strict RBAC security supporting daily enterprise retail operations.',
+      'Designed a fault-tolerant Point of Sale engine using Redux state and local storage caching, reducing checkout times to sub-seconds and maintaining checkout continuity offline without database collisions.',
     logo: simpooLogo,
   },
 
@@ -414,11 +414,11 @@ const PROJECTS = [
     // Home card narrative fields
     image: reicoImg,
     thumbnail: reicoImg,
-    tagline: 'Blockchain-powered real estate investment platform connecting investors with institutional property opportunities across Africa.',
+    tagline: 'Asset tokenization and property investment portal connecting global capital with institutional real estate.',
     problem:
-      'Tokenized asset ownership platforms often overwhelm investors with dense regulatory hurdles and confusing wallet onboarding flows that cause drop-offs.',
+      'Institutional real estate investment was restricted by manual capital matching processes and complex KYC compliance onboarding flows that caused significant user drop-offs.',
     impact:
-      'Delivered the production web application from architectural design to deployment. Implemented seamless asset discovery, structured KYC onboarding flows, and real-time financial portfolio reporting.',
+      'Built the investor portal from scratch with property catalog discovery, yield calculators, structured KYC/AML flows, and real-time dividend distribution dashboards to automate compliance and capital routing.',
     logo: reicoLogo,
   },
 

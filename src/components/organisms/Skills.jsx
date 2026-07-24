@@ -1,115 +1,66 @@
 import React from 'react'
 import { motion } from 'framer-motion'
 
-const SKILL_GROUPS = [
+const TECH_CATEGORIES = [
   {
-    category: 'Frontend',
-    icon: '⬡',
-    description: 'The core of my craft — building interfaces that are fast, accessible, and maintainable.',
-    skills: [
-      'React', 'Next.js', 'TypeScript', 'JavaScript (ES2022+)',
-      'Tailwind CSS', 'Redux Toolkit', 'TanStack Query', 'Framer Motion',
-    ],
+    name: 'Core Stack',
+    items: ['React', 'Next.js', 'TypeScript', 'Node.js', 'Redux Toolkit', 'Zustand'],
   },
   {
-    category: ' APIs & Integrations',
-    icon: '⬡',
-    description: 'Comfortable on the server — building the APIs and systems that power frontend products.',
-    skills: [
-      'REST APIs', 'WebSockets',
-      'Authentication', 'JWT', 'Session Management', 'API Integration', 'Third-party SDKs',
-    ],
+    name: 'Real-Time & Telephony',
+    items: ['WebRTC', 'SIP.js', 'Asterisk PBX', 'Socket.io', 'Pusher', 'Laravel Echo'],
   },
   {
-    category: 'Architecture & Systems',
-    icon: '⬡',
-    description: 'Thinking beyond the feature — designing systems that scale with the team and the product.',
-    skills: [
-      'UI Architecture', 'Design Systems', 'Component Libraries',
-      'SDK Development', 'npm Publishing', 'Monorepos',
-    ],
-  },
-  {
-    category: 'Real-time & Communication',
-    icon: '⬡',
-    description: 'Rare expertise in browser-based real-time systems — from VoIP to live collaboration.',
-    skills: [
-      'WebRTC', 'Socket.io', 'SIP.js',
-      'Asterisk PBX',
-    ],
-  },
-  {
-    category: 'Tooling & DevOps',
-    icon: '⬡',
-    description: 'Serious about the developer experience — fast builds, clean pipelines, sharp tooling.',
-    skills: [
-      'Vite', 'Rollup', 'Webpack', 'Git',
-      'Vercel', 'CI / CD', 
-    ],
-  },
-  {
-    category: 'Performance & Quality',
-    icon: '⬡',
-    description: 'Performance isn\'t a checklist item — it\'s a discipline I apply from the first commit.',
-    skills: [
-      "Optimistic UI", "Local State Persistence", "Offline-first UX",
-      "Bundle Optimization", "Accessibility", "Performance Profiling",
-      "Rendering Optimization"
-    ],
+    name: 'Systems & SDKs',
+    items: ['Electron', 'Rollup SDK Bundling', 'npm Monorepos', 'REST APIs', 'TanStack Query', 'Tailwind CSS'],
   },
 ]
 
 export default function Skills() {
   return (
-    <section id="skills" className="section">
-      <div className="container mx-auto">
+    <section id="skills" className="section" style={{ background: '#111113' }}>
+      <div className="container mx-auto max-w-4xl">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.4 }}
-          className="mb-14"
+          className="mb-10 text-center md:text-left"
         >
           <p className="section-label mb-3">Expertise</p>
-          <h2 className="section-title mb-4">Technical skills</h2>
-          <p className="section-subtitle text-secondary">
-            Not a list of buzzwords — these are tools I've used to ship real software,
-            solve real problems, and own real systems.
+          <h2 className="section-title mb-4">Core Technologies</h2>
+          <p className="section-subtitle text-secondary max-w-2xl">
+            Production-grade technologies, APIs, and frameworks I use to build robust client systems and developer integrations.
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {SKILL_GROUPS.map((group, i) => (
-            <motion.div
-              key={group.category}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.07 }}
-              className="card p-6 group"
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4, delay: 0.15 }}
+          className="space-y-6 bg-raised/30 p-6 md:p-8 rounded-2xl border border-border/80"
+        >
+          {TECH_CATEGORIES.map((cat, index) => (
+            <div
+              key={cat.name}
+              className={`flex flex-col md:flex-row md:items-center gap-3 md:gap-8 ${
+                index !== TECH_CATEGORIES.length - 1 ? 'pb-5 border-b border-border/40' : ''
+              }`}
             >
-              {/* Header */}
-              <div className="flex items-center gap-2 mb-2">
-                <div className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
-                <h3 className="text-fg font-semibold text-sm">{group.category}</h3>
-              </div>
-
-              {/* Description */}
-              <p className="text-xs leading-relaxed mb-4" style={{ color: '#8e8e9a' }}>
-                {group.description}
-              </p>
-
-              {/* Skills */}
+              <span className="text-xs font-mono text-muted uppercase tracking-wider w-40 flex-shrink-0">
+                {cat.name}
+              </span>
               <div className="flex flex-wrap gap-2">
-                {group.skills.map((skill) => (
-                  <span key={skill} className="skill-tag">
-                    {skill}
+                {cat.items.map((item) => (
+                  <span key={item} className="skill-tag text-xs py-1 px-3 bg-bg border border-border/70 text-fg">
+                    {item}
                   </span>
                 ))}
               </div>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   )

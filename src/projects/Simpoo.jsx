@@ -57,9 +57,9 @@ export default function SimpooCaseStudy() {
         
       </div>
 
-      {/* 1. OVERVIEW */}
+      {/* 1. OVERVIEW & SOLUTION */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Overview</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Overview & Solution</h2>
         <p className="text-secondary leading-relaxed">
           <strong className="text-fg">SimpooBusiness</strong> is an enterprise business management platform designed to help retail operators and multi-location SMEs digitize their daily operations. It centralizes inventory management, high-speed Point of Sale (POS), real-time financial reporting, multi-branch stock transfers, and e-commerce marketplace operations into a single cloud platform—while providing native offline-first continuity via an Electron desktop runtime.
         </p>
@@ -80,9 +80,9 @@ export default function SimpooCaseStudy() {
         </p>
       </div>
 
-      {/* 2. THE BUSINESS PROBLEM */}
+      {/* 2. THE PROBLEM */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">The Business Problem</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Problem</h2>
         <p className="text-secondary leading-relaxed">
           High-volume retail operators frequently suffer from severe software fragmentation. A typical multi-location merchant runs disconnected legacy terminals for POS checkout, manual spreadsheets for warehouse stock tracking, and separate accounting packages for tax reporting.
         </p>
@@ -128,9 +128,9 @@ export default function SimpooCaseStudy() {
         </ul>
       </section>
 
-      {/* 4. WHAT I BUILT */}
+      {/* 4. THE SOLUTION: CORE MODULES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">What I Built: Core Engine & Modules</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Solution: Core Modules I Built</h2>
 
         {/* Module 1: POS */}
         <div className="p-6 rounded-xl bg-raised border border-border space-y-3">
@@ -271,7 +271,7 @@ export default function SimpooCaseStudy() {
 
       {/* 5. ENGINEERING CHALLENGES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Key Technical Decisions & Challenges</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Engineering Challenges</h2>
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
             <h4 className="text-fg font-semibold text-base mb-2 flex items-center gap-2">
@@ -292,9 +292,9 @@ export default function SimpooCaseStudy() {
         </div>
       </section>
 
-      {/* 6. RESULTS & IMPACT */}
+      {/* 6. RESULTS & BUSINESS IMPACT */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Production Results & Business Impact</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Results & Business Impact</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-5 rounded-xl bg-raised border border-border text-center">
             <p className="text-2xl md:text-3xl font-bold text-fg font-mono">138</p>

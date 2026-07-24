@@ -75,9 +75,9 @@ export default function DoraCellCaseStudy() {
         </p>
       </div>
 
-      {/* 1. OVERVIEW */}
+      {/* 1. OVERVIEW & SOLUTION */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Overview</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Overview & Solution</h2>
         <p className="text-secondary leading-relaxed">
           <strong className="text-fg">Dora Cell</strong> is an enterprise browser-based VoIP and communication platform designed to replace bulky physical PBX desk phones and fragile desktop softphones with resilient, programmatic browser telephony. It enables high-volume enterprise teams—such as logistics dispatchers, customer support hubs, and sales centers—to place, receive, transfer, and record multi-line telephone calls directly inside their web browsers and embedded CRM integrations.
         </p>
@@ -86,9 +86,9 @@ export default function DoraCellCaseStudy() {
         </p>
       </section>
 
-      {/* 2. THE ENGINEERING PROBLEM */}
+      {/* 2. THE PROBLEM */}
       <section className="space-y-4 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">The Engineering Problem: Browser Telephony at Scale</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Problem: Browser Telephony at Scale</h2>
         <p className="text-secondary leading-relaxed">
           Building browser telephony that survives high-stakes enterprise workflows is notoriously complex. Off-the-shelf VoIP widgets and third-party communication wrappers routinely fail under the demands of real-time logistics and dispatch operations.
         </p>
@@ -153,9 +153,9 @@ export default function DoraCellCaseStudy() {
         </ul>
       </section>
 
-      {/* 4. CORE MODULES & WHAT I BUILT */}
+      {/* 4. THE SOLUTION: CORE MODULES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Core Architectural Modules I Built</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">The Solution: Core Modules I Built</h2>
 
         {/* Module 1: WebRTC & SIP Signaling Engine */}
         <div className="p-6 rounded-xl bg-raised border border-border space-y-3">
@@ -319,9 +319,9 @@ export function Dialer() {
         </div>
       </section>
 
-      {/* 5. TECHNICAL DECISIONS & CHALLENGES */}
+      {/* 5. ENGINEERING CHALLENGES */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Key Technical Decisions & Challenges</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Engineering Challenges</h2>
 
         <div className="grid md:grid-cols-2 gap-6">
           <div className="card p-6">
@@ -344,9 +344,9 @@ export function Dialer() {
         </div>
       </section>
 
-      {/* 6. PRODUCTION RESULTS & IMPACT */}
+      {/* 6. RESULTS & BUSINESS IMPACT */}
       <section className="space-y-6 mb-12">
-        <h2 className="text-fg text-xl font-bold tracking-tight">Production Results & Impact</h2>
+        <h2 className="text-fg text-xl font-bold tracking-tight">Results & Business Impact</h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-4">
           <div className="p-5 rounded-xl bg-raised border border-border text-center">
             <p className="text-2xl md:text-3xl font-bold text-fg font-mono">99.9%</p>

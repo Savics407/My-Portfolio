@@ -30,15 +30,18 @@ export default function About() {
               <span className="text-accent">I solve business problems.</span>
             </h2>
 
-            <div className="space-y-5 text-[0.9375rem] leading-[1.9]" style={{ color: '#b4b4be' }}>
+            <div className="space-y-5 text-[0.9375rem] leading-[1.9]" style={{ color: '#d4d4d8' }}>
               <p>
-                Working across high-volume retail POS, enterprise real estate, and carrier-grade telecommunications taught me early on that product failures rarely happen in isolated UI components—they happen at network boundaries, during race conditions, and under state drift.
+                I view frontend engineering not as the process of implementing static layouts, but as the design of runtime client systems. A user interface is the final presentation of a complex state machine that spans local state caches, network layers, and asynchronous server synchronization. When a product feels slow, confusing, or brittle, the issue is rarely a styling error—it is almost always a failure of data state modeling or boundary management.
               </p>
               <p>
-                Known professionally across engineering teams and client networks as <span className="text-fg font-semibold">Savics</span>, my mindset was shaped by environments where downtime meant immediate lost revenue or broken operations. That discipline drives how I build: minimizing moving parts, enforcing clear domain boundaries, and owning features from systems architecture down to the final browser interaction.
+                Working across high-volume retail POS systems, multi-location inventory engines, and real-time WebRTC communication platforms taught me that client architecture must be designed defensively. I am drawn to high-stakes frontend problems: building offline-resilient checkout terminals, managing complex WebRTC voice peer connections with Asterisk PBXs, and packaging modular client SDKs that third-party teams can drop into their apps with absolute safety.
               </p>
               <p>
-                I thrive in environments where engineering teams care deeply about reliability, user trust, and long-term maintainability—not just shipping features quickly to hit an arbitrary deadline.
+                My approach focuses on making illegal states unrepresentable. By establishing strict API contracts, using deterministic state systems (like Zustand and Redux Toolkit), and implementing proper error isolation, I build products that are predictable and robust under load. I take ownership of the client pipeline end-to-end—from system data schemas and server network calls down to micro-interactions and Core Web Vitals.
+              </p>
+              <p>
+                Known professionally across engineering teams as <span className="text-fg font-semibold">Savics</span>, I build software that lasts. I thrive in teams that value structural maintainability, clean documentation, and defensive engineering over post-launch firefighting.
               </p>
             </div>
 
@@ -85,7 +88,7 @@ export default function About() {
             </div>
           </motion.div>
 
-          {/* Right — photo + card */}
+          {/* Right — photo */}
           <motion.div
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -103,7 +106,7 @@ export default function About() {
                   src={profile}
                   alt="Victor Adighibe"
                   className="w-full object-cover"
-                  style={{ maxHeight: '440px', objectPosition: 'top' }}
+                  style={{ maxHeight: '480px', objectPosition: 'top' }}
                   loading="lazy"
                 />
               </div>
@@ -118,24 +121,6 @@ export default function About() {
               >
                 <span className="badge-dot" style={{ display: 'inline-block' }} />
                 <span className="text-secondary text-xs">Available for new opportunities</span>
-              </div>
-            </div>
-
-            {/* Terminal card */}
-            <div className="terminal">
-              <div className="terminal-bar">
-                <span className="terminal-dot" style={{ background: '#ef4444' }} />
-                <span className="terminal-dot" style={{ background: '#f59e0b' }} />
-                <span className="terminal-dot" style={{ background: '#22c55e' }} />
-                <span className="text-muted text-xs ml-2">victor.config.ts</span>
-              </div>
-              <div className="p-4 text-xs space-y-1" style={{ color: '#a1a1aa' }}>
-                <div><span style={{ color: '#7c3aed' }}>const</span> <span style={{ color: '#4ade80' }}>victor</span> = {'{'}</div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>role</span>: <span style={{ color: '#86efac' }}>"{ROLE_TITLE}"</span>,</div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>experience</span>: <span style={{ color: '#fb923c' }}>{YEARS_EXPERIENCE}</span>,  <span style={{ color: '#3f3f46' }}>// years</span></div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>stack</span>: [<span style={{ color: '#86efac' }}>"React"</span>, <span style={{ color: '#86efac' }}>"TS"</span>, <span style={{ color: '#86efac' }}>"Node"</span>],</div>
-                <div className="pl-4"><span style={{ color: '#f59e0b' }}>available</span>: <span style={{ color: '#4ade80' }}>true</span>,</div>
-                <div>{'}'}</div>
               </div>
             </div>
           </motion.div>
