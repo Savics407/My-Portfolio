@@ -1,282 +1,351 @@
-import React, { useState } from 'react'
-import Header from './components/organisms/Header'
-import profile from './assets/profile.jpg'
-import africurve from './assets/africurve.svg'
-import reico from './assets/reico/body.svg'
-import fe from './assets/FE.svg'
-
-import project from './assets/project.png'
-import { GoLinkExternal } from 'react-icons/go'
-import { FiGithub } from 'react-icons/fi'
+import React, { useEffect } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from 'framer-motion'
-import Testimonials from './Testimonials'
-import { Link } from 'react-router-dom'
-import Footer from './components/organisms/Footer'
-import { useEffect } from 'react'
-import Form from './Form'
-import dora from './assets/dora/dora.svg'
-import About from './components/organisms/About'
+import { FiDownload, FiMail, FiGithub, FiLinkedin, FiExternalLink, FiArrowRight } from 'react-icons/fi'
 import DefaultLayout from './components/layout/DefaultLayout'
+import Stats from './components/organisms/Stats'
+import About from './components/organisms/About'
+import Experience from './components/organisms/Experience'
+import Skills from './components/organisms/Skills'
+import Principles from './components/organisms/Principles'
+import Testimonials from './Testimonials'
+import Form from './Form'
+import EngineeringChallenges from './components/organisms/EngineeringChallenges'
+import { FEATURED_PROJECTS } from './data/projects'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, EMAIL, ROLE_TITLE, HERO_TAGLINE, YEARS_EXPERIENCE } from './data/narrative'
 
+/* ─── Hero Terminal Lines ─────────────────────────────────────────── */
+const TERMINAL_LINES = [
+  { indent: 0, content: <><span style={{color:'#7c3aed'}}>const</span> <span style={{color:'#4ade80'}}>engineer</span> = {'{'}</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>name</span>: <span style={{color:'#86efac'}}>"Victor Adighibe"</span>,</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>handle</span>: <span style={{color:'#86efac'}}>"Savics"</span>, <span style={{color:'#52525b'}}>// engineering identity</span></> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>title</span>: <span style={{color:'#86efac'}}>"{ROLE_TITLE}"</span>,</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>yearsExp</span>: <span style={{color:'#fb923c'}}>{YEARS_EXPERIENCE}</span>,</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>stack</span>: [<span style={{color:'#86efac'}}>"React"</span>, <span style={{color:'#86efac'}}>"TypeScript"</span>, <span style={{color:'#86efac'}}>"Node.js"</span>],</> },
+  { indent: 1, content: <><span style={{color:'#f59e0b'}}>available</span>: <span style={{color:'#4ade80'}}>true</span>,  <span style={{color:'#3f3f46'}}>// open to opportunities</span></> },
+  { indent: 0, content: <>{'}'}</> },
+]
 
-function Home() {
-    // TODO: Create  your website layout
-    const list = {
-        visible: {
-            opacity: 1, transition: {
-                when: "beforeChildren",
-                staggerChildren: 0.05
-            }
-        },
-        hidden: {
-            opacity: 0, transition: {
-                when: "afterChildren"
-            }
-        },
-    }
+/* ─── Project Card ────────────────────────────────────────────────── */
+function ProjectCard({ project, index }) {
+  const isEven = index % 2 === 0
 
-    const item = {
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 20 },
-    }
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, delay: index * 0.05 }}
+      className="grid md:grid-cols-2 gap-10 md:gap-16 items-center"
+    >
+      {/* Image / Placeholder */}
+      <div className={!isEven ? 'order-1 md:order-2' : 'order-1'}>
+        {project.image ? (
+          <div
+            className="project-card-img rounded-xl overflow-hidden"
+            style={{ background: '#111113', border: '1px solid #27272a' }}
+          >
+            <img
+              src={project.image}
+              alt={project.title}
+              className="w-full object-cover aspect-[16/10]"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <div
+            className="aspect-[16/10] rounded-xl flex flex-col items-center justify-center p-8 text-center"
+            style={{ background: '#18181b', border: '1px dashed #3f3f46' }}
+          >
+            <span className="text-3xl mb-3">🛠️</span>
+            <p className="text-fg font-bold mb-1">{project.title}</p>
+            <p className="text-muted text-xs font-mono">{project.role}</p>
+          </div>
+        )}
+      </div>
 
+      {/* Content */}
+      <div className={!isEven ? 'order-2 md:order-1' : 'order-2'}>
+        {/* Metadata row */}
+        <div className="flex items-center gap-2 mb-3.5">
+          <span className="text-xs font-mono font-semibold" style={{ color: '#4ade80', opacity: 0.9 }}>{project.year}</span>
+          <span className="text-muted text-xs">·</span>
+          <span className="text-xs font-mono font-semibold" style={{ color: '#e4e4e7' }}>{project.company}</span>
+          <span className="text-muted text-xs">·</span>
+          <span className="text-xs font-mono text-muted">{project.categories[0]}</span>
+        </div>
 
+        {/* Title — largest, most prominent */}
+        <h3 className="text-[1.65rem] font-bold text-fg mb-1.5 tracking-tight leading-snug">
+          {project.title}
+        </h3>
+        {/* Role — clearly subordinate */}
+        <p className="text-[0.8125rem] font-mono text-zinc-400 mb-4">{project.role}</p>
+        {/* Description — comfortable contrast */}
+        <p className="text-[0.9375rem] leading-[1.85] mb-6" style={{ color: '#d4d4d8' }}>
+          {project.tagline || project.desc}
+        </p>
 
-    const projects = [
-        {
-            title: "Dora",
-            desc: "Dora is an all-in-one delivery management platform designed for creating, assigning, notifying, and tracking delivery requests. It provides the infrastructure that enables local delivery companies and businesses to independently manage and offer delivery services.",
-            tech: [
-                "Figma", 'Reactjs', "Nextjs", "TailwindCss", "Git"
-            ],
-            casestudy: false,
-            text: "usedora.com",
-            git: false,
-            git_url: "link",
-            external: true,
-            link: "https://usedora.com",
-            image: dora,
-            hover_src: 'before:bg-[url("/src/assets/dora/logo.svg")]',
-            overlay_color: "before:bg-[#2266EE]/50"
-        },
-        // {
-        //     title: "Africurve",
-        //     desc: "Africurve is a unique modeling agency and human resource management platform that aims to equip talented models with the skills and resources they need to succeed in the modelling industry.",
-        //     tech: [
-        //         'Wordpress', "Elementor", "RevSlider"
-        //     ],
-        //     casestudy: true,
-        //     text: "africurve.com",
-        //     git: false,
-        //     git_url: "link",
-        //     external: false,
-        //     link: "/projects/africurve",
-        //     image: africurve,
-        //     hover_src: 'before:bg-[url("/src/assets/Africurve.png")]',
-        //     overlay_color: "before:bg-[#ffffffd6]"
-        // },
-        {
-            title: "HxAfrica",
-            desc: "HxAfrica is a cutting-edge real estate investment platform that utilizes blockchain technology to provide a secure and efficient platform for investors. ",
-            tech: [
-                'React', "TailwindCss", "Figma", "Git"
-            ],
-            casestudy: true,
-            text: "hxafrica.com",
-            git: false,
-            git_url: "link",
-            external: false,
-            link: "/projects/hxafrica",
-            image: reico,
-            hover_src: 'before:bg-[url("/src/assets/reicoLogo.svg")]',
-            overlay_color: "before:bg-[#092327d6]"
-        },
-        {
-            title: "Fabulous Edutainment",
-            desc: "Fabulous Edutainment is a talent management website that connects people to talent and talent to limitless opportunities ",
-            tech: [
-                'JavaScript', "Html", "Css3"
-            ],
-            casestudy: false,
-            text: "CaseStudy",
-            git: true,
-            git_url: "https://github.com/Savics407/Fabulous-Edutainment",
-            external: true,
-            link: "https://fabulousedutainment.com/",
-            image: fe,
-            hover_src: 'before:bg-[url("/src/assets/FE-logo.png")]',
-            overlay_color: "before:bg-[#191a22d6]"
-        },
-    ]
+        {/* Problem → Impact mini flow */}
+        {(project.problem || project.impact) && (
+          <div
+            className="rounded-xl p-4 mb-6 space-y-3.5 text-xs"
+            style={{ background: '#111113', border: '1px solid #2a2a2e' }}
+          >
+            {project.problem && (
+              <div>
+                <span className="font-mono text-muted uppercase tracking-wider block mb-1">The Challenge</span>
+                <p className="leading-relaxed" style={{ color: '#d4d4d8' }}>{project.problem}</p>
+              </div>
+            )}
+            {project.impact && (
+              <div>
+                <span className="font-mono text-accent uppercase tracking-wider block mb-1">Engineering Impact</span>
+                <p className="leading-relaxed font-semibold" style={{ color: '#ffffff' }}>{project.impact}</p>
+              </div>
+            )}
+          </div>
+        )}
 
+        {/* Tech Badges — neutral dark chips */}
+        <div className="flex flex-wrap gap-1.5 mb-7">
+          {project.tech.map((t) => (
+            <span key={t} className="skill-tag">{t}</span>
+          ))}
+        </div>
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, []);
+        {/* Actions */}
+        <div className="flex items-center gap-4">
+          {project.casestudyRoute ? (
+            <Link
+              to={project.casestudyRoute}
+              className="btn-primary py-2 px-4 text-xs font-semibold"
+            >
+              Read Case Study <FiArrowRight size={14} />
+            </Link>
+          ) : project.externalUrl ? (
+            <a
+              href={project.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-primary py-2 px-4 text-xs font-semibold"
+            >
+              Live Site <FiExternalLink size={14} />
+            </a>
+          ) : null}
 
-    const mail = '<a href="mailto:savicstech@gmail.com" class="text-white"> savicstech@gmail.com</a>'
-
-    return (
-        <DefaultLayout>
-
-            {/* Header Session */}
-            {/* <div className='contain border max-w-[1172px] m-auto'> */}
-            {/* Hero Session */}
-            <div className='glow'>
-                <div className="container flex-col-reverse flex md:flex-row  items-center pt-24 md:h-[580px] lg:h-[680px] lap">
-                    <div className='flex flex-col md:w-1/2 items-center justify-center'>
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            transition={{ duration: 0.5 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            className='rounded-full border-10 border-[#0a2e2f] w-[265px] h-96 shadow-2xl'>
-                            <img src={profile} alt="Victor Adighibe" className='object-cover w-full h-full rounded-full' />
-                        </motion.div>
-                    </div>
-                    <motion.div
-
-                        initial="hidden"
-                        // transition={{ duration: 0.5 }}
-                        whileInView="visible"
-                        variants={list}
-                        className=' md:ml-10 md:w-1/2 py-20 px-10'>
-                        <div className='font-josefin mb-5'>
-                            <motion.h1
-                                variants={item}
-
-                                className='text-intro mb-5'>Hi, my name is
-                            </motion.h1>
-                            <motion.h1 variants={item} className='md:text-6xl text-5xl text-white font-bold tracking-wider '>Victor <br />Adighibe. <br />
-                                {/* &lt;savics /&gt; */}
-                            </motion.h1>
-                            {/* <h2 className='text-5xl text-light '>Frontend Engineer.</h2> */}
-                        </div>
-                        <div>
-                            <motion.h1
-                                variants={item}
-                                className='font-Montserrat text-gray-300 text-sm lg:w-[450px]'>
-                                I’m a software engineer specializing in building exceptional frontend products with great user experience.
-                            </motion.h1>
-                        </div>
-                        <motion.div
-                            variants={item}
-
-                            className='pt-10 font-Montserrat'>
-                            <a href='#contact'>
-                                <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro'>Let's work </button></a>
-                        </motion.div>
-                    </motion.div>
-                </div>
-            </div>
-
-            {/* About session */}
-            <About />
-
-
-            {/* Projects */}
-            <motion.div
-                initial="hidden"
-                whileInView="visible"
-                variants={list}
-                className="xl:p-40 lg:px-20 glow2 px-5">
-                <div className="container">
-                    <motion.div
-                        variants={item}
-                        className=' lg:w-[78%] m-auto'>
-                        <h1 className='text-intro font-josefin text-center lg:text-left text-3xl md:text-4xl mb-10 md:mb-3 lines lg:before:w-[42%]'>Some Noteworthy Projects</h1>
-                    </motion.div>
-
-                    {projects.map((project, index) => (
-                        <motion.div key={index}
-                            variants={item}
-                            className={`flex flex-col  items-center md:py-12 ${(index + 1) % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"}`}>
-                            <div className={`md:w-[60%] projects rounded-lg ${project.overlay_color} ${project.hover_src}`}
-                            >
-                                <Link to={project.link}>
-                                    <img src={project.image} className='rounded-lg' alt={project.title} />
-                                </Link>
-                            </div>
-                            <div className={`md:w-1/2 w-full z-20 py-10 md:px-0 ${(index + 1) % 2 !== 0 && "text-right"}`}>
-                                <h1 className='font-josefin text-white mb-5 text-2xl'>{project.title}</h1>
-                                <div
-                                    className={`bg-[#0a2e2f] md:p-7 p-5 rounded text-gray-300 text-sm md:text-base ${(index + 1) % 2 === 0 ? "md:-mr-20" : "md:-ml-20"} `}>
-                                    <motion.p
-                                        initial={(index + 1) % 2 === 0 ? {
-                                            opacity: 0,
-                                            x: -20
-                                        } : {
-                                            opacity: 0,
-                                            x: 20
-                                        }
-                                        }
-                                        transition={{ duration: 0.5, type: "tween" }}
-                                        whileInView={{ opacity: 1, x: 0 }}
-                                    >{project.desc}</motion.p>
-                                </div>
-                                <div className={`flex justify-center flex-wrap text-gray-400 font-light font-montserrat text-xs py-3 gap-3 ${(index + 1) % 2 === 0 ? "lg:justify-start" : "lg:justify-end"}`}>
-                                    {project.tech.map((tech, index) => (
-                                        <h1 key={index} className='px-4 bg-border rounded py-1'>{tech}</h1>
-                                    ))}
-
-                                </div>
-                                <div className={`text-gray-400 flex items-center justify-center py-3 gap-5 text-xl ${(index + 1) % 2 === 0 ? "md:justify-start" : "md:justify-end"}`}>
-                                    {project.casestudy &&
-                                        <Link to={project.link}>
-                                            <div className='bg-border rounded px-4 py-1 flex items-center'>
-                                                <span className='text-xs mr-2 font-light'>{project.text}</span>
-                                                <GoLinkExternal />
-                                            </div>
-                                        </Link>
-                                    }
-
-                                    {project.external && <a href={project.link} target='_blank'>
-                                        <div className='bg-border rounded px-4 py-1 flex items-center'>
-                                            <span className='text-xs mr-2 font-light'>{project.text}</span>
-                                            <GoLinkExternal />
-                                        </div>
-                                    </a>}
-                                    {project.git &&
-                                        <a href={project.git_url} target='_blank'>
-                                            <div className='text-gray-300'>
-                                                <FiGithub />
-                                            </div>
-                                        </a>
-                                    }
-                                </div>
-                            </div>
-                        </motion.div>
-                    ))}
-
-                    <div className={`sm:-mt-12 font-Montserrat flex justify-center ${(projects.length) % 2 === 0 ? "lg:justify-start" : "lg:justify-end "} `}>
-                        <Link to="/projects" >
-                            <button className='border-2 border-double border-main hover:text-main text-intro px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>View my project archive
-
-                                {/* <GoLinkExternal className='ml-3' /> */}
-                            </button>
-                        </Link>
-                    </div>
-                </div>
-            </motion.div>
-
-            {/* Testimonials */}
-            <Testimonials />
-            <div
-                className='pt-28 glow4' id='contact'>
-                <Form info={{
-                    title: "Let's Connect",
-                    description: `Thank you for visiting my website. Got a question or interested in working with me, my inbox is always open. Kindly reach out via email at <a href="mailto:savicstech@gmail.com" class="text-intro hover:underline">savicstech@gmail.com</a>, or use the form below to send me a message. I look forward to hearing from you!`,
-                    message: "enter your message"
-
-                }}
-                />
-
-            </div>
-
-
-
-
-        </DefaultLayout>
-    )
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost py-2 px-4 text-xs"
+              aria-label="View source code on GitHub"
+            >
+              <FiGithub size={14} /> Source Code
+            </a>
+          )}
+        </div>
+      </div>
+    </motion.article>
+  )
 }
 
-export default Home
+/* ─── Home ─────────────────────────────────────────────────────────── */
+export default function Home() {
+  const location = useLocation()
+
+  useEffect(() => {
+    if (location.hash) {
+      const id = location.hash.slice(1)
+      setTimeout(() => {
+        const el = document.getElementById(id)
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' })
+        }
+      }, 60)
+      return
+    }
+    window.scrollTo(0, 0)
+  }, [location.hash])
+
+  return (
+    <DefaultLayout>
+
+      {/* ─── Hero ───────────────────────────────────────────── */}
+      <section className="hero-glow relative min-h-screen flex items-center px-5 md:px-10 pt-24 pb-16">
+        {/* Ambient glow */}
+        <div
+          aria-hidden
+          style={{
+            position: 'absolute',
+            top: '10%',
+            right: '5%',
+            width: '500px',
+            height: '500px',
+            background: 'radial-gradient(circle, rgba(74,222,128,0.07) 0%, transparent 65%)',
+            pointerEvents: 'none',
+            zIndex: 0,
+          }}
+        />
+
+        <div className="container mx-auto relative z-10">
+          <div className="max-w-2xl">
+            {/* Status badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.4 }}
+              className="mb-8 flex flex-wrap items-center gap-2.5"
+            >
+              <span className="badge badge-green">
+                <span className="badge-dot" />
+                Available for new opportunities
+              </span>
+              {/* <span
+                className="text-secondary text-xs font-mono border border-border/80 px-3 py-1 rounded-full"
+                style={{ background: 'rgba(24, 24, 27, 0.7)' }}
+              >
+                Victor Adighibe 
+              </span> */}
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-fg font-bold leading-tight mb-5"
+              style={{
+                fontSize: 'clamp(2.25rem, 6vw, 4rem)',
+                letterSpacing: '-0.03em',
+                fontFamily: 'Inter, sans-serif',
+              }}
+            >
+              I engineer products,<br />
+              <span className="text-accent">platforms & real-time systems.</span>
+            </motion.h1>
+
+            {/* Sub copy — raised contrast */}
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-lg leading-[1.85] mb-10 max-w-lg"
+              style={{ color: '#b4b4be' }}
+            >
+              {HERO_TAGLINE}
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="flex flex-wrap gap-3 mb-10"
+            >
+              <a href="#work" className="btn-primary">
+                Explore Selected Work
+              </a>
+              <a href={RESUME_URL} download className="btn-ghost">
+                <FiDownload size={15} />
+                View Resume
+              </a>
+            </motion.div>
+
+            {/* Terminal */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="terminal max-w-lg"
+            >
+              <div className="terminal-bar">
+                <span className="terminal-dot" style={{ background: '#ef4444' }} />
+                <span className="terminal-dot" style={{ background: '#f59e0b' }} />
+                <span className="terminal-dot" style={{ background: '#22c55e' }} />
+                <span className="text-muted text-xs ml-2">~/victor</span>
+              </div>
+              <div className="p-5 space-y-1 text-xs font-mono" style={{ color: '#a1a1aa' }}>
+                {TERMINAL_LINES.map((line, i) => (
+                  <motion.div
+                    key={i}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 0.6 + i * 0.07 }}
+                    style={{ paddingLeft: `${line.indent * 16}px` }}
+                  >
+                    {line.content}
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Stats ─────────────────────────────────────────── */}
+      <Stats />
+
+      {/* ─── About ──────────────────────────────────────────── */}
+      <About />
+
+      {/* ─── Selected Work ─────────────────────────────────── */}
+      <section id="work" className="section">
+        <div className="container mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="mb-16"
+          >
+            <p className="section-label mb-3">Professional work & case studies</p>
+            <h2 className="section-title mb-4">Systems that mattered</h2>
+            <p className="section-subtitle text-secondary">
+              Not demos or isolated builds — each system represents a real problem solved, a production
+              platform shipped, and real engineering impact.
+            </p>
+          </motion.div>
+
+          <div className="space-y-24">
+            {FEATURED_PROJECTS.map((project, i) => (
+              <ProjectCard key={project.id} project={project} index={i} />
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4 }}
+            className="mt-16 flex justify-center"
+          >
+            <Link to="/work" className="btn-ghost text-sm py-2.5 px-5">
+              View complete work archive <FiArrowRight size={15} />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ─── Engineering Challenges Solved ─────────────────── */}
+      <EngineeringChallenges />
+
+      {/* ─── Skills ─────────────────────────────────────────── */}
+      <Skills />
+
+      {/* ─── Principles ─────────────────────────────────────── */}
+      <Principles />
+
+      {/* ─── Experience ─────────────────────────────────────── */}
+      <Experience />
+
+      {/* ─── Testimonials ───────────────────────────────────── */}
+      <Testimonials />
+
+      {/* ─── Contact ────────────────────────────────────────── */}
+      <Form />
+
+    </DefaultLayout>
+  )
+}

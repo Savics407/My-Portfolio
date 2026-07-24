@@ -1,31 +1,38 @@
-
-import AnimCursor from './components/AnimCursor'
-import Home from './Home'
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom'
+import React, { Suspense } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { AnimatePresence } from 'framer-motion'
-import Africurve from './projects/Africurve'
-import Reico from './projects/HxAfrica'
+import Home from './Home'
 import Projects from './projects'
+import AnimCursor from './components/AnimCursor'
 
+const Africurve = React.lazy(() => import('./projects/Africurve'))
+const Reico = React.lazy(() => import('./projects/HxAfrica'))
+const SimpooCaseStudy = React.lazy(() => import('./projects/Simpoo'))
+const DoraCellCaseStudy = React.lazy(() => import('./projects/DoraCell'))
+const DoraFleetCaseStudy = React.lazy(() => import('./projects/DoraFleet'))
+const SimpooMarketCaseStudy = React.lazy(() => import('./projects/SimpooMarket'))
 
 function App() {
-
   return (
-    <div className="">
-      <Router>
-
-        <AnimCursor />
-        <AnimatePresence exitBeforeEnter >
+    <Router>
+      <AnimCursor />
+      <Suspense fallback={null}>
+        <AnimatePresence mode="wait">
           <Routes>
-            <Route exact path="/" element={<Home />} />
-            <Route exact path="/projects" element={<Projects />} />
-            <Route exact path="/projects/africurve" element={<Africurve />} />
-            <Route exact path="/projects/hxafrica" element={<Reico />} />
+            <Route path="/"                            element={<Home />} />
+            <Route path="/work"                        element={<Projects />} />
+            <Route path="/projects"                    element={<Projects />} />
+            <Route path="/projects/simpoo"             element={<SimpooCaseStudy />} />
+            <Route path="/projects/simpoo-marketplace" element={<SimpooMarketCaseStudy />} />
+            <Route path="/projects/dora"               element={<DoraCellCaseStudy />} />
+            <Route path="/projects/dora-cell"          element={<DoraCellCaseStudy />} />
+            <Route path="/projects/dora-fleet"         element={<DoraFleetCaseStudy />} />
+            <Route path="/projects/africurve"          element={<Africurve />} />
+            <Route path="/projects/hxafrica"           element={<Reico />} />
           </Routes>
         </AnimatePresence>
-      </Router>
-
-    </div>
+      </Suspense>
+    </Router>
   )
 }
 

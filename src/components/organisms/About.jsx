@@ -1,154 +1,146 @@
 import React from 'react'
-import react from '../../assets/react.svg'
-import js from '../../assets/javascript.svg'
-import ts from '../../assets/typescript.svg'
-import wp from '../../assets/wordpress.svg'
-import figma from '../../assets/figma.svg'
-import node from '../../assets/nodejs.svg'
-import next from '../../assets/next-js.svg'
-import git from '../../assets/git.svg'
-import moment from 'moment/moment'
 import { motion } from 'framer-motion'
-import { GoLinkExternal } from 'react-icons/go'
+import { FiDownload, FiGithub, FiLinkedin, FiMail } from 'react-icons/fi'
+import profile from '../../assets/victor_adighibe.jpeg'
+import { RESUME_URL, GITHUB_URL, LINKEDIN_URL, EMAIL, ROLE_TITLE, YEARS_EXPERIENCE } from '../../data/narrative'
 
-function About() {
-    const technologies = [
-        {
-            title: "javaScript [Es6+]",
-            src: js,
-        },
-        {
-            title: "ReactJs",
-            src: react,
-        },
-        {
-            title: "TypeScript",
-            src: ts,
-        },
-        {
-            title: "NodeJS",
-            src: node,
-        },
-        {
-            title: "Git",
-            src: git,
-        },
-        {
-            title: "Figma",
-            src: figma,
-        },
-        {
-            title: "Wordpress",
-            src: wp,
-        },
-        {
-            title: "Nextjs",
-            src: next,
-        },
-    ]
+const QUICK_FACTS = [
+  { label: 'Location', value: 'Nigeria — Remote worldwide' },
+  { label: 'Current focus', value: 'Full-stack product engineering' },
+  { label: 'Availability', value: 'Open to new opportunities' },
+  // { label: 'Blog', value: 'blog.victoradighibe.com', href: 'https://blog.victoradighibe.com' },
+]
 
-    const list = {
-        visible: {
-            opacity: 1, transition: {
-                when: "beforeChildren",
-                staggerChildren: 0.05
-            }
-        },
-        hidden: {
-            opacity: 0, transition: {
-                when: "afterChildren"
-            }
-        },
-    }
+export default function About() {
+  return (
+    <section id="about" className="section" style={{ background: '#111113' }}>
+      <div className="container mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-start">
 
-    const item = {
-        visible: { opacity: 1, y: 0 },
-        hidden: { opacity: 0, y: 20 },
-    }
+          {/* Left — copy */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="section-label mb-3">About</p>
+            <h2 className="section-title mb-6">
+              I don't just build UIs.<br />
+              <span className="text-accent">I solve business problems.</span>
+            </h2>
 
-    return (
-        <div className="md:py-40 py-56">
-            <div className="container flex flex-wrap items-center px-5 md:px-20">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                    variants={list}
-                    className='lg:w-1/2 w-full' >
-                    <motion.h1
-                        variants={item}
-                        className='text-intro font-josefin text-3xl md:text-4xl mb-3 lines md:before:w-3/5'>About me</motion.h1>
-                    <motion.div
-                        variants={item}
-
-                        className='font-Montserrat text-gray-300 text-sm'>
-                        <p>
-                            As a Software engineer with over 1/2 a decade of experience building responsive and user-friendly websites,
-                            I have been able to deliver high-performing and visually stunning web applications that drive engagement and conversion. With a strong background in core web technologies such as <span className=' text-intro'>JavaScript, Reactjs, Wordpress etc</span>, I pride myself on my ability to create clean, efficient code and bring creative ideas to life on the web. <br className='mb-4' /> <br />
-
-                            I've had the opportunity to work on a variety of projects, ranging from small business websites to large e-commerce platforms. Whether you're looking to build a new website, improve an existing one, or develop a complex e-commerce platform, I can help you achieve your goals and exceed your expectations.
-                            <br /> <br />
-
-                            I'm comfortable collaborating with cross-functional teams and enjoy the challenge of finding solutions to complex problems.
-                            <br />
-                            <br />
-
-                            In my free time, I'm an avid learner who stays on top of the latest trends in web development. I also love traveling, as it allows me to gain new insights and inspiration for my work. These experiences have given me a fresh perspective and an appreciation for different cultures, which I bring back to my work.
-                            <br />
-                            My ability to adapt, think creatively and continuously learn enables me to provide innovative solutions.
-                        </p>
-                    </motion.div>
-                    <motion.div
-                        variants={item}
-                        className='py-10 font-Montserrat flex justify-center lg:justify-start'>
-                        <a href="https://drive.google.com/file/d/1l0ZqMl5uNvoKYu29ikyj8A5FS1PVzO7T/view?usp=sharing" target='_blank'>
-
-                            <button className='border-2 border-double border-main hover:text-main text-intro px-5 md:px-10 py-2 dots rounded hover:bg-intro hover:font-semibold outline outline-1 outline-intro flex items-center'>Take a look at my Resume <GoLinkExternal className='ml-3' /></button></a>
-                    </motion.div>
-
-                </motion.div>
-                <motion.div
-                    initial={{ opacity: 0, x: 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5 }}
-
-                    className='lg:w-1/2 w-full lg:pl-10 mt-10 lg:mt-0'>
-                    <h1 className='text-intro mb-5 font-josefin text-base bg-border p-3 rounded text-center'>Core Technologies I work with </h1>
-                    <div className='flex justify-around flex-wrap'>
-                        {technologies.map((tech, index) => (
-                            <div key={index} className='bg-border rounded-lg w-36 md:w-32 hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 mb-5'>
-                                <div className={`w-10 h-10 mb-2 shadow-lg rounded ${tech.title === "Nextjs" && "bg-white p-1"}`}>
-                                    <img src={tech.src} alt={tech.title} className='object-contain w-full h-full' />
-                                </div>
-                                <h1 className='text-xs'>{tech.title}</h1>
-                            </div>
-                        ))}
-                    </div>
-
-                    <div className='flex justify-around flex-wrap'>
-                        <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
-                            <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
-                                <h1>
-                                    0{moment().format('yyyy') - moment("2017").format('yyyy')}
-                                </h1>
-
-                            </div>
-                            <h1 className='text-xs'>Years of Experience</h1>
-                        </div>
-                        <div className='bg-border rounded-lg w-auto hover:border-intro border border-transparent text-gray-300 flex flex-col justify-center items-center p-3 px-10 mb-5'>
-                            <div className=' text-4xl font-josefin text-intro shadow-lg rounded'>
-                                <h1>
-                                    10+
-                                </h1>
-
-                            </div>
-                            <h1 className='text-xs'>Projects completed</h1>
-                        </div>
-                    </div>
-                </motion.div>
+            <div className="space-y-5 text-[0.9375rem] leading-[1.9]" style={{ color: '#b4b4be' }}>
+              <p>
+                Working across high-volume retail POS, enterprise real estate, and carrier-grade telecommunications taught me early on that product failures rarely happen in isolated UI components—they happen at network boundaries, during race conditions, and under state drift.
+              </p>
+              <p>
+                Known professionally across engineering teams and client networks as <span className="text-fg font-semibold">Savics</span>, my mindset was shaped by environments where downtime meant immediate lost revenue or broken operations. That discipline drives how I build: minimizing moving parts, enforcing clear domain boundaries, and owning features from systems architecture down to the final browser interaction.
+              </p>
+              <p>
+                I thrive in environments where engineering teams care deeply about reliability, user trust, and long-term maintainability—not just shipping features quickly to hit an arbitrary deadline.
+              </p>
             </div>
-        </div>
-    )
-}
 
-export default About
+            {/* Quick facts */}
+            <div className="mt-8 space-y-2">
+              {QUICK_FACTS.map(({ label, value, href }) => (
+                <div key={label} className="flex items-center gap-4 text-sm">
+                  <span className="text-muted w-28 flex-shrink-0">{label}</span>
+                  {href ? (
+                    <a
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-accent hover:underline"
+                    >
+                      {value}
+                    </a>
+                  ) : (
+                    <span className="text-fg">{value}</span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Unique About CTA */}
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <a
+                href={GITHUB_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-ghost text-sm"
+              >
+                <FiGithub size={15} />
+                Explore Code & Open Source
+              </a>
+              <a
+                href={LINKEDIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-muted hover:text-accent transition-colors text-sm flex items-center gap-1.5"
+              >
+                <FiLinkedin size={15} /> LinkedIn
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Right — photo + card */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="flex flex-col gap-6"
+          >
+            {/* Photo */}
+            <div className="relative">
+              <div
+                className="rounded-2xl overflow-hidden"
+                style={{ border: '1px solid #27272a' }}
+              >
+                <img
+                  src={profile}
+                  alt="Victor Adighibe"
+                  className="w-full object-cover"
+                  style={{ maxHeight: '440px', objectPosition: 'top' }}
+                  loading="lazy"
+                />
+              </div>
+              {/* Floating badge */}
+              <div
+                className="absolute bottom-4 left-4 px-4 py-2 rounded-xl text-sm flex items-center gap-2"
+                style={{
+                  background: 'rgba(9,9,11,0.85)',
+                  border: '1px solid #27272a',
+                  backdropFilter: 'blur(12px)',
+                }}
+              >
+                <span className="badge-dot" style={{ display: 'inline-block' }} />
+                <span className="text-secondary text-xs">Available for new opportunities</span>
+              </div>
+            </div>
+
+            {/* Terminal card */}
+            <div className="terminal">
+              <div className="terminal-bar">
+                <span className="terminal-dot" style={{ background: '#ef4444' }} />
+                <span className="terminal-dot" style={{ background: '#f59e0b' }} />
+                <span className="terminal-dot" style={{ background: '#22c55e' }} />
+                <span className="text-muted text-xs ml-2">victor.config.ts</span>
+              </div>
+              <div className="p-4 text-xs space-y-1" style={{ color: '#a1a1aa' }}>
+                <div><span style={{ color: '#7c3aed' }}>const</span> <span style={{ color: '#4ade80' }}>victor</span> = {'{'}</div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>role</span>: <span style={{ color: '#86efac' }}>"{ROLE_TITLE}"</span>,</div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>experience</span>: <span style={{ color: '#fb923c' }}>{YEARS_EXPERIENCE}</span>,  <span style={{ color: '#3f3f46' }}>// years</span></div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>stack</span>: [<span style={{ color: '#86efac' }}>"React"</span>, <span style={{ color: '#86efac' }}>"TS"</span>, <span style={{ color: '#86efac' }}>"Node"</span>],</div>
+                <div className="pl-4"><span style={{ color: '#f59e0b' }}>available</span>: <span style={{ color: '#4ade80' }}>true</span>,</div>
+                <div>{'}'}</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  )
+}

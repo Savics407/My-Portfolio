@@ -1,106 +1,123 @@
-import React, { useState } from "react";
+import React from 'react'
+import { motion } from 'framer-motion'
+import { FiLinkedin } from 'react-icons/fi'
+import { ImQuotesRight, ImStarFull } from 'react-icons/im'
 import tayo from './assets/Temitayo Gbadebo..png'
-import josh from './assets/Uzo.jpeg'
-import { motion, AnimatePresence } from 'framer-motion'
 import victor from './assets/Victor Ojochuma.jpg'
-import {
-  ImQuotesRight, ImStarFull
-} from 'react-icons/im'
+import josh from './assets/Uzo.jpeg'
 
-export const testimonialsData = [
+const TESTIMONIALS = [
   {
-    review:
-      "It's pleasure working with Savics. He's a talented frontend developer. I was surprised he pulled off the project frontend single handedly in reactJs. Highly recommend working with him.",
+    quote:
+      "It's a pleasure working with Savics. He's a talented frontend developer. I was surprised he pulled off the project frontend single-handedly in React. Highly recommend working with him.",
+    name: 'Temitayo S. Gbadebo',
+    role: 'CTO',
+    company: 'HxAfrica',
+    avatar: tayo,
+    linkedin: null,
   },
   {
-    review: "I worked with Victor as a frontend engineer and was impressed with his skills and dedication. He has a strong grasp of frontend technologies and a talent for creating user-friendly, visually appealing web interfaces. Victor is a great team player with excellent communication skills, a positive attitude, and a creative approach to problem-solving. I highly recommend him as a top-notch frontend engineer.",
+    quote:
+      "I worked with Victor as a frontend engineer and was impressed with his skills and dedication. He has a strong grasp of frontend technologies and a talent for creating user-friendly, visually appealing web interfaces. Victor is a great team player — excellent communication skills, a positive attitude, and a creative approach to problem-solving.",
+    name: 'Akoh Ojochuma Victor',
+    role: 'CEO',
+    company: 'Chukolo Core',
+    avatar: victor,
+    linkedin: null,
   },
   {
-    review: "It was tough getting a good programmer to design my company's website. I had to trash my first site as it was not up to the standard I needed.. But when I contracted Victor for the work, I was so pleased with his design that I had to make him the official CTO in my company. If you're looking for quality, Victor is one of the best out there.",
+    quote:
+      "It was tough getting a good programmer to design my company's website. I had to scrap my first site — it wasn't up to standard. When I contracted Victor, I was so pleased with the result that I made him our official CTO. If you're looking for quality, Victor is one of the best out there.",
+    name: 'Hon. Joshua Uzoigwe',
+    role: 'CEO',
+    company: 'Fabulous Edutainment',
+    avatar: josh,
+    linkedin: null,
   },
-];
+]
 
-function Testimonials() {
-  const [selected, setSelected] = useState(0)
-  return <div>
-    <div className='px-0 py-28 glow3 lg:px-0 xl:px-32'>
-      <div className="container">
-        <div className=' lg:w-[60%] px-20 lg:px-0 m-auto'>
-          <h1 className='text-intro font-josefin text-3xl md:text-4xl mb-3 lines text-center md:text-left md:before:w-[60%]'>Testimonials </h1>
-        </div>
-        <div className='lg:w-[70%] px-5 md:px-10 lg:px-0 m-auto'>
-          <div className='bg-border rounded-lg my-10 md:p-10 p-5 text-gray-300 flex justify-between items-start text-sm md:text-base'>
-            <motion.div
-              key={selected}
-              initial={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.5 }}
-              whileInView={{ opacity: 1, x: 0 }} className='w-[95%]'>
-              <div className='flex md:text-sm text-xs text-intro mb-5'>
-                <ImStarFull />
-                <ImStarFull />
-                <ImStarFull />
-                <ImStarFull />
-                <ImStarFull />
-              </div>
-              <div
-
-              >
-                <h1>{testimonialsData[selected].review}</h1>
-              </div>
-            </motion.div>
-            <motion.span
-              initial={{ opacity: 0, x: 30 }}
-              transition={{ duration: 0.5 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className='text-main text-3xl md:text-5xl'>
-              <ImQuotesRight />
-            </motion.span>
-          </div>
-          <div className=" overflow-x-auto">
-            <AnimatePresence exitBeforeEnter>
-              <div className='border-b border-[#c4ffb245] flex justify-between w-[750px]'>
-                <div
-
-                  className={`flex items-center hover:border-intro cursor-pointer p-3 transition duration-300 ${selected === 0 && "border-intro border-b"}`} onClick={
-                    () => setSelected(0)
-                  }>
-                  <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={tayo} alt="Temitayo S Gbadebo" className='object-cover w-full h-full rounded-full' />
-                  </div>
-                  <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>
-                      Temitayo S Gbadebo</h1>
-                    <h1 className='text-gray-500 text-xs '>CTO <span className='text-intro'>HxAfrica</span></h1>
-                  </div>
-                </div>
-                <div
-
-                  className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 duration-300 ${selected === 1 && "border-intro border-b"}`} onClick={() => setSelected(1)}>
-                  <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={victor} alt="Akoh Ojochuma Victor" className='object-cover w-full h-full rounded-full' />
-                  </div>
-                  <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Akoh Ojochuma Victor </h1>
-                    <h1 className='text-gray-500 text-xs '>CEO <span className='text-intro'>Chukolo Core</span></h1>
-                  </div>
-                </div>
-                <div className={`flex items-center hover:border-intro hover:border-b cursor-pointer p-3 transition duration-300 ${selected === 2 && "border-intro border-b"}`} onClick={() => setSelected(2)}>
-                  <div className=' w-14 h-14 rounded-full mr-4'>
-                    <img src={josh} alt="Joshua Uuzoigwe" className='object-cover w-full h-full rounded-full' />
-                  </div>
-                  <div className='font-josefin'>
-                    <h1 className='font-Montserrat text-gray-300 mb-1 text-sm'>Hon. Joshua Uzoigwe</h1>
-                    <h1 className='text-gray-500 text-xs '>CEO, <span className='text-intro'>Fabulous edutainment</span></h1>
-                  </div>
-                </div>
-              </div>
-            </AnimatePresence>
-          </div>
-
-        </div>
-      </div>
+function Stars() {
+  return (
+    <div className="flex gap-0.5 text-accent text-xs">
+      {[...Array(5)].map((_, i) => <ImStarFull key={i} />)}
     </div>
-  </div >;
+  )
 }
 
-export default Testimonials;
+export default function Testimonials() {
+  return (
+    <section className="section">
+      <div className="container mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.4 }}
+          className="mb-14"
+        >
+          <p className="section-label mb-3">Social proof</p>
+          <h2 className="section-title mb-4">What colleagues say</h2>
+          <p className="section-subtitle text-secondary">
+            From the people who've worked alongside me and trusted me to deliver.
+          </p>
+        </motion.div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {TESTIMONIALS.map((t, i) => (
+            <motion.div
+              key={t.name}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: i * 0.08 }}
+              className="card p-6 flex flex-col justify-between hover-lift"
+            >
+              {/* Top — stars + quote mark */}
+              <div>
+                <div className="flex items-start justify-between mb-4">
+                  <Stars />
+                  <ImQuotesRight className="text-accent/20 text-2xl flex-shrink-0 ml-2" />
+                </div>
+
+                {/* Quote */}
+                <p className="text-secondary text-sm leading-relaxed mb-6">
+                  "{t.quote}"
+                </p>
+              </div>
+
+              {/* Bottom — person */}
+              <div className="flex items-center gap-3 pt-4" style={{ borderTop: '1px solid #27272a' }}>
+                <img
+                  src={t.avatar}
+                  alt={t.name}
+                  className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                  style={{ border: '2px solid #27272a' }}
+                  loading="lazy"
+                />
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2">
+                    <p className="text-fg text-sm font-medium truncate">{t.name}</p>
+                    {t.linkedin && (
+                      <a
+                        href={t.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-muted hover:text-accent transition-colors flex-shrink-0"
+                        aria-label={`${t.name} on LinkedIn`}
+                      >
+                        <FiLinkedin size={13} />
+                      </a>
+                    )}
+                  </div>
+                  <p className="text-muted text-xs">
+                    {t.role} · <span className="text-accent">{t.company}</span>
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}

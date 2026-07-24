@@ -1,108 +1,147 @@
-import React from 'react'
+import React, { useState } from 'react'
 import DefaultLayout from './DefaultLayout'
-import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { motion } from 'framer-motion';
-import { GoLinkExternal } from 'react-icons/go'
-import Form from '../../Form';
+import { motion, AnimatePresence } from 'framer-motion'
+import { FiExternalLink, FiChevronLeft, FiChevronRight } from 'react-icons/fi'
+import Form from '../../Form'
 
+function CaseStudyCarousel({ images = [] }) {
+  const [current, setCurrent] = useState(0)
+  if (!images.length) return null
 
-function CasestudyLayout({ children, title, projectImages, technologies, external }) {
-    const settings = {
-        dots: true,
-        infinite: true,
-        speed: 1000,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        lazyLoad: true,
-        autoplay: true,
-        // autoplaySpeed: 2000,
-        responsive: [{
-            breakpoint: 800,
-            settings: {
-                arrows: false,
-            }
-        }]
-    };
+  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1))
+  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1))
 
-    return (
-        <DefaultLayout >
-            <div className='glow hidden md:flex lg:h-[400px] h-[400px] px-10 items-end justify-center py-20'>
-                <div className="text-center ">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        transition={{ duration: 0.5 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className='text-intro font-josefin text-3xl lg:text-4xl mb-3 capitalize'>{title}</motion.h1>
-                </div>
+  return (
+    <div className="relative max-w-5xl mx-auto">
+      <div className="overflow-hidden rounded-xl bg-raised border border-border relative aspect-[16/10] flex items-center justify-center">
+        <AnimatePresence mode="wait">
+          <motion.img
+            key={current}
+            src={images[current].src}
+            alt={images[current].alt || `Screenshot ${current + 1}`}
+            initial={{ opacity: 0, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.25 }}
+            className="w-full h-full object-contain"
+          />
+        </AnimatePresence>
 
+        {images.length > 1 && (
+          <>
+            <button
+              onClick={prev}
+              aria-label="Previous image"
+              className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg/80 border border-border flex items-center justify-center text-fg hover:bg-accent hover:text-bg transition-colors"
+            >
+              <FiChevronLeft size={20} />
+            </button>
+            <button
+              onClick={next}
+              aria-label="Next image"
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-bg/80 border border-border flex items-center justify-center text-fg hover:bg-accent hover:text-bg transition-colors"
+            >
+              <FiChevronRight size={20} />
+            </button>
+          </>
+        )}
+      </div>
+
+      {images.length > 1 && (
+        <div className="flex items-center justify-center gap-2 mt-4">
+          {images.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrent(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2 rounded-full transition-all ${
+                current === idx ? 'w-8 bg-accent' : 'w-2 bg-border hover:bg-muted'
+              }`}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+function CasestudyLayout({ children, title, projectImages = [], technologies = [], external }) {
+  return (
+    <DefaultLayout>
+      {/* Hero banner */}
+      <div
+        className="flex items-end justify-center px-5 md:px-10 pb-16 pt-32"
+        style={{
+          background: 'linear-gradient(to bottom, rgba(74,222,128,0.04) 0%, transparent 100%)',
+          borderBottom: '1px solid #27272a',
+        }}
+      >
+        <div className="container mx-auto text-center">
+          <motion.p
+            initial={{ opacity: 0, y: 16 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4 }}
+            className="section-label mb-3"
+          >
+            Case Study
+          </motion.p>
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="section-title capitalize"
+          >
+            {title}
+          </motion.h1>
+        </div>
+      </div>
+
+      {/* Image carousel */}
+      <div className="px-5 md:px-10 py-12">
+        <div className="container mx-auto">
+          <CaseStudyCarousel images={projectImages} />
+        </div>
+      </div>
+
+      {/* Content */}
+      <div className="px-5 md:px-10 pb-16">
+        <div className="container mx-auto max-w-4xl">
+          <div
+            className="rounded-xl p-6 md:p-10 lg:p-12"
+            style={{ background: '#111113', border: '1px solid #27272a' }}
+          >
+            {/* Tech + external link header */}
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-6 mb-6" style={{ borderBottom: '1px solid #27272a' }}>
+              <div className="flex flex-wrap gap-2">
+                {technologies.map((tech) => (
+                  <span key={tech} className="skill-tag">{tech}</span>
+                ))}
+              </div>
+              {external && (
+                <a
+                  href={external}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-ghost text-sm py-1.5 px-3"
+                  aria-label="View live site"
+                >
+                  <FiExternalLink size={13} /> Live site
+                </a>
+              )}
             </div>
-            <div className='md:hidden h-[300px] px-10 items-end justify-center flex py-10 '>
-                <div className="text-center ">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 30 }}
-                        transition={{ duration: 0.5 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className='text-intro font-josefin text-3xl lg:text-4xl mb-3 capitalize'>{title}</motion.h1>
-                </div>
 
+            {/* Case study body */}
+            <div className="text-secondary text-sm leading-relaxed space-y-4">
+              {children}
             </div>
-            <div className='md:px-10 p-5'>
+          </div>
+        </div>
+      </div>
 
-                <div className="container pb-20">
-
-                    <Slider {...settings}>
-                        {projectImages.map((item) => (
-                            <div key={item.id} className="lg:px-5">
-                                <img src={item.src} alt={item.alt} className="rounded-xl" />
-                                {/* <h1> {item.alt}</h1> */}
-
-                            </div>
-                        ))}
-
-                    </Slider>
-                </div>
-                <div className="container p-5 md:p-10 lg:p-20 text-gray-300 bg-border text-sm md:text-base">
-                    <div className=' flex text-gray-400 font-light font-montserrat text-xs py-3 w-full justify-between items-center'>
-                        <div className='flex flex-wrap gap-2'>
-                            {technologies.map((tech, index) => (
-                                <h1 key={index} className=' px-4 bg-border rounded py-1'>{tech}</h1>
-                            ))}
-                        </div>
-                        {external &&
-                            <div className='text-2xl'>
-                                <a href={external} target="_blank">  <GoLinkExternal /></a>
-                            </div>
-                        }
-                    </div>
-                    {/* Introduction: */}
-                    <div>
-                        {children}
-                        
-                    </div>
-
-                </div>
-            </div>
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className='pt-28 glow4 '>
-                <div className="container">
-                    <Form info={{
-                        title: "Let's Work together",
-                        description: `Want to discuss about your project? <br />I would be more excited to hear from you. Let's get started!`,
-
-                        message: "enter the project description"
-                    }} />
-
-                </div>
-
-
-            </motion.div>
-        </DefaultLayout>
-    )
+      {/* Contact CTA */}
+      <Form />
+    </DefaultLayout>
+  )
 }
 
 export default CasestudyLayout
