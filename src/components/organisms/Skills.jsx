@@ -48,7 +48,7 @@ export default function Skills() {
                 index !== TECH_CATEGORIES.length - 1 ? 'pb-5 border-b border-border/40' : ''
               }`}
             >
-              <span className="text-xs font-mono text-muted uppercase tracking-wider w-40 flex-shrink-0">
+              <span className="text-xs font-mono text-muted uppercase tracking-wider flex-shrink-0">
                 {cat.name}
               </span>
               <div className="flex flex-wrap gap-2">
